@@ -7,5 +7,6 @@ function Start () {
 }
 
 function Update () {
-	transform.position = mainPlayer.transform.position + Vector3(0,0,-1);
+	if(mainPlayer!=null)
+		transform.position = mainPlayer.transform.position + Vector3(0,0,-1);
 }
