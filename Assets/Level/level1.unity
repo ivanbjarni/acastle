@@ -149,6 +149,7 @@ GameObject:
   - 114: {fileID: 90548677}
   - 50: {fileID: 90548676}
   - 61: {fileID: 90548675}
+  - 61: {fileID: 90548678}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -213,6 +214,18 @@ MonoBehaviour:
   speed: 120
   maxFollowDistance: 6
   destroyable: 1
+--- !u!61 &90548678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1942063441}
+  m_GameObject: {fileID: 90548673}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &101187058
 Prefab:
   m_ObjectHideFlags: 0
@@ -549,6 +562,7 @@ GameObject:
   - 114: {fileID: 277329261}
   - 50: {fileID: 277329263}
   - 61: {fileID: 277329262}
+  - 61: {fileID: 277329264}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -613,6 +627,18 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!61 &277329264
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1606141111}
+  m_GameObject: {fileID: 277329259}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &302294093
 Prefab:
   m_ObjectHideFlags: 0
@@ -2107,6 +2133,7 @@ GameObject:
   - 114: {fileID: 739757597}
   - 50: {fileID: 739757596}
   - 61: {fileID: 739757595}
+  - 61: {fileID: 739757598}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -2171,6 +2198,18 @@ MonoBehaviour:
   speed: 120
   maxFollowDistance: 6
   destroyable: 1
+--- !u!61 &739757598
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 819157642}
+  m_GameObject: {fileID: 739757593}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &768424151
 Prefab:
   m_ObjectHideFlags: 0
@@ -2812,6 +2851,7 @@ GameObject:
   - 114: {fileID: 889303653}
   - 50: {fileID: 889303656}
   - 61: {fileID: 889303655}
+  - 61: {fileID: 889303657}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -2876,6 +2916,18 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!61 &889303657
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 453756004}
+  m_GameObject: {fileID: 889303652}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &894518040
 Prefab:
   m_ObjectHideFlags: 0
@@ -2987,6 +3039,7 @@ GameObject:
   - 114: {fileID: 923950382}
   - 50: {fileID: 923950385}
   - 61: {fileID: 923950384}
+  - 61: {fileID: 923950386}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -3051,6 +3104,18 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!61 &923950386
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1158379285}
+  m_GameObject: {fileID: 923950381}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &939098659
 Prefab:
   m_ObjectHideFlags: 0
@@ -3851,6 +3916,7 @@ GameObject:
   - 114: {fileID: 1105956291}
   - 50: {fileID: 1105956290}
   - 61: {fileID: 1105956289}
+  - 61: {fileID: 1105956292}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -3915,6 +3981,18 @@ MonoBehaviour:
   speed: 120
   maxFollowDistance: 6
   destroyable: 1
+--- !u!61 &1105956292
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1530593296}
+  m_GameObject: {fileID: 1105956287}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1108335602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,7 +4051,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 338356aff05da4184b5893e15817fe78, type: 2}
   m_PrefabInternal: {fileID: 768424151}
   m_GameObject: {fileID: 1108335602}
-  m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
   m_LocalPosition: {x: -15.6599998, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3990,6 +4068,7 @@ GameObject:
   - 114: {fileID: 1108508521}
   - 50: {fileID: 1108508520}
   - 61: {fileID: 1108508519}
+  - 61: {fileID: 1108508523}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -4054,6 +4133,18 @@ Transform:
   - {fileID: 372677762}
   m_Father: {fileID: 1555797327}
   m_RootOrder: 9
+--- !u!61 &1108508523
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 689887229}
+  m_GameObject: {fileID: 1108508518}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &1110158787
 Prefab:
   m_ObjectHideFlags: 0
@@ -4471,7 +4562,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 338356aff05da4184b5893e15817fe78, type: 2}
   m_PrefabInternal: {fileID: 1487692729}
   m_GameObject: {fileID: 1187877251}
-  m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
   m_LocalPosition: {x: 15.6599998, y: -8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5332,6 +5423,7 @@ GameObject:
   - 114: {fileID: 1433602744}
   - 50: {fileID: 1433602743}
   - 61: {fileID: 1433602742}
+  - 61: {fileID: 1433602745}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -5396,6 +5488,18 @@ MonoBehaviour:
   speed: 120
   maxFollowDistance: 6
   destroyable: 1
+--- !u!61 &1433602745
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1525343949}
+  m_GameObject: {fileID: 1433602740}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1441080951
 GameObject:
   m_ObjectHideFlags: 0
@@ -5454,7 +5558,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 338356aff05da4184b5893e15817fe78, type: 2}
   m_PrefabInternal: {fileID: 939098659}
   m_GameObject: {fileID: 1441080951}
-  m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
   m_LocalPosition: {x: -15.6599998, y: -8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7142,6 +7246,7 @@ GameObject:
   - 114: {fileID: 1748987876}
   - 50: {fileID: 1748987875}
   - 61: {fileID: 1748987874}
+  - 61: {fileID: 1748987878}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -7206,6 +7311,18 @@ Transform:
   - {fileID: 1643927430}
   m_Father: {fileID: 1555797327}
   m_RootOrder: 6
+--- !u!61 &1748987878
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1515596463}
+  m_GameObject: {fileID: 1748987873}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &1760573603
 Prefab:
   m_ObjectHideFlags: 0
@@ -7691,7 +7808,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 338356aff05da4184b5893e15817fe78, type: 2}
   m_PrefabInternal: {fileID: 411493510}
   m_GameObject: {fileID: 1805575897}
-  m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
   m_LocalPosition: {x: 15.659997, y: 1.42404509, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8406,6 +8523,7 @@ GameObject:
   - 114: {fileID: 2005090901}
   - 50: {fileID: 2005090900}
   - 61: {fileID: 2005090899}
+  - 61: {fileID: 2005090902}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -8470,6 +8588,18 @@ MonoBehaviour:
   speed: 120
   maxFollowDistance: 6
   destroyable: 1
+--- !u!61 &2005090902
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1458198670}
+  m_GameObject: {fileID: 2005090897}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.10000002, y: 1.10000002}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &2013804322
 Prefab:
   m_ObjectHideFlags: 0
