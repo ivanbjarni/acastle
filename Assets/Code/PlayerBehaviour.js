@@ -3,45 +3,21 @@
 var speed : float;
 var animator : Animator;
 
-var walk : float;
 var run : float;
-var playerIsWalking : boolean;
-var playerIsRunning : boolean;
 
 function Start () {
 	speed = 0;
-	walk = 60;
 	run = 90;
-	playerIsWalking = false;
-	playerIsWalking = false;
 	animator =  GetComponent("Animator") as Animator;
 }
 
 function WalkOrRun() {
-
-	if (Input.GetKey('w') || Input.GetKey('a') || Input.GetKey('s') || Input.GetKey('d')) {
-		playerIsWalking = true;
-	} else {
-		playerIsWalking = false; 
-	}
 	
-	 if (Input.GetKey(KeyCode.LeftShift)) {
-	 	playerIsRunning = true;
-	} else {
-	 	playerIsRunning = false;
-	 }	 
-}
-
-function SetSpeed() {
-	if (playerIsWalking) {
-		speed = walk;
-	}
-	if (playerIsRunning) {
-		speed = run;
-	}
-	if (!playerIsWalking && !playerIsRunning) {
-		speed = 0;
-	}
+	if (Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("a") || Input.GetKey("d")) {
+		if (Input.GetKey(KeyCode.LeftShift)) {
+		 	speed = run;
+		} else speed = 60;
+	} else speed = 0; 
 }
 
 function FixedUpdate () {
@@ -74,7 +50,6 @@ function FixedUpdate () {
 	rigidbody2D.angularVelocity = 0;
 	
 	WalkOrRun();
-	SetSpeed();
 		
 	animator.SetFloat("Speed", Mathf.Abs(speed));
 		
