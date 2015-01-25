@@ -14,7 +14,7 @@ function Start () {
 	run = 90;
 	playerIsWalking = false;
 	playerIsWalking = false;
-	animator = GetComponent("Animator");
+	animator =  GetComponent("Animator") as Animator;
 }
 
 function WalkOrRun() {
