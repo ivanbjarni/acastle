@@ -167,7 +167,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
       propertyPath: isUsingJoyStick
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
@@ -339,11 +339,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 80
   animator: {fileID: 551777899}
-  walk: 0
-  run: 0
+  run: 90
+  walk: 60
   playerIsWalking: 0
   playerIsRunning: 0
-  isUsingJoyStick: 1
+  isUsingJoyStick: 0
   RightStickPos: {x: 0, y: 0}
 --- !u!1 &844800457
 GameObject:

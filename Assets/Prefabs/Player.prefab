@@ -201,10 +201,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 80
   animator: {fileID: 9500000}
-  walk: 0
-  run: 0
+  run: 90
+  walk: 60
   playerIsWalking: 0
   playerIsRunning: 0
+  isUsingJoyStick: 0
+  RightStickPos: {x: 0, y: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,6 +219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallsEntered: 0
+  enemyScript: {fileID: 0}
+  cooldown: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

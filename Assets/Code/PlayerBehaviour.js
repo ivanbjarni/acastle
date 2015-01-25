@@ -3,24 +3,21 @@
 var speed : float;
 var animator : Animator;
 
-var walk : float;
 var run : float;
+var walk : float;
 var playerIsWalking : boolean;
 var playerIsRunning : boolean;
 var isUsingJoyStick : boolean;
 var RightStickPos : Vector2;
 
+
 function Start () {
 	speed = 0;
-	walk = 60;
 	run = 90;
-	playerIsWalking = false;
-	playerIsWalking = false;
 	animator =  GetComponent("Animator") as Animator;
 }
 
 function WalkOrRun() {
-
 	if (Input.GetAxis('Vertical') || Input.GetAxis('Horizontal')) {
 		playerIsWalking = true;
 	} else {
@@ -37,9 +34,10 @@ function WalkOrRun() {
 function SetSpeed() {
 	if (playerIsWalking) {
 		speed = walk;
-	}
-	if (playerIsRunning) {
-		speed = run;
+		
+		if (playerIsRunning) {
+			speed = run;
+		}
 	}
 	if (!playerIsWalking && !playerIsRunning) {
 		speed = 0;
@@ -47,6 +45,7 @@ function SetSpeed() {
 }
 
 function FixedUpdate () {
+	SetSpeed();
 	//Add force to the the rigid body component to make the object move
 		rigidbody2D.AddForce(Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed);
 	
@@ -62,7 +61,6 @@ function FixedUpdate () {
 	rigidbody2D.angularVelocity = 0;
 	
 	WalkOrRun();
-	SetSpeed();
 		
 	animator.SetFloat("Speed", Mathf.Abs(speed));
 		
