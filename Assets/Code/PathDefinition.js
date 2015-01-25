@@ -4,7 +4,7 @@ var points : Transform[];
 enum FollowTypes { ThereAndBack, Loop };
 var followType : FollowTypes;
 var atPoint=0;
-var maxDistFromPoint=0.1;
+var maxDistFromPoint=0.2;
 var direction = 1;
 
 function Start () {
@@ -27,6 +27,9 @@ function getNextPosition(positionOfFollower : Vector3)
 	//if we are close enough to the position we were going for, find a new one
 	if((positionOfFollower-points[atPoint].position).magnitude < maxDistFromPoint)
 		increment();
+	
+	//print("follower:"+positionOfFollower+"   point:"+points[atPoint].position);
+	
 	
 	//return the position of the point we want to go towards
 	return points[atPoint].position;
