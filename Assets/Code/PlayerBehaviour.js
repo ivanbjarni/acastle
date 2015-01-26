@@ -5,47 +5,26 @@ var animator : Animator;
 
 var run : float;
 var walk : float;
-var playerIsWalking : boolean;
-var playerIsRunning : boolean;
 var isUsingJoyStick : boolean;
+enum JoyType {ps3, xbox};
+var joystick : JoyType;
 var RightStickPos : Vector2;
 
 
 function Start () {
-	speed = 0;
-	run = 90;
 	animator =  GetComponent("Animator") as Animator;
 }
 
-function WalkOrRun() {
-	if (Input.GetAxis('Vertical') || Input.GetAxis('Horizontal')) {
-		playerIsWalking = true;
-	} else {
-		playerIsWalking = false; 
-	}
-	
-	 if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.JoystickButton9)) {
-	 	playerIsRunning = true;
-	} else {
-	 	playerIsRunning = false;
-	 }	 
-}
-
-function SetSpeed() {
-	if (playerIsWalking) {
+function setSpeed() {
+	speed = 0;
+	if(Input.GetAxis("Horizontal")||Input.GetAxis("Vertical"))
 		speed = walk;
-		
-		if (playerIsRunning) {
-			speed = run;
-		}
-	}
-	if (!playerIsWalking && !playerIsRunning) {
-		speed = 0;
-	}
+	if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.JoystickButton9))
+		speed = run;
 }
 
 function FixedUpdate () {
-	SetSpeed();
+	setSpeed();
 	//Add force to the the rigid body component to make the object move
 		rigidbody2D.AddForce(Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed);
 	
@@ -60,8 +39,6 @@ function FixedUpdate () {
 	//Stop the guy from spinning
 	rigidbody2D.angularVelocity = 0;
 	
-	WalkOrRun();
-		
 	animator.SetFloat("Speed", Mathf.Abs(speed));
 		
 	

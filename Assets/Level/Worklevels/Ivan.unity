@@ -337,13 +337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35786fa9859fe4c288ef53a86ce21248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
+  speed: 0
   animator: {fileID: 551777899}
   run: 90
   walk: 60
-  playerIsWalking: 0
-  playerIsRunning: 0
   isUsingJoyStick: 0
+  joystick: 0
   RightStickPos: {x: 0, y: 0}
 --- !u!1 &844800457
 GameObject:
