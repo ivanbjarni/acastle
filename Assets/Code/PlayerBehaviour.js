@@ -10,11 +10,31 @@ enum JoyType {ps3, xbox};
 var joystick : JoyType;
 var RightStickPos : Vector2;
 
-
+//========================================
+//	Things to do when object is created
+//========================================
 function Start () {
 	animator =  GetComponent("Animator") as Animator;
+	fetchFromMaster();
 }
 
+function fetchFromMaster()
+{
+	var master : GameObject = GameObject.Find("masterGameObject");
+	if(master == null)
+	{
+		Debug.Log("Warning: No master game object found, if you did not start the game from menu then this is normal. You could add it to your worklevel");
+		return;
+	}
+	var masterBehav : masterBehaviour = master.GetComponent("masterBehaviour") as masterBehaviour;
+	
+}
+
+//========================================
+//			General behaviour
+//========================================
+
+//sets the speed of player depending on if he is running or walking
 function setSpeed() {
 	speed = 0;
 	if(Input.GetAxis("Horizontal")||Input.GetAxis("Vertical"))
@@ -25,35 +45,8 @@ function setSpeed() {
 		speed = run;}
 }
 
-function FixedUpdate () {
-	setSpeed();
-	//Add force to the the rigid body component to make the object move
-		rigidbody2D.AddForce(Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed);
-	
-	//Tell the animator to attack by modifying the Attack parameter
-	if (Input.GetMouseButton(0)										 // By default you use shift
-		||(Input.GetKey(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
-		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox)) // Xbox uses button 4(Lb)
-		animator.SetBool("Attack", true );
-	else
-		animator.SetBool("Attack", false );
-	
-	setRotation();
-	
-	//Stop the guy from spinning
-	rigidbody2D.angularVelocity = 0;
-	
-	animator.SetFloat("Speed", Mathf.Abs(speed));
-		
-	
-	// Prints a joystick name if movement is detected.
-		// requires you to set up axes "Joy0X" - "Joy3X" and "Joy0Y" - "Joy3Y" in the Input Manger
-		//for (var i : int = 0; i < 4; i++) {
-		//	if (Mathf.Abs(Input.GetAxis("Joy"+i+"X")) > 0.2 
-		//		|| Mathf.Abs(Input.GetAxis("Joy"+i+"Y")) > 0.2)
-		//		Debug.Log (Input.GetJoystickNames()[i]+" is moved");}
-}
-
+//sets the rotation towards mouse or joystick depending on
+//	preference
 function setRotation()
 {
 	var AngleRad : float;
@@ -86,4 +79,36 @@ function setRotation()
 	
 	//set the rotation
 	transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+}
+
+//========================================
+//			Update function
+//========================================
+function FixedUpdate () {
+	setSpeed();
+	//Add force to the the rigid body component to make the object move
+		rigidbody2D.AddForce(Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed);
+	
+	//Tell the animator to attack by modifying the Attack parameter
+	if (Input.GetMouseButton(0)										 // By default you use shift
+		||(Input.GetKey(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
+		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox)) // Xbox uses button 4(Lb)
+		animator.SetBool("Attack", true );
+	else
+		animator.SetBool("Attack", false );
+	
+	setRotation();
+	
+	//Stop the guy from spinning
+	rigidbody2D.angularVelocity = 0;
+	
+	animator.SetFloat("Speed", Mathf.Abs(speed));
+		
+	
+	// Prints a joystick name if movement is detected.
+		// requires you to set up axes "Joy0X" - "Joy3X" and "Joy0Y" - "Joy3Y" in the Input Manger
+		//for (var i : int = 0; i < 4; i++) {
+		//	if (Mathf.Abs(Input.GetAxis("Joy"+i+"X")) > 0.2 
+		//		|| Mathf.Abs(Input.GetAxis("Joy"+i+"Y")) > 0.2)
+		//		Debug.Log (Input.GetJoystickNames()[i]+" is moved");}
 }
