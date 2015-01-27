@@ -18,9 +18,11 @@ function Start () {
 function setSpeed() {
 	speed = 0;
 	if(Input.GetAxis("Horizontal")||Input.GetAxis("Vertical"))
-		speed = walk;
-	if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.JoystickButton9))
-		speed = run;
+		{speed = walk;
+	if (Input.GetKey(KeyCode.LeftShift)										 // By default you use shift
+		||(Input.GetKey(KeyCode.JoystickButton11) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
+		||(Input.GetKey(KeyCode.JoystickButton4) && joystick==JoyType.xbox)) // Xbox uses button 4(Lb)
+		speed = run;}
 }
 
 function FixedUpdate () {
@@ -29,7 +31,9 @@ function FixedUpdate () {
 		rigidbody2D.AddForce(Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed);
 	
 	//Tell the animator to attack by modifying the Attack parameter
-	if (Input.GetMouseButton(0)||Input.GetKey(KeyCode.JoystickButton8))
+	if (Input.GetMouseButton(0)										 // By default you use shift
+		||(Input.GetKey(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
+		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox)) // Xbox uses button 4(Lb)
 		animator.SetBool("Attack", true );
 	else
 		animator.SetBool("Attack", false );
@@ -63,10 +67,18 @@ function setRotation()
 		//convert it to degrees, we subtract 180 because of it's original rotation
 	    AngleDeg = (180 / Mathf.PI) * AngleRad - 90;
 	}
-	else
+	else if (joystick == JoyType.ps3)
 	{
-		if(Input.GetAxis("RightVertical")||Input.GetAxis("RightHorizontal"))
-			RightStickPos = Vector2(Input.GetAxis("RightHorizontal"),Input.GetAxis("RightVertical"));
+		if(Input.GetAxis("RightVerticalps3")||Input.GetAxis("RightHorizontalps3"))
+			RightStickPos = Vector2(Input.GetAxis("RightHorizontalps3"),Input.GetAxis("RightVerticalps3"));
+		AngleRad = Mathf.Atan2(RightStickPos.y, RightStickPos.x);
+		//convert it to degrees, we subtract 180 because of it's original rotation
+	    AngleDeg = (180 / Mathf.PI) * AngleRad - 90;    
+	}
+	else if (joystick == JoyType.xbox)
+	{
+		if(Input.GetAxis("RightVerticalxbox")||Input.GetAxis("RightHorizontalxbox"))
+			RightStickPos = Vector2(Input.GetAxis("RightHorizontalxbox"),Input.GetAxis("RightVerticalxbox"));
 		AngleRad = Mathf.Atan2(RightStickPos.y, RightStickPos.x);
 		//convert it to degrees, we subtract 180 because of it's original rotation
 	    AngleDeg = (180 / Mathf.PI) * AngleRad - 90;    
