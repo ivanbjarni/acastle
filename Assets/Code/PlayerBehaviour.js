@@ -10,9 +10,19 @@ enum JoyType {ps3, xbox};
 var joystick : JoyType;
 var RightStickPos : Vector2;
 
+// Particle system
+var partSystem : ParticleSystem;
+
+// For charge powerup
+var playerIsCharging : boolean = false;
+var chargeTime : float;
+var chargeTimer : float;
+var chargeSpeed : float;
+var chargeDir : Vector3;
 
 function Start () {
 	animator =  GetComponent("Animator") as Animator;
+	partSystem = GameObject.Find("ChargeParticles").GetComponent(ParticleSystem);
 }
 
 function setSpeed() {
@@ -23,10 +33,38 @@ function setSpeed() {
 		speed = run;
 }
 
+function checkForPowers(){
+	if (Input.GetKey('q') && !playerIsCharging){
+		playerIsCharging = true;
+		chargeDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		chargeDir.z = 0;
+		chargeDir = chargeDir.normalized;
+		chargeTimer = Time.time;
+		partSystem.Play();
+	}
+}
+
+function charge () {
+	rigidbody2D.AddForce(chargeDir * chargeSpeed);
+	var time = Time.time - chargeTimer;
+	if( time > chargeTime ){
+		rigidbody2D.velocity = Vector3(0,0,0);
+		print("stop");
+		playerIsCharging = false;
+		partSystem.Stop();
+		speed = 0;
+	}
+}
+
 function FixedUpdate () {
-	setSpeed();
-	//Add force to the the rigid body component to make the object move
+	checkForPowers();
+	if( playerIsCharging )
+		charge();
+	else{
+		// Sets the speed of the player and adds a force to the rigid body
+		setSpeed();
 		rigidbody2D.AddForce(Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed);
+	}
 	
 	//Tell the animator to attack by modifying the Attack parameter
 	if (Input.GetMouseButton(0)||Input.GetKey(KeyCode.JoystickButton8))
@@ -48,6 +86,10 @@ function FixedUpdate () {
 		//	if (Mathf.Abs(Input.GetAxis("Joy"+i+"X")) > 0.2 
 		//		|| Mathf.Abs(Input.GetAxis("Joy"+i+"Y")) > 0.2)
 		//		Debug.Log (Input.GetJoystickNames()[i]+" is moved");}
+}
+
+function collisionWithEnemy(){
+	
 }
 
 function setRotation()
