@@ -12,6 +12,7 @@ var RightStickPos : Vector2;
 
 // Particle system
 var partSystem : ParticleSystem;
+var knockPartSystem : ParticleSystem;
 
 // For charge powerup
 var playerIsCharging : boolean = false;
@@ -27,6 +28,7 @@ function Start () {
 	animator =  GetComponent("Animator") as Animator;
 	fetchFromMaster();
 	partSystem = GameObject.Find("ChargeParticles").GetComponent(ParticleSystem);
+	knockPartSystem = GameObject.Find("KnockParticles").GetComponent(ParticleSystem);
 }
 
 function fetchFromMaster()
@@ -107,11 +109,46 @@ function charge () {
 	rigidbody2D.AddForce(chargeDir * chargeSpeed);
 	var time = Time.time - chargeTimer;
 	if( time > chargeTime ){
-		rigidbody2D.velocity = Vector3(0,0,0);
-		print("stop");
-		playerIsCharging = false;
-		partSystem.Stop();
-		speed = 0;
+		stopCharge();
+	}
+}
+
+function stopCharge(){
+	rigidbody2D.velocity = Vector3(0,0,0);
+	print("stop");
+	playerIsCharging = false;
+	partSystem.Stop();
+	speed = 0;
+	pushEnemies();
+}
+
+function pushEnemies(){
+	// Find all game objects with tag Enemy
+	var enemies : GameObject[];
+	enemies = GameObject.FindGameObjectsWithTag("Enemy"); 
+	var enemyPos : Vector3;
+	var position = transform.position; 
+	var maxDist = 5;
+	// Iterate through them and find the closest one
+	for (var enemy : GameObject in enemies)  { 
+		enemyPos = enemy.transform.position;
+		enemyPos.z = 0;
+		var diff = (enemyPos - position);
+		var curDistance = diff.sqrMagnitude; 
+		if (curDistance < maxDist) { 
+			enemy.rigidbody2D.AddForce(diff.normalized * ( 3000 - 2000 * curDistance/maxDist ) );
+		} 
+	}
+	knockPartSystem.Play();
+}
+
+function collisionWithEnemy(object : GameObject){
+	if( !playerIsCharging ){
+		Destroy(gameObject);
+	}else if( playerIsCharging ){
+		if( object != null )
+			Destroy(object);
+		stopCharge();
 	}
 }
 
@@ -152,6 +189,4 @@ function FixedUpdate () {
 		//		Debug.Log (Input.GetJoystickNames()[i]+" is moved");}
 }
 
-function collisionWithEnemy(){
-	
-}
+

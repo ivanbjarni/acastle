@@ -45,16 +45,18 @@ function FindClosestPath () : GameObject
 }
 
 function FixedUpdate () {
-	
+	rigidbody2D.angularVelocity = 0;
 	seePlayer = canISeePlayer();
 	if(seePlayer) attackPlayer();
 	else if(isFollowingPath) followPath();	
 }
 
 function OnTriggerEnter2D (other : Collider2D) {
-		if(other.gameObject.tag == "Player")
-			Destroy(other.gameObject);
-	}
+		if(other.gameObject.tag == "Player"){
+			var player : PlayerBehaviour = mainPlayer.GetComponent(PlayerBehaviour);
+			player.collisionWithEnemy(gameObject);
+		}
+}
 	
 function gotHit(){
 	health--;
