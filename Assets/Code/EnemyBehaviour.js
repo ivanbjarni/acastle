@@ -9,6 +9,7 @@ var health = 3;
 var seePlayer;
 var isFollowingPath : boolean;
 var path : PathDefinition;
+var myLayerMask : LayerMask;
 
 function Start () {
 	mainPlayer = GameObject.Find("Player");
@@ -80,6 +81,53 @@ function canISeePlayer()
 	
 	var angleToPlayer : float = Vector3.Angle(vecToPlayer, transform.up);
 	
+	
+	if(angleToPlayer > 50.0) return false;
+	
+	
+	//var hit : RaycastHit2D = Physics2D.Raycast(transform.position, mainPlayer.transform.position, 50, myLayerMask);
+	
+	//print(hit.transform.tag);
+	
+	
+	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,100, myLayerMask);
+
+	if (hit.collider != null) {
+		// Calculate the distance from the surface and the "error" relative
+		// to the floating height.
+		
+		var hitDist = Mathf.Pow(hit.point.y - transform.position.y, 2) + Mathf.Pow(hit.point.x - transform.position.x, 2);
+		var playerDist = Mathf.Pow(mainPlayer.transform.position.y - transform.position.y, 2) + Mathf.Pow(mainPlayer.transform.position.x - transform.position.x, 2);
+		
+		print(hitDist);
+		print(playerDist);
+		
+		
+		
+		
+		if(hitDist < playerDist) return false;
+	
+		
+		
+		//var distance = Vector3(0, 0, 0);
+		//print(hit.transform.position);
+		//print(transform.position);
+		//distance = hit.transform.position - transform.position;
+		//print(hit.transform.position);
+		//print(distance);
+		//if(distance.sqrMagnitude < vecToPlayer.sqrMagnitude) return false;
+	}
+	
+	return true;
+	
+	/*
+	if (Physics2D.Raycast (transform.position, vecToPlayer, hit, 500)) {
+		print(hit.distance);
+	}
+	
+	
+	return true;
+
 	if(angleToPlayer < 20.0)
 	{
 		return true; 
@@ -87,7 +135,7 @@ function canISeePlayer()
 	else
 	{
 		return false;
-	}
+	}*/
 }
 
 
