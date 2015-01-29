@@ -130,6 +130,7 @@ GameObject:
   - 50: {fileID: 355148365}
   - 61: {fileID: 355148364}
   - 61: {fileID: 355148363}
+  - 114: {fileID: 355148367}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -149,7 +150,7 @@ Transform:
   m_Children:
   - {fileID: 1487021498}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
 --- !u!61 &355148363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,8 +205,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  melee: 2.5
   maxFollowDistance: 6
   destroyable: 1
+  health: 3
+--- !u!114 &355148367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11417570, guid: 68d44086c6b7248929bfb4a63b36342e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1226680716}
+  m_GameObject: {fileID: 355148361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c82ba0abd14b7409fa92d0f783465e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &401720617
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &432173595
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +348,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &497631078
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +490,7 @@ Transform:
   - {fileID: 1062252651}
   - {fileID: 723171888}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!212 &686335322
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -923,7 +938,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
+      propertyPath: melee
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
+      propertyPath: seePlayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -1022,6 +1045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallsEntered: 0
+  enemyScript: {fileID: 0}
+  cooldown: 1
 --- !u!61 &1457368682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1071,7 +1096,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d7aef6874b2db45acbcdc11471f18360, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c58170e7d2454a409a42b9cc38837ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1487021498
 Transform:
