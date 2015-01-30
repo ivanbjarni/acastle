@@ -1,0 +1,334 @@
+fileFormatVersion: 2
+guid: 7ea28e560e6044c00b64138b288cb3e4
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kingMangoAtlas1
+    21300002: Table
+    21300004: Door
+    21300006: CupboardSingle
+    21300008: CupboardDouble
+    21300010: Fountain
+    21300012: Chair
+    21300014: Barrel
+    21300016: Crack
+    21300018: Bed
+    21300020: Cup
+    21300022: Bench
+    21300024: Crate
+    21300026: RugSmall
+    21300028: DeadRat
+    21300030: FlowerBlue
+    21300032: FlowerMagenta
+    21300034: FlowerRed
+    21300036: FlowerGreen
+    21300038: Brush
+    21300040: Tree
+    21300042: LyingSpear
+    21300044: LyingSword
+    21300046: RugBig
+    21300048: PlateAndCutlery
+    21300050: Doorway
+    21300052: IronFence
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Table
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 802
+        width: 184
+        height: 119
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Door
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 809
+        width: 27
+        height: 93
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CupboardSingle
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 856
+        width: 78
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CupboardDouble
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 856
+        width: 155
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fountain
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 636
+        width: 293
+        height: 292
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Chair
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 826
+        width: 46
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Barrel
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 785
+        width: 48
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Crack
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 787
+        width: 77
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bed
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 712
+        width: 163
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Cup
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 756
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bench
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 704
+        width: 149
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Crate
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 652
+        width: 72
+        height: 70
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RugSmall
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 369
+        width: 506
+        height: 293
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DeadRat
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 630
+        width: 49
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlowerBlue
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 636
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlowerMagenta
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 634
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlowerRed
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 592
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlowerGreen
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 594
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Brush
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 443
+        width: 134
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Tree
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 410
+        width: 234
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LyingSpear
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 483
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LyingSword
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 399
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RugBig
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1391
+        height: 292
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlateAndCutlery
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 750
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Doorway
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 798
+        width: 33
+        height: 113
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: IronFence
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 879
+        width: 167
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
