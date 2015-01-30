@@ -22,7 +22,7 @@ function OnTriggerEnter2D (other : Collider2D) {
 		{
 			var enemy : GameObject = other.gameObject;
 			enemy.GetComponent(EnemyBehaviour).gotHit();
-			cooldown = 5;
+			cooldown = 2;
 		}
 	}
 }

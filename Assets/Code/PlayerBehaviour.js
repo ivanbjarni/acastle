@@ -13,6 +13,7 @@ var RightStickPos : Vector2;
 // Particle system
 var partSystem : ParticleSystem;
 var knockPartSystem : ParticleSystem;
+var kneelPartSystem : ParticleSystem;
 
 // For charge powerup
 var playerIsCharging : boolean = false;
@@ -27,8 +28,13 @@ var chargeDir : Vector3;
 function Start () {
 	animator =  GetComponent("Animator") as Animator;
 	fetchFromMaster();
+	initializeParticleSystems();
+}
+
+function initializeParticleSystems(){
 	partSystem = GameObject.Find("ChargeParticles").GetComponent(ParticleSystem);
 	knockPartSystem = GameObject.Find("KnockParticles").GetComponent(ParticleSystem);
+	kneelPartSystem = GameObject.Find("KneelParticles").GetComponent(ParticleSystem);
 }
 
 function fetchFromMaster()
@@ -106,6 +112,29 @@ function checkForPowers(){
 		chargeTimer = Time.time;
 		partSystem.Play();
 	}
+	if ( Input.GetKey('e') ){
+		kneelBeforeTheKing();
+	}
+}
+
+function kneelBeforeTheKing(){
+	var maxDist = 12;
+	// Find all game objects with tag Enemy
+	var enemies : GameObject[];
+	enemies = GameObject.FindGameObjectsWithTag("Enemy"); 
+	var enemyPos : Vector3;
+	var position = transform.position; 
+	// Iterate through them and find the closest one
+	for (var enemy : GameObject in enemies)  { 
+		enemyPos = enemy.transform.position;
+		enemyPos.z = 0;
+		var diff = (enemyPos - position);
+		var curDistance = diff.sqrMagnitude; 
+		if (curDistance < maxDist) { 
+			enemy.GetComponent(EnemyBehaviour).kneel(5);
+		} 
+	}
+	kneelPartSystem.Play();
 }
 
 function charge () {
@@ -150,7 +179,7 @@ function collisionWithEnemy(object : GameObject){
 		Destroy(gameObject);
 	}else if( playerIsCharging ){
 		if( object != null )
-			Destroy(object);
+			object.GetComponent(EnemyBehaviour).gotHit();
 		stopCharge();
 	}
 }
