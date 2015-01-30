@@ -11,6 +11,9 @@ var isFollowingPath : boolean;
 var path : PathDefinition;
 var myLayerMask : LayerMask;
 
+// For kneel before the king
+var isKneeling : boolean = false;
+
 var bloodPart : ParticleSystem;
 
 function Start () {
@@ -49,7 +52,14 @@ function FindClosestPath () : GameObject
 		return closest;	
 }
 
+function kneel(kneelSpeed : float ){
+	isKneeling = true;
+	bloodPart.Play();
+	speed = kneelSpeed;
+}
+
 function FixedUpdate () {
+	
 	rigidbody2D.angularVelocity = 0;
 	seePlayer = canISeePlayer();
 	if(seePlayer) attackPlayer();
