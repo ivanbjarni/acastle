@@ -11,9 +11,13 @@ var isFollowingPath : boolean;
 var path : PathDefinition;
 var myLayerMask : LayerMask;
 
+var bloodPart : ParticleSystem;
+
 function Start () {
 	mainPlayer = GameObject.Find("Player");
 	seePlayer = false;
+	
+	bloodPart = transform.Find("BloodParticles").GetComponent(ParticleSystem);
 	
 	//Find the object for the path
 	var pathObject = FindClosestPath();
@@ -61,10 +65,16 @@ function OnTriggerEnter2D (other : Collider2D) {
 	
 function gotHit(){
 	health--;
+	bleed();
 	if(health < 1)
 	{
+		bloodPart.Stop();
 		Destroy(gameObject);
 	}
+}
+
+function bleed(){
+	bloodPart.Play();
 }
 
 // returns Vector3 that is the position he should move towards if he is following path

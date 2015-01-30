@@ -21,6 +21,9 @@ var chargeTimer : float;
 var chargeSpeed : float;
 var chargeDir : Vector3;
 
+// For kneel before the king powerup
+
+
 //========================================
 //	Things to do when object is created
 //========================================
@@ -29,6 +32,7 @@ function Start () {
 	fetchFromMaster();
 	partSystem = GameObject.Find("ChargeParticles").GetComponent(ParticleSystem);
 	knockPartSystem = GameObject.Find("KnockParticles").GetComponent(ParticleSystem);
+
 }
 
 function fetchFromMaster()
@@ -147,7 +151,7 @@ function collisionWithEnemy(object : GameObject){
 		Destroy(gameObject);
 	}else if( playerIsCharging ){
 		if( object != null )
-			Destroy(object);
+			object.GetComponent(EnemyBehaviour).gotHit();
 		stopCharge();
 	}
 }
