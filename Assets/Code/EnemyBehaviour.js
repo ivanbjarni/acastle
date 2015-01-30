@@ -1,8 +1,11 @@
 ﻿#pragma strict
-
+//---------------------Variables--------------------------
 var mainPlayer : GameObject;
 var speed : double;
-var melee : double;
+var meleeDist : double;
+var melee : boolean;
+var ranged: boolean;
+var rangedWeapon : GameObject;
 var maxFollowDistance : double;
 var destroyable = 1;
 var health = 3;
@@ -15,6 +18,7 @@ var myLayerMask : LayerMask;
 var isKneeling : boolean = false;
 
 var bloodPart : ParticleSystem;
+//-------------------------------------------------------
 
 function Start () {
 	mainPlayer = GameObject.Find("Player");
@@ -28,6 +32,17 @@ function Start () {
 		path = pathObject.GetComponent("PathDefinition") as PathDefinition;
 	else if(isFollowingPath)
 		print("Enemy is trying to follow Path but no path to be found, did you remember to tag the path?");
+		
+	if(melee && ranged)ranged = !ranged;
+	if(!melee && !ranged)melee = !melee;
+}
+
+function FixedUpdate () {
+	
+	rigidbody2D.angularVelocity = 0;
+	seePlayer = canISeePlayer();
+	if(seePlayer) attackPlayer();
+	else if(isFollowingPath) followPath();	
 }
 
 
@@ -58,13 +73,6 @@ function kneel(kneelSpeed : float ){
 	speed = kneelSpeed;
 }
 
-function FixedUpdate () {
-	
-	rigidbody2D.angularVelocity = 0;
-	seePlayer = canISeePlayer();
-	if(seePlayer) attackPlayer();
-	else if(isFollowingPath) followPath();	
-}
 
 function OnTriggerEnter2D (other : Collider2D) {
 		if(other.gameObject.tag == "Player"){
@@ -125,6 +133,13 @@ function attackMelee()
 	return;
 }
 
+function attackRanged(vecToPlayer){
+	var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
+	
+	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
+	return;
+}
+
 
 function attackPlayer()
 {
@@ -134,12 +149,6 @@ function attackPlayer()
 
 	if(vecToPlayer.magnitude > maxFollowDistance)
 		return;
-	
-	if(vecToPlayer.magnitude < melee)
-	{
-		attackMelee();
-		return;
-	}
 			
 	var direction = vecToPlayer.normalized;
 	//Get player position
@@ -152,9 +161,17 @@ function attackPlayer()
     transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
 	
 	//Stop the guy from spinning
-	rigidbody2D.angularVelocity = 0;
+	rigidbody2D.angularVelocity = 0;	
 	
-	rigidbody2D.AddForce(direction*speed);
+	if(ranged)attackRanged(vecToPlayer);
+	if(melee) rigidbody2D.AddForce(direction*speed);
+	
+	if(vecToPlayer.magnitude < meleeDist)
+	{
+		rigidbody2D.AddForce(direction*speed);
+		attackMelee();
+		return;
+	}
 }
 
 function followPath()
