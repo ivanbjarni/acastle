@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 3d5ffcb93d3a8d74795e2354cde5725e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: cursors_0
+    21300002: cursors_1
+    21300004: cursors_2
+    21300006: cursors_3
+    21300008: cursors_4
+    21300010: cursors_5
+    21300012: cursors_6
+    21300014: cursors_7
+    21300016: cursors_8
+    21300018: cursors_9
+    21300020: cursors_10
+    21300022: cursors_11
+    21300024: cursors_12
+    21300026: cursors_13
+    21300028: cursors_14
+    21300030: cursors_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: cursors_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 165
+        width: 35
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 171
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_2
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 172
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 170
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 180
+        width: 59
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_5
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 103
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_6
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 93
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_7
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 80
+        width: 69
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_8
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 93
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_9
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 84
+        width: 38
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_10
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 85
+        width: 28
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_11
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 12
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_12
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 5
+        width: 58
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_13
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 3
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_14
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 3
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursors_15
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 7
+        width: 27
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
