@@ -41,6 +41,9 @@ function fetchFromMaster()
 	}
 	var masterBehav : masterBehaviour = master.GetComponent("masterBehaviour") as masterBehaviour;
 	
+	isUsingJoyStick = masterBehav.isUsingJoystick;
+	if(masterBehav.JoyType.Equals("ps3")) { joystick = JoyType.ps3;}
+	if(masterBehav.JoyType.Equals("xbox")) { joystick = JoyType.xbox;}
 }
 
 //========================================
