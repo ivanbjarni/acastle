@@ -99,8 +99,8 @@ function canISeePlayer()
 		var hitDist = Mathf.Pow(hit.point.y - transform.position.y, 2) + Mathf.Pow(hit.point.x - transform.position.x, 2);
 		var playerDist = Mathf.Pow(mainPlayer.transform.position.y - transform.position.y, 2) + Mathf.Pow(mainPlayer.transform.position.x - transform.position.x, 2);
 		
-		print(hitDist);
-		print(playerDist);
+		//print(hitDist);
+		//print(playerDist);
 		
 		
 		
