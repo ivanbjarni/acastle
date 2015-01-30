@@ -1382,7 +1382,7 @@ ParticleSystem:
   randomSeed: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   moveWithTransform: 0
   InitialModule:
     enabled: 1
@@ -1420,7 +1420,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 15
+      scalar: 9
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2378,7 +2378,7 @@ ParticleSystem:
         serializedVersion: 2
         rgba: 4294967295
       minMaxState: 1
-    range: {x: 0, y: 15}
+    range: {x: 0, y: 9}
   CollisionModule:
     enabled: 0
     type: 0

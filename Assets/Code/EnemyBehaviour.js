@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 var mainPlayer : GameObject;
-var speed : double;
+var speed : float;
 var melee : double;
 var maxFollowDistance : double;
 var destroyable = 1;
@@ -11,6 +11,12 @@ var isFollowingPath : boolean;
 var path : PathDefinition;
 var myLayerMask : LayerMask;
 
+// Tells you if enemy is dead
+var isDead : boolean = false;
+var deathTime : float = 3;
+
+var animator : Animator;
+
 // For kneel before the king
 var isKneeling : boolean = false;
 
@@ -19,6 +25,8 @@ var bloodPart : ParticleSystem;
 function Start () {
 	mainPlayer = GameObject.Find("Player");
 	seePlayer = false;
+	
+	animator =  GetComponent("Animator") as Animator;
 	
 	bloodPart = transform.Find("BloodParticles").GetComponent(ParticleSystem);
 	
@@ -59,11 +67,24 @@ function kneel(kneelSpeed : float ){
 }
 
 function FixedUpdate () {
+	if( isDead ){
+		deathTime -= 0.016;
+		if( deathTime < 0 ){
+			bloodPart.Stop();
+			Destroy(gameObject);
+		}
+		
+		animator.SetBool("isDead", isDead);
+		return;
+	}
 	
 	rigidbody2D.angularVelocity = 0;
 	seePlayer = canISeePlayer();
 	if(seePlayer) attackPlayer();
 	else if(isFollowingPath) followPath();	
+	
+	
+	animator.SetFloat("Speed", Mathf.Abs(rigidbody2D.velocity.magnitude));
 }
 
 function OnTriggerEnter2D (other : Collider2D) {
@@ -78,8 +99,7 @@ function gotHit(){
 	bleed();
 	if(health < 1)
 	{
-		bloodPart.Stop();
-		Destroy(gameObject);
+		isDead = true;
 	}
 }
 
