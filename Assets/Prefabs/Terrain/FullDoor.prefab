@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 61: {fileID: 6100002}
   - 61: {fileID: 6100000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FullDoor
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 61: {fileID: 6100004}
   - 50: {fileID: 5000000}
   - 233: {fileID: 23300000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

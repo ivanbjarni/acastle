@@ -10,7 +10,7 @@ var rangedWeapon : GameObject;
 
 var maxFollowDistance : double;
 var destroyable = 1;
-var health = 3;
+var health = 1;
 var seePlayer;
 var isFollowingPath : boolean;
 var path : PathDefinition;
@@ -109,6 +109,16 @@ function gotHit(){
 	if(health < 1)
 	{
 		isDead = true;
+		disapleColliders();
+		
+	}
+}
+
+function disapleColliders(){
+	var coll : BoxCollider2D[];
+	coll = gameObject.GetComponents.<BoxCollider2D>();
+	for (var c : BoxCollider2D in coll) {
+		c.enabled = false;
 	}
 }
 
@@ -124,24 +134,26 @@ function getPathPoint()
 
 function canISeePlayer()
 {
+	//Get the vector to player and calculate the distance
+	//The field of vision is depending on the distance to player. When the player
+	//is very close the angle is 3x larger.
 	var vecToPlayer = Vector3(0,0,0);
 	if(mainPlayer!=null)
 		vecToPlayer =  mainPlayer.transform.position - transform.position;
 	var distanceToPlayer = vecToPlayer.magnitude;
-	//print(distanceToPlayer);
+
 	var angleToPlayer : float = Vector3.Angle(vecToPlayer, transform.up);
 	if(distanceToPlayer > 3.0 && angleToPlayer > 50.0) return false;
 	if(distanceToPlayer < 3.0 && angleToPlayer > 150.0) return false;
 	
-	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,100, myLayerMask);
+	//Raycasting to check if the enemy can see the player (nothing in between them).
+	//myLayerMask makes sure that enemies only raycast on the layer "walls".
+	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,5, myLayerMask);
 	if (hit.collider != null) {
 		// Calculate the distance from the surface and the "error" relative
 		// to the floating height.	
 		var hitDist = Mathf.Pow(hit.point.y - transform.position.y, 2) + Mathf.Pow(hit.point.x - transform.position.x, 2);
 		var playerDist = Mathf.Pow(mainPlayer.transform.position.y - transform.position.y, 2) + Mathf.Pow(mainPlayer.transform.position.x - transform.position.x, 2);
-		
-		//print(hitDist);
-		//print(playerDist);
 		if(hitDist < playerDist) return false;
 	}
 	
@@ -189,7 +201,6 @@ function attackPlayer()
 	
 	if(vecToPlayer.magnitude < meleeDist)
 	{
-		rigidbody2D.AddForce(direction*speed);
 		attackMelee();
 		return;
 	}
