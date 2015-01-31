@@ -21,8 +21,7 @@ function OnTriggerEnter2D (other : Collider2D) {
 			Destroy(gameObject);		
 		}
 		if(other.gameObject.tag == "Player"){
-			Destroy(other.gameObject);
-		}
-		
-		
+			var player : PlayerBehaviour = other.gameObject.GetComponent(PlayerBehaviour);
+			player.collisionWithEnemy(gameObject);
+		}	
 }

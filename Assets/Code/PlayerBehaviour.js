@@ -22,10 +22,14 @@ var chargeTimer : float;
 var chargeSpeed : float;
 var chargeDir : Vector3;
 
+var isAlive : boolean;
+var health : int;
 //========================================
 //	Things to do when object is created
 //========================================
 function Start () {
+	isAlive = true;
+	health = 3;
 	animator =  GetComponent("Animator") as Animator;
 	fetchFromMaster();
 	initializeParticleSystems();
@@ -176,7 +180,9 @@ function pushEnemies(){
 
 function collisionWithEnemy(object : GameObject){
 	if( !playerIsCharging ){
-		Destroy(gameObject);
+		//Destroy(gameObject);
+		health--;
+		if(health < 1) isAlive = false;
 	}else if( playerIsCharging ){
 		if( object != null )
 			object.GetComponent(EnemyBehaviour).gotHit();
@@ -188,6 +194,9 @@ function collisionWithEnemy(object : GameObject){
 //			Update function
 //========================================
 function FixedUpdate () {
+	
+	if(!isAlive) return;
+
 	checkForPowers();
 	if( playerIsCharging )
 		charge();
