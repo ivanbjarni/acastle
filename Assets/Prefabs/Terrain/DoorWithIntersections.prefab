@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorWithIntersections
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   - 4: {fileID: 441336}
   - 212: {fileID: 21241334}
   - 61: {fileID: 6141334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Intersection
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 441338}
   - 212: {fileID: 21241336}
   - 61: {fileID: 6141336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Intersection
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 61: {fileID: 6141338}
   - 50: {fileID: 5041334}
   - 233: {fileID: 23341334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - 212: {fileID: 21241340}
   - 61: {fileID: 6141342}
   - 61: {fileID: 6141340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FullDoor
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
