@@ -1,18 +1,26 @@
 ﻿#pragma strict
 //---------------------Variables--------------------------
 var mainPlayer : GameObject;
-var speed : double;
+
+var speed : float;
 var meleeDist : double;
 var melee : boolean;
 var ranged: boolean;
 var rangedWeapon : GameObject;
+
 var maxFollowDistance : double;
 var destroyable = 1;
-var health = 3;
+var health = 1;
 var seePlayer;
 var isFollowingPath : boolean;
 var path : PathDefinition;
 var myLayerMask : LayerMask;
+
+// Tells you if enemy is dead
+var isDead : boolean = false;
+var deathTime : float = 3;
+
+var animator : Animator;
 
 // For kneel before the king
 var isKneeling : boolean = false;
@@ -23,6 +31,8 @@ var bloodPart : ParticleSystem;
 function Start () {
 	mainPlayer = GameObject.Find("Player");
 	seePlayer = false;
+	
+	animator =  GetComponent("Animator") as Animator;
 	
 	bloodPart = transform.Find("BloodParticles").GetComponent(ParticleSystem);
 	
@@ -38,11 +48,24 @@ function Start () {
 }
 
 function FixedUpdate () {
+	if( isDead ){
+		deathTime -= 0.016;
+		if( deathTime < 0 ){
+			bloodPart.Stop();
+			Destroy(gameObject);
+		}
+		
+		animator.SetBool("isDead", isDead);
+		return;
+	}
 	
 	rigidbody2D.angularVelocity = 0;
 	seePlayer = canISeePlayer();
 	if(seePlayer) attackPlayer();
 	else if(isFollowingPath) followPath();	
+	
+	
+	animator.SetFloat("Speed", Mathf.Abs(rigidbody2D.velocity.magnitude));
 }
 
 
@@ -73,7 +96,6 @@ function kneel(kneelSpeed : float ){
 	speed = kneelSpeed;
 }
 
-
 function OnTriggerEnter2D (other : Collider2D) {
 		if(other.gameObject.tag == "Player"){
 			var player : PlayerBehaviour = mainPlayer.GetComponent(PlayerBehaviour);
@@ -86,8 +108,18 @@ function gotHit(){
 	bleed();
 	if(health < 1)
 	{
-		bloodPart.Stop();
-		Destroy(gameObject);
+	print("asdf");
+		isDead = true;
+		disapleColliders();
+		
+	}
+}
+
+function disapleColliders(){
+	var coll : BoxCollider2D[];
+	coll = gameObject.GetComponents.<BoxCollider2D>();
+	for (var c : BoxCollider2D in coll) {
+		c.enabled = false;
 	}
 }
 
@@ -103,6 +135,9 @@ function getPathPoint()
 
 function canISeePlayer()
 {
+	//Get the vector to player and calculate the distance
+	//The field of vision is depending on the distance to player. When the player
+	//is very close the angle is 3x larger.
 	var vecToPlayer = Vector3(0,0,0);
 	if(mainPlayer!=null)
 		vecToPlayer =  mainPlayer.transform.position - transform.position;
@@ -112,13 +147,14 @@ function canISeePlayer()
 	if(distanceToPlayer > 3.0 && angleToPlayer > 50.0) return false;
 	if(distanceToPlayer < 3.0 && angleToPlayer > 150.0) return false;
 	
-	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,100, myLayerMask);
+	//Raycasting to check if the enemy can see the player (nothing in between them).
+	//myLayerMask makes sure that enemies only raycast on the layer "walls".
+	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,5, myLayerMask);
 	if (hit.collider != null) {
 		// Calculate the distance from the surface and the "error" relative
 		// to the floating height.	
 		var hitDist = Mathf.Pow(hit.point.y - transform.position.y, 2) + Mathf.Pow(hit.point.x - transform.position.x, 2);
 		var playerDist = Mathf.Pow(mainPlayer.transform.position.y - transform.position.y, 2) + Mathf.Pow(mainPlayer.transform.position.x - transform.position.x, 2);
-		
 		//print(hitDist);
 		//print(playerDist);
 		if(hitDist < playerDist) return false;
@@ -168,7 +204,6 @@ function attackPlayer()
 	
 	if(vecToPlayer.magnitude < meleeDist)
 	{
-		rigidbody2D.AddForce(direction*speed);
 		attackMelee();
 		return;
 	}

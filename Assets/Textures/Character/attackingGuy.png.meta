@@ -1,19 +1,18 @@
 fileFormatVersion: 2
-guid: 0c58170e7d2454a409a42b9cc38837ef
+guid: fe35d15185c8640b1a9513fc3457f6c0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ogre-move_0
-    21300002: ogre-move_1
-    21300004: ogre-move_2
-    21300006: ogre-move_3
-    21300008: ogre-move_4
-    21300010: ogre-move_5
-    21300012: ogre-move_6
-    21300014: ogre-move_7
+    21300000: attackingGuy
+    21300002: attackingGuy_0
+    21300004: attackingGuy_1
+    21300006: attackingGuy_2
+    21300008: attackingGuy_3
+    21300010: attackingGuy_4
+    21300012: attackingGuy_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -33,7 +32,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: 1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -45,89 +44,69 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: ogre-move_0
+    - name: attackingGuy_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 16
-        width: 56
-        height: 42
+        x: 0
+        y: 0
+        width: 80
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ogre-move_1
+    - name: attackingGuy_1
       rect:
         serializedVersion: 2
-        x: 68
-        y: 16
-        width: 56
-        height: 43
+        x: 80
+        y: 0
+        width: 80
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ogre-move_2
+    - name: attackingGuy_2
       rect:
         serializedVersion: 2
-        x: 132
-        y: 13
-        width: 56
-        height: 47
+        x: 160
+        y: 0
+        width: 80
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ogre-move_3
+    - name: attackingGuy_3
       rect:
         serializedVersion: 2
-        x: 196
-        y: 16
-        width: 56
-        height: 45
+        x: 240
+        y: 0
+        width: 80
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ogre-move_4
+    - name: attackingGuy_4
       rect:
         serializedVersion: 2
-        x: 260
-        y: 16
-        width: 56
-        height: 46
+        x: 320
+        y: 0
+        width: 80
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ogre-move_5
+    - name: attackingGuy_5
       rect:
         serializedVersion: 2
-        x: 324
-        y: 16
-        width: 56
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ogre-move_6
-      rect:
-        serializedVersion: 2
-        x: 388
-        y: 13
-        width: 56
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ogre-move_7
-      rect:
-        serializedVersion: 2
-        x: 452
-        y: 16
-        width: 56
-        height: 43
+        x: 400
+        y: 0
+        width: 80
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
