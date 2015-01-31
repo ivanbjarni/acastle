@@ -108,7 +108,6 @@ function gotHit(){
 	bleed();
 	if(health < 1)
 	{
-	print("asdf");
 		isDead = true;
 		disapleColliders();
 		
@@ -142,7 +141,7 @@ function canISeePlayer()
 	if(mainPlayer!=null)
 		vecToPlayer =  mainPlayer.transform.position - transform.position;
 	var distanceToPlayer = vecToPlayer.magnitude;
-	//print(distanceToPlayer);
+
 	var angleToPlayer : float = Vector3.Angle(vecToPlayer, transform.up);
 	if(distanceToPlayer > 3.0 && angleToPlayer > 50.0) return false;
 	if(distanceToPlayer < 3.0 && angleToPlayer > 150.0) return false;
@@ -155,8 +154,6 @@ function canISeePlayer()
 		// to the floating height.	
 		var hitDist = Mathf.Pow(hit.point.y - transform.position.y, 2) + Mathf.Pow(hit.point.x - transform.position.x, 2);
 		var playerDist = Mathf.Pow(mainPlayer.transform.position.y - transform.position.y, 2) + Mathf.Pow(mainPlayer.transform.position.x - transform.position.x, 2);
-		//print(hitDist);
-		//print(playerDist);
 		if(hitDist < playerDist) return false;
 	}
 	
