@@ -151,7 +151,6 @@ function charge () {
 
 function stopCharge(){
 	rigidbody2D.velocity = Vector3(0,0,0);
-	print("stop");
 	playerIsCharging = false;
 	partSystem.Stop();
 	speed = 0;

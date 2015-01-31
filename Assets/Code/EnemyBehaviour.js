@@ -13,7 +13,7 @@ var attack : float;
 
 var maxFollowDistance : double;
 var destroyable = 1;
-var health = 3;
+var health = 1;
 var seePlayer;
 var isFollowingPath : boolean;
 var path : PathDefinition;
@@ -130,6 +130,16 @@ function gotHit(){
 	if(health < 1)
 	{
 		isDead = true;
+		disapleColliders();
+		
+	}
+}
+
+function disapleColliders(){
+	var coll : BoxCollider2D[];
+	coll = gameObject.GetComponents.<BoxCollider2D>();
+	for (var c : BoxCollider2D in coll) {
+		c.enabled = false;
 	}
 }
 
@@ -152,7 +162,7 @@ function canISeePlayer()
 	if(mainPlayer!=null)
 		vecToPlayer =  mainPlayer.transform.position - transform.position;
 	var distanceToPlayer = vecToPlayer.magnitude;
-	//print(distanceToPlayer);
+
 	var angleToPlayer : float = Vector3.Angle(vecToPlayer, transform.up);
 	if(distanceToPlayer > 3.0 && angleToPlayer > 50.0) return false;
 	if(distanceToPlayer < 3.0 && angleToPlayer > 150.0) return false;
@@ -165,8 +175,6 @@ function canISeePlayer()
 		// to the floating height.	
 		var hitDist = Mathf.Pow(hit.point.y - transform.position.y, 2) + Mathf.Pow(hit.point.x - transform.position.x, 2);
 		var playerDist = Mathf.Pow(mainPlayer.transform.position.y - transform.position.y, 2) + Mathf.Pow(mainPlayer.transform.position.x - transform.position.x, 2);
-		//print(hitDist);
-		//print(playerDist);
 		if(hitDist < playerDist) return false;
 	}
 	

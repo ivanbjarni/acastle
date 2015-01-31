@@ -166,7 +166,7 @@ MonoBehaviour:
   attack: 0
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -1314,7 +1314,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
