@@ -1,8 +1,13 @@
 ﻿#pragma strict
-
+//---------------------Variables--------------------------
 var mainPlayer : GameObject;
-var speed : double;
-var melee : double;
+
+var speed : float;
+var meleeDist : double;
+var melee : boolean;
+var ranged: boolean;
+var rangedWeapon : GameObject;
+
 var maxFollowDistance : double;
 var destroyable = 1;
 var health = 3;
@@ -11,9 +16,25 @@ var isFollowingPath : boolean;
 var path : PathDefinition;
 var myLayerMask : LayerMask;
 
+// Tells you if enemy is dead
+var isDead : boolean = false;
+var deathTime : float = 3;
+
+var animator : Animator;
+
+// For kneel before the king
+var isKneeling : boolean = false;
+
+var bloodPart : ParticleSystem;
+//-------------------------------------------------------
+
 function Start () {
 	mainPlayer = GameObject.Find("Player");
 	seePlayer = false;
+	
+	animator =  GetComponent("Animator") as Animator;
+	
+	bloodPart = transform.Find("BloodParticles").GetComponent(ParticleSystem);
 	
 	//Find the object for the path
 	var pathObject = FindClosestPath();
@@ -21,6 +42,30 @@ function Start () {
 		path = pathObject.GetComponent("PathDefinition") as PathDefinition;
 	else if(isFollowingPath)
 		print("Enemy is trying to follow Path but no path to be found, did you remember to tag the path?");
+		
+	if(melee && ranged)ranged = !ranged;
+	if(!melee && !ranged)melee = !melee;
+}
+
+function FixedUpdate () {
+	if( isDead ){
+		deathTime -= 0.016;
+		if( deathTime < 0 ){
+			bloodPart.Stop();
+			Destroy(gameObject);
+		}
+		
+		animator.SetBool("isDead", isDead);
+		return;
+	}
+	
+	rigidbody2D.angularVelocity = 0;
+	seePlayer = canISeePlayer();
+	if(seePlayer) attackPlayer();
+	else if(isFollowingPath) followPath();	
+	
+	
+	animator.SetFloat("Speed", Mathf.Abs(rigidbody2D.velocity.magnitude));
 }
 
 
@@ -45,11 +90,10 @@ function FindClosestPath () : GameObject
 		return closest;	
 }
 
-function FixedUpdate () {
-	rigidbody2D.angularVelocity = 0;
-	seePlayer = canISeePlayer();
-	if(seePlayer) attackPlayer();
-	else if(isFollowingPath) followPath();	
+function kneel(kneelSpeed : float ){
+	isKneeling = true;
+	bloodPart.Play();
+	speed = kneelSpeed;
 }
 
 function OnTriggerEnter2D (other : Collider2D) {
@@ -61,10 +105,15 @@ function OnTriggerEnter2D (other : Collider2D) {
 	
 function gotHit(){
 	health--;
+	bleed();
 	if(health < 1)
 	{
-		Destroy(gameObject);
+		isDead = true;
 	}
+}
+
+function bleed(){
+	bloodPart.Play();
 }
 
 // returns Vector3 that is the position he should move towards if he is following path
@@ -78,69 +127,37 @@ function canISeePlayer()
 	var vecToPlayer = Vector3(0,0,0);
 	if(mainPlayer!=null)
 		vecToPlayer =  mainPlayer.transform.position - transform.position;
-	
+	var distanceToPlayer = vecToPlayer.magnitude;
+	//print(distanceToPlayer);
 	var angleToPlayer : float = Vector3.Angle(vecToPlayer, transform.up);
-	
-	
-	if(angleToPlayer > 50.0) return false;
-	
-	
-	//var hit : RaycastHit2D = Physics2D.Raycast(transform.position, mainPlayer.transform.position, 50, myLayerMask);
-	
-	//print(hit.transform.tag);
-	
+	if(distanceToPlayer > 3.0 && angleToPlayer > 50.0) return false;
+	if(distanceToPlayer < 3.0 && angleToPlayer > 150.0) return false;
 	
 	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,100, myLayerMask);
-
 	if (hit.collider != null) {
 		// Calculate the distance from the surface and the "error" relative
-		// to the floating height.
-		
+		// to the floating height.	
 		var hitDist = Mathf.Pow(hit.point.y - transform.position.y, 2) + Mathf.Pow(hit.point.x - transform.position.x, 2);
 		var playerDist = Mathf.Pow(mainPlayer.transform.position.y - transform.position.y, 2) + Mathf.Pow(mainPlayer.transform.position.x - transform.position.x, 2);
 		
 		//print(hitDist);
 		//print(playerDist);
-		
-		
-		
-		
 		if(hitDist < playerDist) return false;
-	
-		
-		
-		//var distance = Vector3(0, 0, 0);
-		//print(hit.transform.position);
-		//print(transform.position);
-		//distance = hit.transform.position - transform.position;
-		//print(hit.transform.position);
-		//print(distance);
-		//if(distance.sqrMagnitude < vecToPlayer.sqrMagnitude) return false;
 	}
 	
 	return true;
-	
-	/*
-	if (Physics2D.Raycast (transform.position, vecToPlayer, hit, 500)) {
-		print(hit.distance);
-	}
-	
-	
-	return true;
-
-	if(angleToPlayer < 20.0)
-	{
-		return true; 
-	}
-	else
-	{
-		return false;
-	}*/
 }
 
 
 function attackMelee()
 {
+	return;
+}
+
+function attackRanged(vecToPlayer){
+	var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
+	
+	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
 	return;
 }
 
@@ -153,12 +170,6 @@ function attackPlayer()
 
 	if(vecToPlayer.magnitude > maxFollowDistance)
 		return;
-	
-	if(vecToPlayer.magnitude < melee)
-	{
-		attackMelee();
-		return;
-	}
 			
 	var direction = vecToPlayer.normalized;
 	//Get player position
@@ -171,9 +182,17 @@ function attackPlayer()
     transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
 	
 	//Stop the guy from spinning
-	rigidbody2D.angularVelocity = 0;
+	rigidbody2D.angularVelocity = 0;	
 	
-	rigidbody2D.AddForce(direction*speed);
+	if(ranged)attackRanged(vecToPlayer);
+	if(melee) rigidbody2D.AddForce(direction*speed);
+	
+	if(vecToPlayer.magnitude < meleeDist)
+	{
+		rigidbody2D.AddForce(direction*speed);
+		attackMelee();
+		return;
+	}
 }
 
 function followPath()
