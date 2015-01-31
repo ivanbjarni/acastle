@@ -323,10 +323,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -370,7 +373,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &95501632
 Animator:
@@ -478,10 +481,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -525,7 +531,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &105458487
 Animator:
@@ -4086,10 +4092,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -4133,7 +4142,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &269864274
 Animator:
@@ -5582,10 +5591,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -5643,7 +5655,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &387116058
 Animator:
@@ -8119,10 +8131,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -8180,7 +8195,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &553468465
 Animator:
@@ -8376,10 +8391,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -8437,7 +8455,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &588356435
 Animator:
@@ -9799,10 +9817,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -9846,7 +9867,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &785138211
 Animator:
@@ -9991,10 +10012,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -10052,7 +10076,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &866842447
 Animator:
@@ -12646,10 +12670,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -12707,7 +12734,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &1197820983
 Animator:
@@ -16248,10 +16275,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -16309,7 +16339,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &1482570895
 Animator:
@@ -16417,10 +16447,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -16464,7 +16497,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &1521688647
 Animator:
@@ -16731,7 +16764,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &1586419418
 Animator:
@@ -16815,10 +16848,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -20815,10 +20851,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
+  meleeDist: 0
   melee: 0
+  ranged: 0
+  rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   maxFollowDistance: 6
   destroyable: 1
-  health: 3
+  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
@@ -20862,7 +20901,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c69695da23508461687a9b9163f33506, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &2054934259
 Animator:

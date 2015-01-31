@@ -10,7 +10,7 @@ var rangedWeapon : GameObject;
 
 var maxFollowDistance : double;
 var destroyable = 1;
-var health = 3;
+var health = 1;
 var seePlayer;
 var isFollowingPath : boolean;
 var path : PathDefinition;
@@ -108,7 +108,18 @@ function gotHit(){
 	bleed();
 	if(health < 1)
 	{
+	print("asdf");
 		isDead = true;
+		disapleColliders();
+		
+	}
+}
+
+function disapleColliders(){
+	var coll : BoxCollider2D[];
+	coll = gameObject.GetComponents.<BoxCollider2D>();
+	for (var c : BoxCollider2D in coll) {
+		c.enabled = false;
 	}
 }
 
