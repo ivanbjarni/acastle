@@ -3,10 +3,13 @@
 var mainPlayer : GameObject;
 
 var speed : float;
+//  ||| Combat system variables |||
 var meleeDist : double;
 var melee : boolean;
 var ranged: boolean;
 var rangedWeapon : GameObject;
+var block : float;
+var attack : float;
 
 var maxFollowDistance : double;
 var destroyable = 1;
@@ -30,7 +33,11 @@ var bloodPart : ParticleSystem;
 
 function Start () {
 	mainPlayer = GameObject.Find("Player");
+	
+	//Giving variables their value
 	seePlayer = false;
+	attack = 0;
+	block = 0;
 	
 	animator =  GetComponent("Animator") as Animator;
 	
@@ -102,13 +109,26 @@ function OnTriggerEnter2D (other : Collider2D) {
 			player.collisionWithEnemy(gameObject);
 		}
 }
+
+function tryToBlock(){
+	var chanceOfBlocking = Random.Range(0, 3);
+	print(chanceOfBlocking);
+	if(chanceOfBlocking < 1) block = 1;
+	
+}
 	
 function gotHit(){
+	if(melee){
+		tryToBlock();
+		if(block > 0){
+			pushedBack(); 
+			return;
+		}
+	}
 	health--;
 	bleed();
 	if(health < 1)
 	{
-	print("asdf");
 		isDead = true;
 		disapleColliders();
 		
@@ -142,7 +162,7 @@ function canISeePlayer()
 	if(mainPlayer!=null)
 		vecToPlayer =  mainPlayer.transform.position - transform.position;
 	var distanceToPlayer = vecToPlayer.magnitude;
-	//print(distanceToPlayer);
+
 	var angleToPlayer : float = Vector3.Angle(vecToPlayer, transform.up);
 	if(distanceToPlayer > 3.0 && angleToPlayer > 50.0) return false;
 	if(distanceToPlayer < 3.0 && angleToPlayer > 150.0) return false;
@@ -155,8 +175,6 @@ function canISeePlayer()
 		// to the floating height.	
 		var hitDist = Mathf.Pow(hit.point.y - transform.position.y, 2) + Mathf.Pow(hit.point.x - transform.position.x, 2);
 		var playerDist = Mathf.Pow(mainPlayer.transform.position.y - transform.position.y, 2) + Mathf.Pow(mainPlayer.transform.position.x - transform.position.x, 2);
-		//print(hitDist);
-		//print(playerDist);
 		if(hitDist < playerDist) return false;
 	}
 	
@@ -164,12 +182,39 @@ function canISeePlayer()
 }
 
 
-function attackMelee()
-{
-	return;
+function attackMelee(vecToPlayer : Vector3){
+	var direction = vecToPlayer.normalized;
+	if(vecToPlayer.magnitude > meleeDist){
+		rigidbody2D.AddForce(direction*speed);	
+	}
+	if(block > 0){
+	 	block -= Time.deltaTime;
+		return;
+	}
+	else if(attack > 0){
+		attack -= Time.deltaTime;
+		return;
+	}
+	else{
+		var decision = Random.Range(0.0,2.0);
+		print(decision);
+		if(decision <= 1){
+			//TODO Attack function
+			rigidbody2D.AddForce(direction*1500);
+			attack = 3;
+			return;
+		}
+		if(decision > 1 && decision <= 2){
+			//TODO Block function
+			block = 1;
+			return;
+		}
+	
+		return;
+	}
 }
 
-function attackRanged(vecToPlayer){
+function attackRanged(vecToPlayer : Vector3){
 	var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
 	
 	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
@@ -200,13 +245,7 @@ function attackPlayer()
 	rigidbody2D.angularVelocity = 0;	
 	
 	if(ranged)attackRanged(vecToPlayer);
-	if(melee) rigidbody2D.AddForce(direction*speed);
-	
-	if(vecToPlayer.magnitude < meleeDist)
-	{
-		attackMelee();
-		return;
-	}
+	if(melee) attackMelee(vecToPlayer);
 }
 
 function followPath()
@@ -228,4 +267,10 @@ function followPath()
 	
 	direction.z=0;
 	rigidbody2D.AddForce(direction*speed);
+}
+
+function pushedBack(){
+	print("Blocked and push mafaka!");
+	rigidbody2D.AddForce(-transform.up * 1000 );
+	mainPlayer.rigidbody2D.AddForce(-mainPlayer.transform.up * 250);
 }
