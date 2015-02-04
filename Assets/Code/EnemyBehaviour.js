@@ -68,6 +68,7 @@ function FixedUpdate () {
 		return;
 	}
 	if(fireBallCooldown > 0) fireBallCooldown -= Time.deltaTime;
+	if(attack < 3 - 0.07) animator.SetBool("isAttacking", false);
 	//------------------------------------------------------------
 	
 	rigidbody2D.angularVelocity = 0;
@@ -211,8 +212,9 @@ function attackMelee(vecToPlayer : Vector3){
 		print(decision);
 		if(decision <= 1){
 			//TODO Attack function
-			rigidbody2D.AddForce(direction*1500);
+			//rigidbody2D.AddForce(direction*1500);
 			attack = 3;
+			animator.SetBool("isAttacking", true);
 			return;
 		}
 		if(decision > 1 && decision <= 2){

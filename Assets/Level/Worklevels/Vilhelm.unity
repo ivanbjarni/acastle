@@ -137,7 +137,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &76797280
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: melee
@@ -1742,7 +1742,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &401720617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1806,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1001 &416590589
 Prefab:
   m_ObjectHideFlags: 0
@@ -1918,7 +1918,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
 --- !u!1 &497631078
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,7 +2192,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -2296,7 +2296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
@@ -2394,8 +2394,9 @@ Transform:
   - {fileID: 2017680082}
   - {fileID: 935179097}
   - {fileID: 1014897052}
+  - {fileID: 1810304422}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 15
 --- !u!212 &686335322
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2639,7 +2640,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -2690,7 +2691,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 38cff24cc8da94ff1b212dbe08303e44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 127a5ac1c1e084c9c8926beca445dab1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &723171888
 Transform:
@@ -2698,9 +2699,9 @@ Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 249e38a584f164d919107a455db78ec8, type: 2}
   m_PrefabInternal: {fileID: 596069753}
   m_GameObject: {fileID: 723171886}
-  m_LocalRotation: {x: 0, y: 0, z: -.382683486, w: .923879564}
-  m_LocalPosition: {x: 0, y: .300000012, z: 0}
-  m_LocalScale: {x: .699999988, y: .699999988, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -.286836773, w: .9579795}
+  m_LocalPosition: {x: .25, y: .0299999993, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1457368680}
   m_Father: {fileID: 686335321}
@@ -2838,7 +2839,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -4357,7 +4358,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -5617,7 +5618,7 @@ Animator:
   m_GameObject: {fileID: 1062252650}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 933efe17a1ac7754d97a2933a57499f8, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5630,7 +5631,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 596069753}
   m_GameObject: {fileID: 1062252650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -5740,7 +5741,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -5767,7 +5768,7 @@ Transform:
   - {fileID: 1516884668}
   - {fileID: 1605865265}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!212 &1078025954
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8419,7 +8420,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 249e38a584f164d919107a455db78ec8, type: 2}
   m_PrefabInternal: {fileID: 596069753}
   m_GameObject: {fileID: 1457368679}
-  m_LocalRotation: {x: 0, y: 0, z: .382683486, w: .923879564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8450,8 +8451,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .150000006, y: 1}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .0500000007, y: .5}
+  m_Center: {x: .0299999993, y: .50999999}
 --- !u!1 &1508647701
 GameObject:
   m_ObjectHideFlags: 0
@@ -8599,7 +8600,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -9926,7 +9927,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -12399,7 +12400,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -12427,6 +12428,57 @@ Transform:
   - {fileID: 1970909995}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!1 &1810304421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: 249e38a584f164d919107a455db78ec8, type: 2}
+  m_PrefabInternal: {fileID: 596069753}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1810304422}
+  - 212: {fileID: 1810304423}
+  m_Layer: 0
+  m_Name: attackingGuy_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1810304422
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: 249e38a584f164d919107a455db78ec8, type: 2}
+  m_PrefabInternal: {fileID: 596069753}
+  m_GameObject: {fileID: 1810304421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 686335321}
+  m_RootOrder: 5
+--- !u!212 &1810304423
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21200004, guid: 249e38a584f164d919107a455db78ec8,
+    type: 2}
+  m_PrefabInternal: {fileID: 596069753}
+  m_GameObject: {fileID: 1810304421}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300012, guid: fe35d15185c8640b1a9513fc3457f6c0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1831398224
 GameObject:
   m_ObjectHideFlags: 0
@@ -13825,7 +13877,7 @@ MonoBehaviour:
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   block: 0
   attack: 0
-  fireBallCooldown: 1
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
