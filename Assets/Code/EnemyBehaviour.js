@@ -3,11 +3,15 @@
 var mainPlayer : GameObject;
 
 var speed : float;
+//  ||| Combat system variables |||
 var meleeDist : double;
 var melee : boolean;
 var ranged: boolean;
 var rangedWeapon : GameObject;
 var rangedTimer : float = 1;
+var block : float;
+var attack : float;
+var fireBallCooldown : float = 0;
 
 var maxFollowDistance : double;
 var destroyable = 1;
@@ -31,7 +35,11 @@ var bloodPart : ParticleSystem;
 
 function Start () {
 	mainPlayer = GameObject.Find("Player");
+	
+	//Giving variables their value
 	seePlayer = false;
+	attack = 0;
+	block = 0;
 	
 	animator =  GetComponent("Animator") as Animator;
 	
@@ -49,6 +57,7 @@ function Start () {
 }
 
 function FixedUpdate () {
+	//-----------------Timers and cooldowns----------------------
 	if( isDead ){
 		deathTime -= 0.016;
 		if( deathTime < 0 ){
@@ -59,6 +68,8 @@ function FixedUpdate () {
 		animator.SetBool("isDead", isDead);
 		return;
 	}
+	if(fireBallCooldown > 0) fireBallCooldown -= Time.deltaTime;
+	//------------------------------------------------------------
 	
 	rigidbody2D.angularVelocity = 0;
 	seePlayer = canISeePlayer();
@@ -103,8 +114,29 @@ function OnTriggerEnter2D (other : Collider2D) {
 			player.collisionWithEnemy(gameObject);
 		}
 }
+
+function tryToBlock(){
+	var chanceOfBlocking = Random.Range(0, 3);
+	print(chanceOfBlocking);
+	if(chanceOfBlocking < 1) block = 1;
+	
+}
 	
 function gotHit(){
+	if(!seePlayer){
+		rigidbody2D.AddForce(transform.up*5000);	
+		bleed();
+		isDead = true;
+		disapleColliders();
+		return;
+	}
+	if(melee){
+		tryToBlock();
+		if(block > 0){
+			pushedBack(); 
+			return;
+		}
+	}
 	health--;
 	bleed();
 	if(health < 1)
@@ -162,14 +194,48 @@ function canISeePlayer()
 }
 
 
-function attackMelee()
-{
-	return;
+function attackMelee(vecToPlayer : Vector3){
+	var direction = vecToPlayer.normalized;
+	if(vecToPlayer.magnitude > meleeDist){
+		rigidbody2D.AddForce(direction*speed);	
+	}
+	if(block > 0){
+	 	block -= Time.deltaTime;
+		return;
+	}
+	else if(attack > 0){
+		attack -= Time.deltaTime;
+		return;
+	}
+	else{
+		var decision = Random.Range(0.0,2.0);
+		print(decision);
+		if(decision <= 1){
+			//TODO Attack function
+			rigidbody2D.AddForce(direction*1500);
+			attack = 3;
+			return;
+		}
+		if(decision > 1 && decision <= 2){
+			//TODO Block function
+			block = 1;
+			return;
+		}
+	
+		return;
+	}
 }
 
-function attackRanged(vecToPlayer){
-	var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
-	
+function attackRanged(vecToPlayer : Vector3){
+	if(fireBallCooldown <= 0){
+		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
+		fireBallCooldown = 2;
+	}
+	else{
+	var shouldMove = Random.Range(0, 3);
+	if(shouldMove == 0) rigidbody2D.AddForce(transform.up*speed);
+	if(shouldMove == 1) rigidbody2D.AddForce(-transform.up*speed);	
+	}
 	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
 	return;
 }
@@ -198,13 +264,7 @@ function attackPlayer()
 	rigidbody2D.angularVelocity = 0;	
 	
 	if(ranged)attackRanged(vecToPlayer);
-	if(melee) rigidbody2D.AddForce(direction*speed);
-	
-	if(vecToPlayer.magnitude < meleeDist)
-	{
-		attackMelee();
-		return;
-	}
+	if(melee) attackMelee(vecToPlayer);
 }
 
 function followPath()
@@ -226,4 +286,10 @@ function followPath()
 	
 	direction.z=0;
 	rigidbody2D.AddForce(direction*speed);
+}
+
+function pushedBack(){
+	print("Blocked and push mafaka!");
+	rigidbody2D.AddForce(-transform.up * 1000 );
+	mainPlayer.rigidbody2D.AddForce(-mainPlayer.transform.up * 250);
 }

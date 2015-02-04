@@ -158,11 +158,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
   rangedTimer: 1
+  block: 0
+  attack: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
