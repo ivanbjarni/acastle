@@ -177,6 +177,17 @@ function pushEnemies(){
 	knockPartSystem.Play();
 }
 
+function collisionWithRanged(object : GameObject){
+	if( !playerIsCharging ){
+		//Destroy(gameObject);
+		return true;
+		health--;
+		if(health < 1) isAlive = false;
+	}else{
+		return false;
+	}
+}
+
 function collisionWithEnemy(object : GameObject){
 	if( !playerIsCharging ){
 		//Destroy(gameObject);

@@ -7,6 +7,7 @@ var meleeDist : double;
 var melee : boolean;
 var ranged: boolean;
 var rangedWeapon : GameObject;
+var rangedTimer : float = 1;
 
 var maxFollowDistance : double;
 var destroyable = 1;
