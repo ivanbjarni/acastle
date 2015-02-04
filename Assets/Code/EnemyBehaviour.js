@@ -69,6 +69,7 @@ function FixedUpdate () {
 	}
 	if(fireBallCooldown > 0) fireBallCooldown -= Time.deltaTime;
 	if(attack < 3 - 0.07) animator.SetBool("isAttacking", false);
+	if(block < 0){transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = false;}
 	//------------------------------------------------------------
 	
 	rigidbody2D.angularVelocity = 0;
@@ -118,8 +119,10 @@ function OnTriggerEnter2D (other : Collider2D) {
 function tryToBlock(){
 	var chanceOfBlocking = Random.Range(0, 3);
 	print(chanceOfBlocking);
-	if(chanceOfBlocking < 1) block = 1;
-	
+	if(chanceOfBlocking < 1) {
+		transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = true;
+		block = 1;
+	}
 }
 	
 function gotHit(){
@@ -217,11 +220,7 @@ function attackMelee(vecToPlayer : Vector3){
 			animator.SetBool("isAttacking", true);
 			return;
 		}
-		if(decision > 1 && decision <= 2){
-			//TODO Block function
-			block = 1;
-			return;
-		}
+	
 	
 		return;
 	}
