@@ -10,6 +10,7 @@ var ranged: boolean;
 var rangedWeapon : GameObject;
 var block : float;
 var attack : float;
+var fireBallCooldown : float = 0;
 
 var maxFollowDistance : double;
 var destroyable = 1;
@@ -55,6 +56,7 @@ function Start () {
 }
 
 function FixedUpdate () {
+	//-----------------Timers and cooldowns----------------------
 	if( isDead ){
 		deathTime -= 0.016;
 		if( deathTime < 0 ){
@@ -65,6 +67,8 @@ function FixedUpdate () {
 		animator.SetBool("isDead", isDead);
 		return;
 	}
+	if(fireBallCooldown > 0) fireBallCooldown -= Time.deltaTime;
+	//------------------------------------------------------------
 	
 	rigidbody2D.angularVelocity = 0;
 	seePlayer = canISeePlayer();
@@ -118,6 +122,13 @@ function tryToBlock(){
 }
 	
 function gotHit(){
+	if(!seePlayer){
+		rigidbody2D.AddForce(transform.up*5000);	
+		bleed();
+		isDead = true;
+		disapleColliders();
+		return;
+	}
 	if(melee){
 		tryToBlock();
 		if(block > 0){
@@ -215,8 +226,15 @@ function attackMelee(vecToPlayer : Vector3){
 }
 
 function attackRanged(vecToPlayer : Vector3){
-	var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
-	
+	if(fireBallCooldown <= 0){
+		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
+		fireBallCooldown = 2;
+	}
+	else{
+	var shouldMove = Random.Range(0, 3);
+	if(shouldMove == 0) rigidbody2D.AddForce(transform.up*speed);
+	if(shouldMove == 1) rigidbody2D.AddForce(-transform.up*speed);	
+	}
 	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
 	return;
 }
