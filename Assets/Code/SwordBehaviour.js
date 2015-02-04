@@ -20,6 +20,7 @@ function OnTriggerEnter2D (other : Collider2D) {
 			wallsEntered++;
 		if(other.gameObject.tag == "Enemy" && wallsEntered==0)
 		{
+			print("wat");
 			var enemy : GameObject = other.gameObject;
 			enemy.GetComponent(EnemyBehaviour).gotHit();
 			cooldown = 2;

@@ -10,6 +10,7 @@ var ranged: boolean;
 var rangedWeapon : GameObject;
 var block : float;
 var attack : float;
+var fireBallCooldown : float = 0;
 
 var maxFollowDistance : double;
 var destroyable = 1;
@@ -55,6 +56,7 @@ function Start () {
 }
 
 function FixedUpdate () {
+	//-----------------Timers and cooldowns----------------------
 	if( isDead ){
 		deathTime -= 0.016;
 		if( deathTime < 0 ){
@@ -65,6 +67,10 @@ function FixedUpdate () {
 		animator.SetBool("isDead", isDead);
 		return;
 	}
+	if(fireBallCooldown > 0) fireBallCooldown -= Time.deltaTime;
+	if(attack < 3 - 0.07) animator.SetBool("isAttacking", false);
+	if(block < 0){transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = false;}
+	//------------------------------------------------------------
 	
 	rigidbody2D.angularVelocity = 0;
 	seePlayer = canISeePlayer();
@@ -113,11 +119,20 @@ function OnTriggerEnter2D (other : Collider2D) {
 function tryToBlock(){
 	var chanceOfBlocking = Random.Range(0, 3);
 	print(chanceOfBlocking);
-	if(chanceOfBlocking < 1) block = 1;
-	
+	if(chanceOfBlocking < 1) {
+		transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = true;
+		block = 1;
+	}
 }
 	
 function gotHit(){
+	if(!seePlayer){
+		rigidbody2D.AddForce(transform.up*5000);	
+		bleed();
+		isDead = true;
+		disapleColliders();
+		return;
+	}
 	if(melee){
 		tryToBlock();
 		if(block > 0){
@@ -200,23 +215,27 @@ function attackMelee(vecToPlayer : Vector3){
 		print(decision);
 		if(decision <= 1){
 			//TODO Attack function
-			rigidbody2D.AddForce(direction*1500);
+			//rigidbody2D.AddForce(direction*1500);
 			attack = 3;
+			animator.SetBool("isAttacking", true);
 			return;
 		}
-		if(decision > 1 && decision <= 2){
-			//TODO Block function
-			block = 1;
-			return;
-		}
+	
 	
 		return;
 	}
 }
 
 function attackRanged(vecToPlayer : Vector3){
-	var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
-	
+	if(fireBallCooldown <= 0){
+		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
+		fireBallCooldown = 2;
+	}
+	else{
+	var shouldMove = Random.Range(0, 3);
+	if(shouldMove == 0) rigidbody2D.AddForce(transform.up*speed);
+	if(shouldMove == 1) rigidbody2D.AddForce(-transform.up*speed);	
+	}
 	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
 	return;
 }
