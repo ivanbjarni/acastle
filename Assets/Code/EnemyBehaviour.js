@@ -3,18 +3,24 @@
 var mainPlayer : GameObject;
 
 var speed : float;
-//  ||| Combat system variables |||
-var meleeDist : double;
+
+// ---------||| Enemy Type Variables |||-----------
 var melee : boolean;
 var ranged: boolean;
+var ogre : boolean;
+var wolf : boolean;
+
+//  ||| Combat system variables |||
+var meleeDist : double;
 var rangedWeapon : GameObject;
+var rangedTimer : float = 1;
 var block : float;
 var attack : float;
 var fireBallCooldown : float = 0;
 
 var maxFollowDistance : double;
 var destroyable = 1;
-var health = 1;
+var health : double;
 var seePlayer;
 var isFollowingPath : boolean;
 var path : PathDefinition;
@@ -22,7 +28,7 @@ var myLayerMask : LayerMask;
 
 // Tells you if enemy is dead
 var isDead : boolean = false;
-var deathTime : float = 3;
+var deathTime : float = 2;
 
 var animator : Animator;
 
@@ -31,6 +37,17 @@ var isKneeling : boolean = false;
 
 var bloodPart : ParticleSystem;
 //-------------------------------------------------------
+
+function ogreSetup(){
+	health = 1.0;
+	speed = 120;
+}
+
+function wolfSetup(){
+	health = 3.0;
+	speed = 60;
+}
+
 
 function Start () {
 	mainPlayer = GameObject.Find("Player");
@@ -41,7 +58,6 @@ function Start () {
 	block = 0;
 	
 	animator =  GetComponent("Animator") as Animator;
-	
 	bloodPart = transform.Find("BloodParticles").GetComponent(ParticleSystem);
 	
 	//Find the object for the path
@@ -53,12 +69,16 @@ function Start () {
 		
 	if(melee && ranged)ranged = !ranged;
 	if(!melee && !ranged)melee = !melee;
+	
+	if(ogre)ogreSetup();
+	if(wolf)wolfSetup();
 }
 
 function FixedUpdate () {
 	//-----------------Timers and cooldowns----------------------
 	if( isDead ){
-		deathTime -= 0.016;
+		rigidbody2D.velocity = Vector3(0,0,0);
+		deathTime -= Time.deltaTime;
 		if( deathTime < 0 ){
 			bloodPart.Stop();
 			Destroy(gameObject);

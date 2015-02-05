@@ -171,10 +171,22 @@ function pushEnemies(){
 		var diff = (enemyPos - position);
 		var curDistance = diff.sqrMagnitude; 
 		if (curDistance < maxDist) { 
-			enemy.rigidbody2D.AddForce(diff.normalized * ( 3000 - 2000 * curDistance/maxDist ) );
+			if( !enemy.GetComponent(EnemyBehaviour).isDead )
+				enemy.rigidbody2D.AddForce(diff.normalized * ( 3000 - 2000 * curDistance/maxDist ) );
 		} 
 	}
 	knockPartSystem.Play();
+}
+
+function collisionWithRanged(object : GameObject){
+	if( !playerIsCharging ){
+		//Destroy(gameObject);
+		return true;
+		health--;
+		if(health < 1) isAlive = false;
+	}else{
+		return false;
+	}
 }
 
 function collisionWithEnemy(object : GameObject){
