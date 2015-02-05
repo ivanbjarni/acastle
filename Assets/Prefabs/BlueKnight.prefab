@@ -161,8 +161,8 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Mass: 5
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
+  m_LinearDrag: 4
+  m_AngularDrag: 40
   m_GravityScale: 0
   m_FixedAngle: 0
   m_IsKinematic: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   stunned: 0
   chargeCount: 0
   chargeInterval: 2.5
-  chargeSpeed: 4000
+  chargeSpeed: 18000
   stunTime: 5
   maxChargeCount: 5
 --- !u!212 &21200000
