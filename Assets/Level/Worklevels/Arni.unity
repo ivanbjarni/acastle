@@ -111,7 +111,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 62
+      value: 63
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -259,10 +259,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -481,10 +485,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -586,7 +594,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -1900,10 +1908,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -1954,7 +1966,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 33
+      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -1998,7 +2010,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -2246,7 +2258,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 31
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -2290,7 +2302,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 59
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -2334,7 +2346,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 34
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -2427,7 +2439,7 @@ Transform:
   - {fileID: 718879967}
   - {fileID: 1446208755}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!61 &95501626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2482,10 +2494,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -2585,7 +2601,7 @@ Transform:
   - {fileID: 85322013}
   - {fileID: 206558222}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 21
 --- !u!61 &105458481
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2640,10 +2656,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -2860,7 +2880,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -4123,10 +4143,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -5396,10 +5420,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -7784,10 +7812,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -9145,10 +9177,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -10326,7 +10362,7 @@ Transform:
   - {fileID: 842676732}
   - {fileID: 1763692068}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
 --- !u!61 &269864268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10381,10 +10417,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -11613,7 +11653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 57
 --- !u!1 &293334994
 GameObject:
   m_ObjectHideFlags: 0
@@ -12766,7 +12806,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -12810,7 +12850,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -12854,7 +12894,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 42
+      value: 43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -12898,7 +12938,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 52
+      value: 53
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -13046,10 +13086,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -13190,10 +13234,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -13220,7 +13268,7 @@ Transform:
   - {fileID: 730670346}
   - {fileID: 1399694726}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
 --- !u!1 &322925585
 GameObject:
   m_ObjectHideFlags: 0
@@ -14630,10 +14678,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -14735,7 +14787,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 43
+      value: 44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -14862,10 +14914,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -14892,7 +14948,7 @@ Transform:
   - {fileID: 569092390}
   - {fileID: 2121092858}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!114 &387116056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14981,7 +15037,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -17501,7 +17557,7 @@ Transform:
   - {fileID: 67319004}
   - {fileID: 557896995}
   m_Father: {fileID: 0}
-  m_RootOrder: 58
+  m_RootOrder: 59
 --- !u!212 &450453080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17607,10 +17663,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -17815,10 +17875,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -17883,7 +17947,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 29
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -19042,7 +19106,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -20201,7 +20265,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 63
+      value: 65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -22514,10 +22578,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -22544,7 +22612,7 @@ Transform:
   - {fileID: 958741257}
   - {fileID: 1007744507}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &553468463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24914,7 +24982,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -27278,10 +27346,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -27308,7 +27380,7 @@ Transform:
   - {fileID: 1138162385}
   - {fileID: 268416493}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!114 &588356433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27397,7 +27469,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 35
+      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -27441,7 +27513,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -27589,10 +27661,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -27694,7 +27770,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -28957,10 +29033,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -28983,11 +29063,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.61999989
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.58000004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -29011,7 +29091,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
@@ -29106,7 +29186,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 46
+      value: 47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -29254,10 +29334,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -29510,7 +29594,7 @@ Transform:
   - {fileID: 1703255234}
   - {fileID: 1676797244}
   m_Father: {fileID: 0}
-  m_RootOrder: 63
+  m_RootOrder: 64
 --- !u!212 &735076203
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29616,10 +29700,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -30875,10 +30963,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -31047,10 +31139,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -31150,7 +31246,7 @@ Transform:
   - {fileID: 354771832}
   - {fileID: 1638897175}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!61 &785138205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31205,10 +31301,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -31310,7 +31410,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 60
+      value: 61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -31352,7 +31452,7 @@ Transform:
   - {fileID: 706649905}
   - {fileID: 1477049867}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!212 &793491051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31458,10 +31558,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -31512,7 +31616,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 32
+      value: 33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -31748,10 +31852,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -31778,7 +31886,7 @@ Transform:
   - {fileID: 563721079}
   - {fileID: 745962022}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!114 &866842445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32984,7 +33092,7 @@ Animator:
   m_GameObject: {fileID: 868683288}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 933efe17a1ac7754d97a2933a57499f8, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -32997,7 +33105,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 690291335}
   m_GameObject: {fileID: 868683288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -33050,7 +33158,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -33184,10 +33292,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -34455,7 +34567,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 249e38a584f164d919107a455db78ec8, type: 2}
   m_PrefabInternal: {fileID: 690291335}
   m_GameObject: {fileID: 913212412}
-  m_LocalRotation: {x: 0, y: 0, z: .382683486, w: .923879564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -34486,8 +34598,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .150000006, y: 1}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .0500000007, y: .5}
+  m_Center: {x: .0299999993, y: .50999999}
 --- !u!1001 &927358939
 Prefab:
   m_ObjectHideFlags: 0
@@ -34525,7 +34637,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -34569,7 +34681,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 53
+      value: 54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -34717,10 +34829,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -34734,6 +34850,70 @@ MonoBehaviour:
   animator: {fileID: 0}
   isKneeling: 0
   bloodPart: {fileID: 0}
+--- !u!1 &944060549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+  m_PrefabInternal: {fileID: 2037516339}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 944060552}
+  - 212: {fileID: 944060551}
+  - 61: {fileID: 944060550}
+  m_Layer: 8
+  m_Name: HorizontalWall
+  m_TagString: Obstacle
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &944060550
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: 0b15f354df7424a6b9701e6362cbde23,
+    type: 2}
+  m_PrefabInternal: {fileID: 2037516339}
+  m_GameObject: {fileID: 944060549}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 4a54fede1bf964491988b3f1a8effa92, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 2, y: .5}
+  m_Center: {x: 0, y: 0}
+--- !u!212 &944060551
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21200000, guid: 0b15f354df7424a6b9701e6362cbde23,
+    type: 2}
+  m_PrefabInternal: {fileID: 2037516339}
+  m_GameObject: {fileID: 944060549}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 2665139657
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 13150289dcbc746cbab098d37feaf70b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &944060552
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+  m_PrefabInternal: {fileID: 2037516339}
+  m_GameObject: {fileID: 944060549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.72081661, y: -3.87413406, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &958741256
 GameObject:
   m_ObjectHideFlags: 0
@@ -36037,7 +36217,7 @@ Transform:
   - {fileID: 661386273}
   - {fileID: 1410645471}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!212 &1008067919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36143,10 +36323,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -36197,7 +36381,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 48
+      value: 49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -36241,13 +36425,64 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 56
+      value: 57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
   m_RootGameObject: {fileID: 248621974}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1016579851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: 249e38a584f164d919107a455db78ec8, type: 2}
+  m_PrefabInternal: {fileID: 690291335}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1016579853}
+  - 212: {fileID: 1016579852}
+  m_Layer: 0
+  m_Name: attackingGuy_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1016579852
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21200004, guid: 249e38a584f164d919107a455db78ec8,
+    type: 2}
+  m_PrefabInternal: {fileID: 690291335}
+  m_GameObject: {fileID: 1016579851}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300012, guid: fe35d15185c8640b1a9513fc3457f6c0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1016579853
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: 249e38a584f164d919107a455db78ec8, type: 2}
+  m_PrefabInternal: {fileID: 690291335}
+  m_GameObject: {fileID: 1016579851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1808341268}
+  m_RootOrder: 5
 --- !u!1 &1044442415
 GameObject:
   m_ObjectHideFlags: 0
@@ -37504,10 +37739,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -37713,10 +37952,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -38880,7 +39123,7 @@ Transform:
   - {fileID: 1906539162}
   - {fileID: 1899077283}
   m_Father: {fileID: 0}
-  m_RootOrder: 60
+  m_RootOrder: 61
 --- !u!212 &1115309056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38986,10 +39229,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -39040,7 +39287,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 37
+      value: 38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -39084,7 +39331,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -40384,10 +40631,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -41567,7 +41818,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 51
+      value: 52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -41611,7 +41862,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -41694,10 +41945,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -41724,7 +41979,7 @@ Transform:
   - {fileID: 1428150573}
   - {fileID: 888880845}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!114 &1197820981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41917,10 +42172,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -41971,7 +42230,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 54
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -42015,7 +42274,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 44
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -42163,10 +42422,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -42268,7 +42531,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 45
+      value: 46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -43568,10 +43831,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -43636,7 +43903,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 39
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -43680,7 +43947,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -48390,10 +48657,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -49663,10 +49934,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -50881,7 +51156,7 @@ Transform:
   - {fileID: 1686090531}
   - {fileID: 1690466352}
   m_Father: {fileID: 0}
-  m_RootOrder: 62
+  m_RootOrder: 63
 --- !u!212 &1438952849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -50987,10 +51262,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -55591,10 +55870,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -57938,7 +58221,7 @@ Transform:
   - {fileID: 1572370404}
   - {fileID: 411438620}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
 --- !u!61 &1521688641
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57993,10 +58276,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -59213,7 +59500,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 50
+      value: 51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -59257,7 +59544,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -59348,7 +59635,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
 --- !u!114 &1570632726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59553,10 +59840,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -59605,7 +59896,7 @@ Transform:
   - {fileID: 326710338}
   - {fileID: 1410024324}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!212 &1586419417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -59711,10 +60002,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 1
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -59869,10 +60164,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -59923,7 +60222,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 40
+      value: 41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -61082,7 +61381,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 38
+      value: 39
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -61126,7 +61425,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 58
+      value: 59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -61170,7 +61469,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 36
+      value: 37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -63429,9 +63728,9 @@ Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 249e38a584f164d919107a455db78ec8, type: 2}
   m_PrefabInternal: {fileID: 690291335}
   m_GameObject: {fileID: 1663019525}
-  m_LocalRotation: {x: 0, y: 0, z: -.382683456, w: .923879504}
-  m_LocalPosition: {x: 0, y: .300000012, z: 0}
-  m_LocalScale: {x: .699999988, y: .699999988, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -.286836773, w: .9579795}
+  m_LocalPosition: {x: .25, y: .0299999993, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 913212413}
   m_Father: {fileID: 1808341268}
@@ -63457,7 +63756,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 38cff24cc8da94ff1b212dbe08303e44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 127a5ac1c1e084c9c8926beca445dab1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1668214208
 GameObject:
@@ -63702,10 +64001,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -64871,7 +65174,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -66215,10 +66518,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -66245,7 +66552,7 @@ Transform:
   - {fileID: 248955452}
   - {fileID: 868626131}
   m_Father: {fileID: 0}
-  m_RootOrder: 61
+  m_RootOrder: 62
 --- !u!1 &1699762666
 GameObject:
   m_ObjectHideFlags: 0
@@ -66387,10 +66694,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -66531,10 +66842,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -66754,10 +67069,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -67923,7 +68242,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 57
+      value: 58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -69082,7 +69401,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -69126,7 +69445,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: ranged
@@ -69304,7 +69623,7 @@ Transform:
   m_PrefabInternal: {fileID: 690291335}
   m_GameObject: {fileID: 1808341262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.61999989, y: -1.58000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 868683289}
@@ -69312,8 +69631,9 @@ Transform:
   - {fileID: 1416588105}
   - {fileID: 1878704287}
   - {fileID: 252471099}
+  - {fileID: 1016579853}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 22
 --- !u!1 &1808680864
 GameObject:
   m_ObjectHideFlags: 0
@@ -69455,10 +69775,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -70675,7 +70999,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 55
+      value: 56
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -70770,7 +71094,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 61
+      value: 62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -74246,7 +74570,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 47
+      value: 48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -74445,10 +74769,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -74627,7 +74955,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &2026643050
 GameObject:
   m_ObjectHideFlags: 0
@@ -75884,10 +76212,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -75901,6 +76233,50 @@ MonoBehaviour:
   animator: {fileID: 0}
   isKneeling: 0
   bloodPart: {fileID: 0}
+--- !u!1001 &2037516339
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.72081661
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.87413406
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0b15f354df7424a6b9701e6362cbde23, type: 2}
+  m_RootGameObject: {fileID: 944060549}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &2038548100
 GameObject:
   m_ObjectHideFlags: 0
@@ -77053,7 +77429,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -77148,7 +77524,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: animator
@@ -77196,7 +77572,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 41
+      value: 42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -77238,7 +77614,7 @@ Transform:
   - {fileID: 2045099704}
   - {fileID: 551046744}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
 --- !u!61 &2054934253
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77293,10 +77669,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -77396,7 +77776,7 @@ Transform:
   - {fileID: 397723709}
   - {fileID: 684570559}
   m_Father: {fileID: 0}
-  m_RootOrder: 57
+  m_RootOrder: 58
 --- !u!212 &2067879019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -77502,10 +77882,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1
@@ -77556,7 +77940,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 49
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -79830,7 +80214,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d44086c6b7248929bfb4a63b36342e, type: 2}
@@ -82197,7 +82581,7 @@ Transform:
   - {fileID: 1390989474}
   - {fileID: 1540632904}
   m_Father: {fileID: 0}
-  m_RootOrder: 59
+  m_RootOrder: 60
 --- !u!212 &2144057168
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82303,10 +82687,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   speed: 120
-  meleeDist: 0
+  meleeDist: 1.5
   melee: 0
   ranged: 0
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  rangedTimer: 1
+  block: 0
+  attack: 0
+  fireBallCooldown: 0
   maxFollowDistance: 6
   destroyable: 1
   health: 1

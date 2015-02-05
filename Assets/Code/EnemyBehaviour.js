@@ -13,6 +13,7 @@ var wolf : boolean;
 //  ||| Combat system variables |||
 var meleeDist : double;
 var rangedWeapon : GameObject;
+var rangedTimer : float = 1;
 var block : float;
 var attack : float;
 var fireBallCooldown : float = 0;
@@ -27,7 +28,7 @@ var myLayerMask : LayerMask;
 
 // Tells you if enemy is dead
 var isDead : boolean = false;
-var deathTime : float = 3;
+var deathTime : float = 2;
 
 var animator : Animator;
 
@@ -76,7 +77,8 @@ function Start () {
 function FixedUpdate () {
 	//-----------------Timers and cooldowns----------------------
 	if( isDead ){
-		deathTime -= 0.016;
+		rigidbody2D.velocity = Vector3(0,0,0);
+		deathTime -= Time.deltaTime;
 		if( deathTime < 0 ){
 			bloodPart.Stop();
 			Destroy(gameObject);
