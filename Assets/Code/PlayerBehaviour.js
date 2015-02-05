@@ -171,7 +171,8 @@ function pushEnemies(){
 		var diff = (enemyPos - position);
 		var curDistance = diff.sqrMagnitude; 
 		if (curDistance < maxDist) { 
-			enemy.rigidbody2D.AddForce(diff.normalized * ( 3000 - 2000 * curDistance/maxDist ) );
+			if( !enemy.GetComponent(EnemyBehaviour).isDead )
+				enemy.rigidbody2D.AddForce(diff.normalized * ( 3000 - 2000 * curDistance/maxDist ) );
 		} 
 	}
 	knockPartSystem.Play();
