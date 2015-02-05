@@ -201,6 +201,14 @@ function collisionWithEnemy(object : GameObject){
 	}
 }
 
+function collisionWithBoss(object : GameObject){
+	if( !playerIsCharging ){
+		//Destroy(gameObject);
+		health--;
+		if(health < 1) isAlive = false;
+	}
+}
+
 //========================================
 //			Update function
 //========================================

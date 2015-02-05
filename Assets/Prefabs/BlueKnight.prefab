@@ -50,6 +50,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 50: {fileID: 5000004}
   - 114: {fileID: 11400000}
+  - 61: {fileID: 6100006}
   m_Layer: 0
   m_Name: BlueKnight
   m_TagString: Untagged
@@ -160,9 +161,9 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Mass: 5
+  m_Mass: 10
   m_LinearDrag: 4
-  m_AngularDrag: 40
+  m_AngularDrag: 90
   m_GravityScale: 0
   m_FixedAngle: 0
   m_IsKinematic: 0
@@ -179,7 +180,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: 1.41999996, y: .370000005}
-  m_Center: {x: 0, y: 0}
+  m_Center: {x: 0, y: .0399999991}
 --- !u!61 &6100002
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -202,6 +203,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .810000002, y: .150000006}
   m_Center: {x: 0, y: 0}
+--- !u!61 &6100006
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.51999998, y: .439999998}
+  m_Center: {x: 0, y: .0399999991}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,10 +230,13 @@ MonoBehaviour:
   mainPlayer: {fileID: 0}
   stunned: 0
   chargeCount: 0
-  chargeInterval: 2.5
-  chargeSpeed: 18000
-  stunTime: 5
-  maxChargeCount: 5
+  health: 0
+  hasShield: 0
+  c_chargeInterval: 2
+  c_chargeSpeed: 32000
+  c_stunTime: 5
+  c_maxChargeCount: 4
+  c_maxHealth: 5
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

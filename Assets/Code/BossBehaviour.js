@@ -6,28 +6,38 @@ var chargeTimer : double;
 var mainPlayer : GameObject;
 var stunned : double;
 var chargeCount : int;
+var health : int;
+var hasShield : boolean;
 
 //constants to fine tune behaviour
-var chargeInterval : double;
-var chargeSpeed : double;
-var stunTime : double;
-var maxChargeCount : int;
+var c_chargeInterval : double;
+var c_chargeSpeed : double;
+var c_stunTime : double;
+var c_maxChargeCount : int;
+var c_maxHealth : int ;
 
-
+//===============================
+//			Start
+//===============================
 function Start () {
 	mainPlayer = GameObject.Find("Player");
-	chargeTimer = chargeInterval;
+	chargeTimer = c_chargeInterval;
+	health = c_maxHealth;
 }
 
+
+//===============================
+//			Update
+//===============================
 function FixedUpdate () {
 	chargeTimer -= Time.deltaTime;
 	stunned -= Time.deltaTime;
 	
-	if(chargeCount >= maxChargeCount)
+	if(chargeCount >= c_maxChargeCount)
 	{
-		stunned = stunTime;
+		stunned = c_stunTime;
 		chargeCount = 0;
-		transform.Find("BlueKnightShield").GetComponent(SpriteRenderer).enabled = false;
+		setShield(false);
 	}
 	
 	chargePoint = mainPlayer.transform.position;
@@ -37,16 +47,24 @@ function FixedUpdate () {
 	
 	if(chargeTimer<0 && stunned <0)
 	{
-		transform.Find("BlueKnightShield").GetComponent(SpriteRenderer).enabled = true;
+		setShield(true);
 		chargeCount++;
-		chargeTimer = chargeInterval;
-		rigidbody2D.AddForce((chargePoint-transform.position).normalized*chargeSpeed);
+		chargeTimer = c_chargeInterval;
+		rigidbody2D.AddForce((chargePoint-transform.position).normalized*c_chargeSpeed);
 	}
 	
 	
 }
 
+function setShield(toggle : boolean)
+{
+	hasShield = toggle;
+	transform.Find("BlueKnightShield").GetComponent(SpriteRenderer).enabled = toggle;
+}
 
+//===============================
+//			Movement
+//===============================
 function setRotation()
 {
 	var AngleRad : float;
@@ -59,4 +77,27 @@ function setRotation()
 	    AngleDeg = (180 / Mathf.PI) * AngleRad + 90;
 	    //set the rotation
 		transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+}
+
+//===============================
+//			Collisions
+//===============================
+function OnTriggerEnter2D (other : Collider2D) {
+		if(other.gameObject.tag == "Player" && stunned <0){
+			var player : PlayerBehaviour = mainPlayer.GetComponent(PlayerBehaviour);
+			player.collisionWithBoss(gameObject);
+		}
+}
+
+function gotHit()
+{
+	if(!hasShield)
+	{
+		health--;
+		print(health);
+		setShield(true);
+	}
+		
+	if(health <= 0)
+		stunned = 600;
 }
