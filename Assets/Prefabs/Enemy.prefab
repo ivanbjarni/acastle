@@ -90,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.09910583, y: 3.21425033, z: 0}
+  m_LocalPosition: {x: -2.10250187, y: 4.92485809, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -189,7 +189,7 @@ MonoBehaviour:
   speed: 120
   melee: 0
   ranged: 0
-  ogre: 0
+  ogre: 1
   wolf: 0
   meleeDist: 1.5
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
