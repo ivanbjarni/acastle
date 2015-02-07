@@ -17,6 +17,7 @@ var speed : float;
 // ---------||| Combat system variables |||--------
 var meleeDist : double;
 var rangedWeapon : GameObject;
+var spawnedRat : GameObject;
 var rangedTimer : float = 1;
 var block : float;
 var attack : float;
@@ -251,7 +252,7 @@ function attackMelee(vecToPlayer : Vector3){
 	}
 	else{
 		var decision = Random.Range(0.0,2.0);
-		print(decision);
+		//print(decision);
 		if(decision <= 1){
 			//TODO Attack function
 			rigidbody2D.AddForce(direction*200);
@@ -289,7 +290,12 @@ function attackMage(vecToPlayer : Vector3){
 		animator.SetBool("isAttacking", true);
 	}
 	else{
-		print(vecToPlayer.magnitude);
+		for(var i = 0; i < 3; i++)
+		{
+			var spawnedRat = Instantiate (spawnedRat, transform.position, transform.rotation);
+		}
+		magicCooldown = 10;
+		animator.SetBool("isAttacking", true);
 	}
 	
 	
