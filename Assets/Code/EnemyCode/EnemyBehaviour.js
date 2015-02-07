@@ -5,10 +5,14 @@ var mainPlayer : GameObject;
 // ---------||| Enemy Type Variables |||-----------
 var melee : boolean;
 var ranged: boolean;
+var mage : boolean;
 var ogre : boolean;
 var wolf : boolean;
+var rat : boolean;
+var scorpion : boolean;
 var health : double;
 var speed : float;
+
 
 // ---------||| Combat system variables |||--------
 var meleeDist : double;
@@ -17,6 +21,7 @@ var rangedTimer : float = 1;
 var block : float;
 var attack : float;
 var fireBallCooldown : float = 0;
+var magicCooldown : float = 0;
 
 // ---------||| Other variables |||--------
 var maxFollowDistance : double;
@@ -45,13 +50,27 @@ var blockParticles : ParticleSystem;
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function ogreSetup(){
-	health = 1.0;
+	health = 2.0;
 	speed = 120;
+}
+
+function ratSetup(){
+	health = 1.0;
+	speed = 150;
+	meleeDist = 0.2;
 }
 
 function wolfSetup(){
 	health = 3.0;
 	speed = 60;
+	melee = false;
+	ranged = false;
+	mage = true;
+}
+
+function scorpionSetup(){
+	health = 1.0;
+	speed = 70;
 }
 
 function Start () {
@@ -60,11 +79,10 @@ function Start () {
 	//Giving variables their value
 	seePlayer = false;
 	attack = 0;
-	block = 0;
-	
+	block = 0;	
 	animator =  GetComponent("Animator") as Animator;
 	bloodPart = transform.Find("BloodParticles").GetComponent(ParticleSystem);
-	blockParticles = transform.Find("BlockParticles").GetComponent(ParticleSystem);
+	if(wolf || ogre) blockParticles = transform.Find("BlockParticles").GetComponent(ParticleSystem);
 	
 	//Find the object for the path
 	var pathObject = FindClosestPath();
@@ -76,8 +94,10 @@ function Start () {
 	if(melee && ranged)ranged = !ranged;
 	if(!melee && !ranged)melee = !melee;
 	
-	if(ogre)ogreSetup();
-	if(wolf)wolfSetup();
+	if(scorpion)scorpionSetup();
+	else if(ogre)ogreSetup();
+	else if(rat)ratSetup();
+	else if(wolf)wolfSetup();
 	else wolfSetup();
 }
 
@@ -95,6 +115,7 @@ function FixedUpdate () {
 		return;
 	}
 	if(fireBallCooldown > 0) fireBallCooldown -= Time.deltaTime;
+	if(magicCooldown > 0) magicCooldown -= Time.deltaTime;
 	if(attack < 3 - 0.07) animator.SetBool("isAttacking", false);
 	if(block < 0){transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = false;}
 	//------------------------------------------------------------
@@ -162,7 +183,6 @@ function followPath()
 }
 
 function pushedBack(){
-	print("Blocked and push mafaka!");
 	rigidbody2D.AddForce(-transform.up * 250 );
 	mainPlayer.rigidbody2D.AddForce(-mainPlayer.transform.up * 150);
 }
@@ -185,7 +205,7 @@ function tryToBlock(){
 	var chanceOfBlocking = Random.Range(0, 5);
 	if(chanceOfBlocking < 1) {
 		transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = true;
-		blockParticles.Play();
+		//blockParticles.Play();
 		block = 1;
 	}
 }
@@ -260,6 +280,21 @@ function attackRanged(vecToPlayer : Vector3){
 	return;
 }
 
+function attackMage(vecToPlayer : Vector3){
+	if(magicCooldown > 0) return;
+	
+	if(vecToPlayer.magnitude < 2.5){
+		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
+		magicCooldown = 1;
+		animator.SetBool("isAttacking", true);
+	}
+	else{
+		print(vecToPlayer.magnitude);
+	}
+	
+	
+}
+
 function attackPlayer()
 {
 	var vecToPlayer = Vector3(0,0,0);
@@ -283,7 +318,9 @@ function attackPlayer()
 	rigidbody2D.angularVelocity = 0;	
 	
 	if(ranged)attackRanged(vecToPlayer);
-	if(melee) attackMelee(vecToPlayer);
+	else if(melee) attackMelee(vecToPlayer);
+	else if(mage) attackMage(vecToPlayer);
+	
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
