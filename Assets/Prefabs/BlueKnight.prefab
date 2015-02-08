@@ -14,7 +14,7 @@ GameObject:
   - 233: {fileID: 23300000}
   m_Layer: 0
   m_Name: BlueShield
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ GameObject:
   - 233: {fileID: 23300002}
   m_Layer: 0
   m_Name: BlueShield
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ GameObject:
   - 61: {fileID: 6100006}
   m_Layer: 0
   m_Name: BlueKnight
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   chargeCount: 0
   health: 0
   hasShield: 0
+  rangedWeapon: {fileID: 100000, guid: 3d12b632b72a54a50828e0992259715e, type: 2}
   c_chargeInterval: 2
   c_chargeSpeed: 32000
   c_stunTime: 5
