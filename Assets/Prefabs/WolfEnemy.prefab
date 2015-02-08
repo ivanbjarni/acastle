@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11436558}
   - 95: {fileID: 9536556}
   - 212: {fileID: 21236560}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WolfEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.71999979, y: 5.30000019, z: 0}
+  m_LocalPosition: {x: -3.80999994, y: 7.44999981, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 436558}
@@ -240,6 +240,9 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  otherEnemies:
+    serializedVersion: 2
+    m_Bits: 512
   isDead: 0
   deathTime: 5
   animator: {fileID: 0}

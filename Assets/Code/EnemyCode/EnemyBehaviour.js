@@ -31,6 +31,7 @@ var seePlayer;
 var isFollowingPath : boolean;
 var path : PathDefinition;
 var myLayerMask : LayerMask;
+var otherEnemies : LayerMask;
 
 // Tells you if enemy is dead
 var isDead : boolean = false;
@@ -359,6 +360,7 @@ function bleed(){
 
 function canISeePlayer()
 {
+	
 	//Get the vector to player and calculate the distance
 	//The field of vision is depending on the distance to player. When the player
 	//is very close the angle is 3x larger.
@@ -373,7 +375,7 @@ function canISeePlayer()
 	
 	//Raycasting to check if the enemy can see the player (nothing in between them).
 	//myLayerMask makes sure that enemies only raycast on the layer "walls".
-	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,5, myLayerMask);
+	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,7, myLayerMask);
 	if (hit.collider != null) {
 		// Calculate the distance from the surface and the "error" relative
 		// to the floating height.	
@@ -382,9 +384,24 @@ function canISeePlayer()
 		if(hitDist < playerDist) return false;
 	}
 	
+	if(!seePlayer){
+		
+		//Can my fellow comrades see that stinking player?
+		var hits : RaycastHit2D[];
+		hits = Physics2D.RaycastAll(transform.position, vecToPlayer, 5, otherEnemies);
+	
+		for(var i = 0; i < hits.length; i++){
+			var comrade : RaycastHit2D = hits[i];
+			//print(comrade.collider.GetComponent(EnemyBehaviour).scorpion);
+			print(comrade.collider.gameObject.tag);
+		}
+	}
 	return true;
 }
 
 
-
+function iveBeenWarned(){
+	
+	seePlayer = true;
+}
 

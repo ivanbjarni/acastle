@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11433970}
   - 95: {fileID: 9533970}
   - 212: {fileID: 21233972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -208,6 +208,7 @@ MonoBehaviour:
   speed: 120
   meleeDist: 1.5
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  spawnedRat: {fileID: 0}
   rangedTimer: 1
   block: 0
   attack: 0
@@ -220,6 +221,9 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  otherEnemies:
+    serializedVersion: 2
+    m_Bits: 512
   isDead: 0
   deathTime: 5
   animator: {fileID: 0}
