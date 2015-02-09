@@ -20,9 +20,14 @@ function OnTriggerEnter2D (other : Collider2D) {
 			wallsEntered++;
 		if(other.gameObject.tag == "Enemy" && wallsEntered==0)
 		{
-			print("wat");
 			var enemy : GameObject = other.gameObject;
 			enemy.GetComponent(EnemyBehaviour).gotHit();
+			cooldown = 2;
+		}
+		if(other.gameObject.tag == "Boss" && wallsEntered==0)
+		{
+			var boss : GameObject = other.gameObject;
+			boss.GetComponent(BossBehaviour).gotHit();
 			cooldown = 2;
 		}
 	}

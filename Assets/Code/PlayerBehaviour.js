@@ -24,10 +24,12 @@ var chargeDir : Vector3;
 
 var isAlive : boolean;
 var health : int;
+var attackCooldown : float;
 //========================================
 //	Things to do when object is created
 //========================================
 function Start () {
+	attackCooldown = 0;
 	isAlive = true;
 	health = 3;
 	animator =  GetComponent("Animator") as Animator;
@@ -171,10 +173,22 @@ function pushEnemies(){
 		var diff = (enemyPos - position);
 		var curDistance = diff.sqrMagnitude; 
 		if (curDistance < maxDist) { 
-			enemy.rigidbody2D.AddForce(diff.normalized * ( 3000 - 2000 * curDistance/maxDist ) );
+			if( !enemy.GetComponent(EnemyBehaviour).isDead )
+				enemy.rigidbody2D.AddForce(diff.normalized * ( 3000 - 2000 * curDistance/maxDist ) );
 		} 
 	}
 	knockPartSystem.Play();
+}
+
+function collisionWithRanged(object : GameObject){
+	if( !playerIsCharging ){
+		//Destroy(gameObject);
+		return true;
+		health--;
+		if(health < 1) isAlive = false;
+	}else{
+		return false;
+	}
 }
 
 function collisionWithEnemy(object : GameObject){
@@ -186,6 +200,14 @@ function collisionWithEnemy(object : GameObject){
 		if( object != null )
 			object.GetComponent(EnemyBehaviour).gotHit();
 		stopCharge();
+	}
+}
+
+function collisionWithBoss(object : GameObject){
+	if( !playerIsCharging ){
+		//Destroy(gameObject);
+		health--;
+		if(health < 1) isAlive = false;
 	}
 }
 
@@ -205,11 +227,16 @@ function FixedUpdate () {
 		rigidbody2D.AddForce(Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed);
 	}
 	
+	if(attackCooldown > 0) attackCooldown -= Time.deltaTime;
+	
 	//Tell the animator to attack by modifying the Attack parameter
-	if (Input.GetMouseButton(0)										 // By default you use shift
+	if (attackCooldown <= 0 && (Input.GetMouseButton(0)										 // By default you use shift
 		||(Input.GetKey(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
-		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox)) // Xbox uses button 4(Lb)
+		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox))){ // Xbox uses button 4(Lb)
 		animator.SetBool("Attack", true );
+		attackCooldown = 0.233;
+		
+	}
 	else
 		animator.SetBool("Attack", false );
 	
