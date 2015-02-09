@@ -23,6 +23,7 @@ var block : float;
 var attack : float;
 var fireBallCooldown : float = 0;
 var magicCooldown : float = 0;
+var delayInstantAttak : float = 0;
 
 // ---------||| Other variables |||--------
 var maxFollowDistance : double;
@@ -43,7 +44,6 @@ var animator : Animator;
 var isKneeling : boolean = false;
 
 var bloodPart : ParticleSystem;
-var blockParticles : ParticleSystem;
 //-------------------------------------------------------
 
 
@@ -84,7 +84,6 @@ function Start () {
 	block = 0;	
 	animator =  GetComponent("Animator") as Animator;
 	bloodPart = transform.Find("BloodParticles").GetComponent(ParticleSystem);
-	if(wolf || ogre) blockParticles = transform.Find("BlockParticles").GetComponent(ParticleSystem);
 	
 	//Find the object for the path
 	var pathObject = FindClosestPath();
@@ -119,6 +118,7 @@ function FixedUpdate () {
 	if(fireBallCooldown > 0) fireBallCooldown -= Time.deltaTime;
 	if(magicCooldown > 0) magicCooldown -= Time.deltaTime;
 	if(attack < 3 - 0.07) animator.SetBool("isAttacking", false);
+	if(delayInstantAttak > 0) delayInstantAttak -= Time.deltaTime;
 	if(block < 0){transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = false;}
 	//------------------------------------------------------------
 	
@@ -207,7 +207,6 @@ function tryToBlock(){
 	var chanceOfBlocking = Random.Range(0, 5);
 	if(chanceOfBlocking < 1) {
 		transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = true;
-		//blockParticles.Play();
 		block = 1;
 	}
 }
@@ -324,6 +323,9 @@ function attackPlayer()
 	//Stop the guy from spinning
 	rigidbody2D.angularVelocity = 0;	
 	
+
+	if(delayInstantAttak > 0) return;
+
 	if(ranged)attackRanged(vecToPlayer);
 	else if(melee) attackMelee(vecToPlayer);
 	else if(mage) attackMage(vecToPlayer);
@@ -384,16 +386,24 @@ function canISeePlayer()
 		if(hitDist < playerDist) return false;
 	}
 	
+	// When enemy is noticing player for the first time he looks for other enemies in 5m radius
+	// and notifies them.
 	if(!seePlayer){
-		
+		delayInstantAttak = Random.Range(0,3);
 		//Can my fellow comrades see that stinking player?
 		var hits : RaycastHit2D[];
-		hits = Physics2D.RaycastAll(transform.position, vecToPlayer, 5, otherEnemies);
+		hits = Physics2D.CircleCastAll(transform.position, 5, vecToPlayer, 5, otherEnemies);
 	
 		for(var i = 0; i < hits.length; i++){
 			var comrade : RaycastHit2D = hits[i];
 			//print(comrade.collider.GetComponent(EnemyBehaviour).scorpion);
-			print(comrade.collider.gameObject.tag);
+			comrade.collider.GetComponent(EnemyBehaviour).iveBeenWarned();			
+
+			/*if(comrade.collider.GetComponent(EnemyBehaviour).seePlayer) print("Scorpion");
+			if(comrade.collider.GetComponent(EnemyBehaviour).ogre) print("Ogre");
+			if(comrade.collider.GetComponent(EnemyBehaviour).rat) print("Rat");
+			if(comrade.collider.GetComponent(EnemyBehaviour).wolf) print("Wolf");
+			*/
 		}
 	}
 	return true;
@@ -401,7 +411,12 @@ function canISeePlayer()
 
 
 function iveBeenWarned(){
-	
+	/*if(scorpion) print("Scorpion");
+	if(ogre) print("Ogre");
+	if(rat) print("Rat");
+	if(wolf) print("Wolf");*/
 	seePlayer = true;
+	delayInstantAttak = Random.Range(0,3);
+	attackPlayer();
 }
 
