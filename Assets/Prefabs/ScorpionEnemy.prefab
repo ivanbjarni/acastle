@@ -78,7 +78,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.56797194, y: 5.01441145, z: 0}
+  m_LocalPosition: {x: -6.17542744, y: 6.50495386, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 455686}
@@ -199,7 +199,8 @@ MonoBehaviour:
   mainPlayer: {fileID: 0}
   melee: 1
   ranged: 0
-  mage: 0
+  archmage: 0
+  healer: 0
   ogre: 0
   wolf: 0
   rat: 0

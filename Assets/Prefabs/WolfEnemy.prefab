@@ -188,7 +188,8 @@ MonoBehaviour:
   mainPlayer: {fileID: 0}
   melee: 0
   ranged: 0
-  mage: 1
+  archmage: 0
+  healer: 0
   ogre: 0
   wolf: 1
   rat: 0
@@ -197,6 +198,7 @@ MonoBehaviour:
   speed: 120
   meleeDist: 1
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  armorSphere: {fileID: 146980, guid: bf720bda1e792884f97099878a44c6a3, type: 2}
   spawnedRat: {fileID: 133970, guid: 0d25a181761d6ab458304a69d2d9107f, type: 2}
   rangedTimer: 1
   block: 0

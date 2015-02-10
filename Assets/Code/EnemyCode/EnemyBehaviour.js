@@ -5,7 +5,9 @@ var mainPlayer : GameObject;
 // ---------||| Enemy Type Variables |||-----------
 var melee : boolean;
 var ranged: boolean;
-var mage : boolean;
+var archmage : boolean;
+var healer: boolean;
+
 var ogre : boolean;
 var wolf : boolean;
 var rat : boolean;
@@ -17,6 +19,7 @@ var speed : float;
 // ---------||| Combat system variables |||--------
 var meleeDist : double;
 var rangedWeapon : GameObject;
+var armorSphere : GameObject;
 var spawnedRat : GameObject;
 var rangedTimer : float = 1;
 var block : float;
@@ -67,7 +70,8 @@ function wolfSetup(){
 	speed = 60;
 	melee = false;
 	ranged = false;
-	mage = true;
+	//archmage = true;
+	healer = true;
 }
 
 function scorpionSetup(){
@@ -100,8 +104,6 @@ function Start () {
 	else if(rat)ratSetup();
 	else if(wolf)wolfSetup();
 	else wolfSetup();
-
-	armoredSphere();
 }
 
 function FixedUpdate () {
@@ -291,7 +293,7 @@ function attackRanged(vecToPlayer : Vector3){
 	return;
 }
 
-function attackMage(vecToPlayer : Vector3){
+function archMage(vecToPlayer : Vector3){
 	if(magicCooldown > 0) return;
 	
 	if(vecToPlayer.magnitude < 2.5){
@@ -306,9 +308,43 @@ function attackMage(vecToPlayer : Vector3){
 		}
 		magicCooldown = 10;
 		animator.SetBool("isAttacking", true);
+	}	
+}
+
+
+function healerMage(vecToPlayer : Vector3){
+	if(magicCooldown > 0) return;
+	
+	if(vecToPlayer.magnitude < 2.5){
+		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
+		magicCooldown = 1;
+		animator.SetBool("isAttacking", true);
 	}
+	else{
+		var hits : RaycastHit2D[];
+	  hits = Physics2D.CircleCastAll(transform.position, 10, vecToPlayer, 5, otherEnemies);
 	
-	
+		for(var i = 0; i < hits.length; i++){
+			var comrade : RaycastHit2D = hits[i];
+			//print(comrade.collider.GetComponent(EnemyBehaviour).scorpion);
+			var foundOtherEnemy = comrade.collider.gameObject != gameObject;
+			var otherEnemyNotBlocking = comrade.collider.GetComponent(EnemyBehaviour).block <= 0; 
+
+			if(foundOtherEnemy && otherEnemyNotBlocking){
+				var friendPos = comrade.collider.transform.position;
+				var AngleRad = Mathf.Atan2(friendPos.y - transform.position.y, friendPos.x - transform.position.x);
+			  var AngleDeg = (180 / Mathf.PI) * AngleRad - 90;
+			  var rot = Quaternion.Euler(0, 0, AngleDeg);
+
+				var shootingArmorSphere = Instantiate (armorSphere, transform.position, rot);
+				shootingArmorSphere.GetComponent(ArmorSphere).setup(gameObject, comrade.collider.gameObject);
+				//comrade.collider.GetComponent(EnemyBehaviour).armoredSphere();
+				magicCooldown = 10;
+				animator.SetBool("isAttacking", true);
+				return;
+			}			
+		}
+	}	
 }
 
 function attackPlayer()
@@ -344,7 +380,8 @@ function attackPlayer()
 
 	if(ranged)attackRanged(vecToPlayer);
 	else if(melee) attackMelee(vecToPlayer);
-	else if(mage) attackMage(vecToPlayer);
+	else if(archmage) archMage(vecToPlayer);
+	else if(healer) healerMage(vecToPlayer);
 	
 }
 
