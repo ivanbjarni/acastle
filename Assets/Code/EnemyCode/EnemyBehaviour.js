@@ -100,6 +100,8 @@ function Start () {
 	else if(rat)ratSetup();
 	else if(wolf)wolfSetup();
 	else wolfSetup();
+
+	armoredSphere();
 }
 
 function FixedUpdate () {
@@ -119,7 +121,8 @@ function FixedUpdate () {
 	if(magicCooldown > 0) magicCooldown -= Time.deltaTime;
 	if(attack < 3 - 0.07) animator.SetBool("isAttacking", false);
 	if(delayInstantAttak > 0) delayInstantAttak -= Time.deltaTime;
-	if(block < 0){transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = false;}
+	if(block > 0) block -= Time.deltaTime;
+	if(block <= 0){transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = false;}
 	//------------------------------------------------------------
 	
 	rigidbody2D.angularVelocity = 0;
@@ -201,6 +204,15 @@ function kneel(kneelSpeed : float ){
 	speed = kneelSpeed;
 }
 
+
+
+function armoredSphere() {
+	block = 5;
+	transform.Find("Bubble").GetComponent(SpriteRenderer).enabled = true;
+}
+
+
+//	Working on Mages giving blockbubbles.  Will delete code when finished. -VF
 // Every time the enemy is hit there is a 1/5 chance of it
 // being able to block.
 function tryToBlock(){
@@ -211,9 +223,11 @@ function tryToBlock(){
 	}
 }
 
+
 // Instant death when enemy does not see player.
 // Melee enemies try to block.
 function gotHit(){
+	if(block > 0) return;
 	if(!seePlayer){	
 		bleed();
 		isDead = true;
@@ -242,11 +256,7 @@ function attackMelee(vecToPlayer : Vector3){
 	if(vecToPlayer.magnitude > meleeDist){
 		rigidbody2D.AddForce(direction*speed);	
 	}
-	if(block > 0){
-	 	block -= Time.deltaTime;
-		return;
-	}
-	else if(attack > 0){
+	if(attack > 0){
 		attack -= Time.deltaTime;
 		return;
 	}
@@ -316,9 +326,15 @@ function attackPlayer()
 	//Calculate the rotation in radians using trigometry
 	var AngleRad = Mathf.Atan2(playerPos.y - transform.position.y, playerPos.x - transform.position.x);
 	//convert it to degrees, we subtract 180 because of it's original rotation
-    var AngleDeg = (180 / Mathf.PI) * AngleRad - 90;
-    //set the rotation
-    transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+  var AngleDeg = (180 / Mathf.PI) * AngleRad - 90;
+  //set the rotation
+  transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+
+/*
+  var lookPos = vecToPlayer;
+  var angle : float = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
+  var qTo : Quaternion = Quaternion.AngleAxis(-angle, Vector3.forward);
+  transform.rotation = Quaternion.RotateTowards(transform.rotation, qTo, 200 * Time.deltaTime);*/
 	
 	//Stop the guy from spinning
 	rigidbody2D.angularVelocity = 0;	
