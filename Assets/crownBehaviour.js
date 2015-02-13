@@ -43,7 +43,7 @@ function OnTriggerEnter2D (other : Collider2D) {
 			}else{
 				return;
 			}
-		}else if(other.gameObject.tag == "ObsDecor" || other.gameObject.tag == "Weapon" || other.gameObject.tag == "Crown"){
+		}else if(other.gameObject.tag == "ObsDecor" || other.gameObject.tag == "Weapon" || other.gameObject.tag == "Crown" || other.gameObject.tag == "Fireball"){
 			return;
 		}else{
 			stop();
