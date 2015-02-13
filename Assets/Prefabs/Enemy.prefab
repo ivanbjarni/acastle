@@ -89,8 +89,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.47279525, y: 6.07409954, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
+  m_LocalPosition: {x: 3.40106392, y: -43.3853683, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -198,6 +198,7 @@ MonoBehaviour:
   speed: 120
   meleeDist: 1.5
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  armorSphere: {fileID: 0}
   spawnedRat: {fileID: 0}
   rangedTimer: 1
   block: 0
@@ -207,7 +208,7 @@ MonoBehaviour:
   delayInstantAttak: 0
   maxFollowDistance: 6
   destroyable: 1
-  isFollowingPath: 0
+  isFollowingPath: 1
   path: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
