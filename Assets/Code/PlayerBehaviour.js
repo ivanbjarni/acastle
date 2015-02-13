@@ -22,6 +22,10 @@ var chargeTimer : float;
 var chargeSpeed : float;
 var chargeDir : Vector3;
 
+// For crown powerup yee
+var crownIsOn : boolean;
+var crownR : GameObject;
+
 var isAlive : boolean;
 var health : int;
 //========================================
@@ -29,6 +33,7 @@ var health : int;
 //========================================
 function Start () {
 	isAlive = true;
+	crownIsOn = true;
 	health = 3;
 	animator =  GetComponent("Animator") as Animator;
 	fetchFromMaster();
@@ -116,9 +121,25 @@ function checkForPowers(){
 		chargeTimer = Time.time;
 		partSystem.Play();
 	}
-	if ( Input.GetKey('e') ){
+	if ( Input.GetKey('r') ){
 		kneelBeforeTheKing();
 	}
+	if ( Input.GetKey('e') && crownIsOn ){
+		crownAttack();
+	}
+}
+
+function crownAttack(){
+	transform.Find("Crown").GetComponent(SpriteRenderer).enabled = false;
+	var crown = Instantiate (crownR, transform.position, transform.rotation);
+	crownIsOn = false;
+}
+
+function addCrown(){
+	if( crownIsOn )
+		return;
+	crownIsOn = true;
+	transform.Find("Crown").GetComponent(SpriteRenderer).enabled = true;
 }
 
 function kneelBeforeTheKing(){
