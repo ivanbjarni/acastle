@@ -246,7 +246,7 @@ function gotHit(){
 	}
 	health--;
 	bleed();
-	if(health < 1)
+	if(health <= 0)
 	{
 		isDead = true;
 		disapleColliders();

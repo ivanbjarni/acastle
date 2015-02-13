@@ -36,7 +36,7 @@ function Start () {
 	attackCooldown = 0;
 	isAlive = true;
 	crownIsOn = true;
-	health = 3;
+	health = 5000;
 	animator =  GetComponent("Animator") as Animator;
 	fetchFromMaster();
 	initializeParticleSystems();
