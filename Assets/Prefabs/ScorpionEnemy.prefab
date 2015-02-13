@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11455684}
   - 95: {fileID: 9555684}
   - 212: {fileID: 21255686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ScorpionEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.68609571, y: 8.11887836, z: 0}
+  m_LocalPosition: {x: -6.17542744, y: 6.50495386, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 455686}
@@ -199,17 +199,23 @@ MonoBehaviour:
   mainPlayer: {fileID: 0}
   melee: 1
   ranged: 0
+  archmage: 0
+  healer: 0
   ogre: 0
   wolf: 0
+  rat: 0
   scorpion: 1
   health: 0
   speed: 120
   meleeDist: 1
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  spawnedRat: {fileID: 0}
   rangedTimer: 1
   block: 0
   attack: 0
   fireBallCooldown: 0
+  magicCooldown: 0
+  delayInstantAttak: 0
   maxFollowDistance: 6
   destroyable: 1
   isFollowingPath: 0
@@ -217,12 +223,14 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  otherEnemies:
+    serializedVersion: 2
+    m_Bits: 512
   isDead: 0
   deathTime: 5
   animator: {fileID: 0}
   isKneeling: 0
   bloodPart: {fileID: 0}
-  blockParticles: {fileID: 0}
 --- !u!198 &19855684
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1371,7 +1379,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 7cd55889adfb34efeb32a5ad133bdf8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7cd55889adfb34efeb32a5ad133bdf8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
