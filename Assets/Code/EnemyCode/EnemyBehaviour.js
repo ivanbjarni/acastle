@@ -285,17 +285,24 @@ function attackMelee(vecToPlayer : Vector3){
 }
 
 function attackRanged(vecToPlayer : Vector3){
-	if(fireBallCooldown <= 0){
+	if(fireBallCooldown > 0){
+		var distance = vecToPlayer.magnitude;
+		var direction = vecToPlayer.normalized;
+		if(distance < 4)
+		{
+			rigidbody2D.AddForce(-direction*(0.25*speed));
+			return;
+		}
+		else if(distance > 6){
+			rigidbody2D.AddForce(direction*(0.25*speed));
+		}
+		else return;
+	} 
+	else{
 		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
 		fireBallCooldown = 2;
 		animator.SetBool("isAttacking", true);
 	}
-	else{
-	var shouldMove = Random.Range(0, 3);
-	if(shouldMove == 0) rigidbody2D.AddForce(transform.up*speed);
-	if(shouldMove == 1) rigidbody2D.AddForce(-transform.up*speed);	
-	}
-	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
 	return;
 }
 
