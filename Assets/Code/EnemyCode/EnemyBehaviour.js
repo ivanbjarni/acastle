@@ -229,19 +229,15 @@ function tryToBlock(){
 // Instant death when enemy does not see player.
 // Melee enemies try to block.
 function gotHit(){
-	if(block > 0) return;
+	if(block > 0){
+		pushedBack();
+		return;
+	}
 	if(!seePlayer){	
 		bleed();
 		isDead = true;
 		disapleColliders();
 		return;
-	}
-	if(melee){
-		tryToBlock();
-		if(block > 0){
-			pushedBack(); 
-			return;
-		}
 	}
 	health--;
 	bleed();
