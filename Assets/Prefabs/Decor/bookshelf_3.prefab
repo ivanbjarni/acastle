@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 416780}
   - 212: {fileID: 21216780}
+  - 61: {fileID: 6134112}
   m_Layer: 0
   m_Name: bookshelf_3
   m_TagString: Obstacle
@@ -22,12 +23,23 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116780}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.66940403, y: 60.8086281, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
+  m_LocalPosition: {x: 2.83076382, y: -4.46189117, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6134112
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116780}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 3.22916675, y: 1.29166663}
+  m_Center: {x: 9.53674316e-07, y: 0}
 --- !u!212 &21216780
 SpriteRenderer:
   m_ObjectHideFlags: 1
