@@ -126,7 +126,7 @@ function checkForPowers(){
 	if ( Input.GetKey('r') ){
 		kneelBeforeTheKing();
 	}
-	if ( Input.GetKey('e') && crownIsOn ){
+	if ( (Input.GetKey('e')||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.ps3)||(Input.GetKey(KeyCode.JoystickButton7) && joystick==JoyType.xbox)) && crownIsOn ){
 		crownAttack();
 	}
 }
