@@ -31,7 +31,7 @@ GameObject:
   - 114: {fileID: 11417570}
   - 95: {fileID: 9545984}
   - 212: {fileID: 21245984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.10250187, y: 4.92485809, z: 0}
+  m_LocalPosition: {x: -3.47279525, y: 6.07409954, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -186,25 +186,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
-  speed: 120
   melee: 0
-  ranged: 0
+  ranged: 1
+  archmage: 0
+  healer: 0
   ogre: 1
   wolf: 0
+  rat: 0
+  scorpion: 0
+  health: 1
+  speed: 120
   meleeDist: 1.5
   rangedWeapon: {fileID: 146980, guid: a85ff7a154278094282a36cba4d54547, type: 2}
+  spawnedRat: {fileID: 0}
   rangedTimer: 1
   block: 0
   attack: 0
   fireBallCooldown: 0
+  magicCooldown: 0
+  delayInstantAttak: 0
   maxFollowDistance: 6
   destroyable: 1
-  health: 1
   isFollowingPath: 0
   path: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  otherEnemies:
+    serializedVersion: 2
+    m_Bits: 512
   isDead: 0
   deathTime: 5
   animator: {fileID: 0}
@@ -1347,7 +1357,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 7cd55889adfb34efeb32a5ad133bdf8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7cd55889adfb34efeb32a5ad133bdf8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21245984
 SpriteRenderer:

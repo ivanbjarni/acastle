@@ -8,6 +8,7 @@ var stunned : double;
 var chargeCount : int;
 var health : int;
 var hasShield : boolean;
+var rangedWeapon : GameObject;
 
 //constants to fine tune behaviour
 var c_chargeInterval : double;
@@ -47,6 +48,8 @@ function FixedUpdate () {
 	
 	if(chargeTimer<0 && stunned <0)
 	{
+		createTriangle();
+		createTriangle();
 		setShield(true);
 		chargeCount++;
 		chargeTimer = c_chargeInterval;
@@ -60,6 +63,34 @@ function setShield(toggle : boolean)
 {
 	hasShield = toggle;
 	transform.Find("BlueKnightShield").GetComponent(SpriteRenderer).enabled = toggle;
+}
+
+
+function createTriangle()
+{
+	var triangle = Instantiate (rangedWeapon, transform.position, transform.rotation);
+	
+	var coll1 : CircleCollider2D[];
+	coll1 = triangle.GetComponents.<CircleCollider2D>();
+	
+	var coll2 : BoxCollider2D[];
+	coll2 = gameObject.GetComponents.<BoxCollider2D>();
+	
+	var coll3 : BoxCollider2D[];
+	coll3 = gameObject.GetComponentsInChildren.<BoxCollider2D>();
+		
+	for (var c1 : CircleCollider2D in coll1) 
+	{
+		for (var c2 : BoxCollider2D in coll2)
+			Physics2D.IgnoreCollision(c1, c2, true);
+	}
+	
+	for (var c1 : CircleCollider2D in coll1) 
+	{
+		for (var c3 : BoxCollider2D in coll3)
+			Physics2D.IgnoreCollision(c1, c3, true);
+	}	
+	
 }
 
 //===============================
