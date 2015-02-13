@@ -39,7 +39,7 @@ function OnTriggerEnter2D (other : Collider2D) {
 			if( isActive ){
 				stop();
 				var enemy : EnemyBehaviour = other.gameObject.GetComponent(EnemyBehaviour);
-				enemy.gotHit();
+				enemy.kill();
 			}else{
 				return;
 			}
