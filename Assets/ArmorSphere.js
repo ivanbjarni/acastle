@@ -42,11 +42,6 @@ function FixedUpdate () {
 function OnTriggerEnter2D (other : Collider2D) {
 		if(other.gameObject.tag == "Player"){
 			return;
-			/*var player : PlayerBehaviour = other.gameObject.GetComponent(PlayerBehaviour);
-			if( player.collisionWithRanged(gameObject) ){
-				isExploding = true;
-				boom();
-			}*/
 		}
 		else if(other.gameObject.tag == "Enemy"){
 			if(other.gameObject == parentEnemy) return;
