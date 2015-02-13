@@ -26,26 +26,27 @@ function FixedUpdate () {
 		transform.position = Vector3(0,-2-selected,0);
 		
 	}
-	
-	if(masterBehav != null)
-	{
-		//temporary control change
-		if(Input.GetKeyDown(KeyCode.Alpha1))
-			masterBehav.isUsingJoystick = false;
-			
-		if(Input.GetKeyDown(KeyCode.Alpha2))
-		{masterBehav.isUsingJoystick = true;
-		 masterBehav.JoyType = "ps3";}
-		 
-		 if(Input.GetKeyDown(KeyCode.Alpha3))
-		{masterBehav.isUsingJoystick = true;
-		 masterBehav.JoyType = "xbox";}
-	}
-		
 
 		
 	if(Input.GetKeyDown(KeyCode.Return) && selected==0)
-		Application.LoadLevel(2);
+	{
+		if(masterBehav != null)
+		{masterBehav.isUsingJoystick = false;
+		 masterBehav.JoyType = "ps3";}
+		Application.LoadLevel(0);
+	}
 	if(Input.GetKeyDown(KeyCode.Return) && selected==1)
-		Application.LoadLevel(1);		
+	{
+		if(masterBehav != null)
+		{masterBehav.isUsingJoystick = true;
+		 masterBehav.JoyType = "ps3";}
+		Application.LoadLevel(0);
+	}
+	if(Input.GetKeyDown(KeyCode.Return) && selected==2)
+	{
+		if(masterBehav != null)
+		{masterBehav.isUsingJoystick = true;
+		 masterBehav.JoyType = "xbox";}
+		Application.LoadLevel(0);
+	}		
 }
