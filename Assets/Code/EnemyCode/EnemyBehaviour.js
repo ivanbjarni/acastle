@@ -253,6 +253,12 @@ function gotHit(){
 	}
 }
 
+function kill(){
+	bleed();
+	isDead = true;
+	disapleColliders();
+}
+
 function attackMelee(vecToPlayer : Vector3){
 	var direction = vecToPlayer.normalized;
 	if(vecToPlayer.magnitude > meleeDist){
