@@ -208,9 +208,10 @@ function pushEnemies(){
 function collisionWithRanged(object : GameObject){
 	if( !playerIsCharging ){
 		//Destroy(gameObject);
-		return true;
+		
 		health--;
 		if(health < 1) isAlive = false;
+		return true;
 	}else{
 		return false;
 	}
@@ -223,7 +224,7 @@ function collisionWithEnemy(object : GameObject){
 		if(health < 1) isAlive = false;
 	}else if( playerIsCharging ){
 		if( object != null )
-			object.GetComponent(EnemyBehaviour).gotHit();
+			object.GetComponent(EnemyBehaviour).kill();
 		stopCharge();
 	}
 }
