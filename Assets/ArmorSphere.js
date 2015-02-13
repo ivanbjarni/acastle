@@ -20,7 +20,7 @@ function Start () {
 	//explodingTime = 0.5;
 }
 
-function setup(parent, target){
+function setup(parent : GameObject, target : GameObject){
 	parentEnemy = parent;
 	targetedEnemy = target;
 }
@@ -30,7 +30,7 @@ function FixedUpdate () {
 	try{
 		vecToTarget =  targetedEnemy.transform.position - transform.position;
 	}
-	catch (MissingReferenceException){
+	catch (error){
 		vecToTarget = transform.up;
 		lifeTime -= Time.deltaTime;
 	}

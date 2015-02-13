@@ -2,7 +2,6 @@
 
 var wallsEntered = 0;
 var enemyScript : EnemyBehaviour;
-var cooldown = 1.0;
 
 function Start () {
 
@@ -14,9 +13,6 @@ function Update () {
 }
 
 function OnTriggerEnter2D (other : Collider2D) {
-	if(cooldown <= 0)
-	{	//print("WallsEntered: ", wallsEntered);
-		cooldown = 0.5;
 		if(other.gameObject.tag == "Obstacle"){
 			wallsEntered++;
 		}
@@ -33,7 +29,6 @@ function OnTriggerEnter2D (other : Collider2D) {
 			boss.GetComponent(BossBehaviour).gotHit();
 			
 		}
-	}
 }
 
 function OnTriggerExit2D (other : Collider2D) {
