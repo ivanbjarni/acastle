@@ -208,9 +208,9 @@ function pushEnemies(){
 function collisionWithRanged(object : GameObject){
 	if( !playerIsCharging ){
 		//Destroy(gameObject);
-		return true;
 		health--;
 		if(health < 1) isAlive = false;
+		return true;
 	}else{
 		return false;
 	}
