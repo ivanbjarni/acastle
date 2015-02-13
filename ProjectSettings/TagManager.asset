@@ -10,6 +10,7 @@ TagManager:
   - Fireball
   - Boss
   - Weapon
+  - GuiBar
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
