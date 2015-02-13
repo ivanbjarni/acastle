@@ -206,7 +206,7 @@ MonoBehaviour:
   fireBallCooldown: 0
   magicCooldown: 0
   delayInstantAttak: 0
-  maxFollowDistance: 6
+  maxFollowDistance: 0
   destroyable: 1
   isFollowingPath: 0
   path: {fileID: 0}

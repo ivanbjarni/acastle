@@ -87,6 +87,7 @@ function Start () {
 	mainPlayer = GameObject.Find("Player");
 	
 	//Giving variables their value
+	maxFollowDistance = 8;
 	seePlayer = false;
 	attack = 0;
 	block = 0;	
@@ -245,7 +246,7 @@ function gotHit(){
 	}
 	health--;
 	bleed();
-	if(health < 1)
+	if(health <= 0)
 	{
 		isDead = true;
 		disapleColliders();
@@ -285,17 +286,24 @@ function attackMelee(vecToPlayer : Vector3){
 }
 
 function attackRanged(vecToPlayer : Vector3){
-	if(fireBallCooldown <= 0){
+	if(fireBallCooldown > 0){
+		var distance = vecToPlayer.magnitude;
+		var direction = vecToPlayer.normalized;
+		if(distance < 4)
+		{
+			rigidbody2D.AddForce(-direction*(0.25*speed));
+			return;
+		}
+		else if(distance > 6){
+			rigidbody2D.AddForce(direction*(0.25*speed));
+		}
+		else return;
+	} 
+	else{
 		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
 		fireBallCooldown = 2;
 		animator.SetBool("isAttacking", true);
 	}
-	else{
-	var shouldMove = Random.Range(0, 3);
-	if(shouldMove == 0) rigidbody2D.AddForce(transform.up*speed);
-	if(shouldMove == 1) rigidbody2D.AddForce(-transform.up*speed);	
-	}
-	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
 	return;
 }
 
@@ -444,7 +452,7 @@ function canISeePlayer()
 	
 	//Raycasting to check if the enemy can see the player (nothing in between them).
 	//myLayerMask makes sure that enemies only raycast on the layer "walls".
-	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,7, myLayerMask);
+	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer, 10, myLayerMask);
 	if (hit.collider != null) {
 		// Calculate the distance from the surface and the "error" relative
 		// to the floating height.	
@@ -456,7 +464,7 @@ function canISeePlayer()
 	// When enemy is noticing player for the first time he looks for other enemies in 5m radius
 	// and notifies them.
 	if(!seePlayer){
-		delayInstantAttak = Random.Range(0,3);
+		delayInstantAttak = Random.Range(0,1.5);
 		//Can my fellow comrades see that stinking player?
 		var hits : RaycastHit2D[];
 		hits = Physics2D.CircleCastAll(transform.position, 5, vecToPlayer, 5, otherEnemies);
