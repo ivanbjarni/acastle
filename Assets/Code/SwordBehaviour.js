@@ -9,31 +9,35 @@ function Start () {
 }
 
 function Update () {
-	if(cooldown > 0) cooldown -= 0.1;
+	if(cooldown > 0) cooldown -= Time.deltaTime;
 	
 }
 
 function OnTriggerEnter2D (other : Collider2D) {
-	if(cooldown < 0)
-	{
-		if(other.gameObject.tag == "Obstacle")
+	if(cooldown <= 0)
+	{	//print("WallsEntered: ", wallsEntered);
+		cooldown = 0.5;
+		if(other.gameObject.tag == "Obstacle"){
 			wallsEntered++;
-		if(other.gameObject.tag == "Enemy" && wallsEntered==0)
+		}
+		if(other.gameObject.tag == "Enemy" && wallsEntered<=0)
 		{
 			var enemy : GameObject = other.gameObject;
 			enemy.GetComponent(EnemyBehaviour).gotHit();
-			cooldown = 2;
+			
+			
 		}
-		if(other.gameObject.tag == "Boss" && wallsEntered==0)
+		if(other.gameObject.tag == "Boss" && wallsEntered<=0)
 		{
 			var boss : GameObject = other.gameObject;
 			boss.GetComponent(BossBehaviour).gotHit();
-			cooldown = 2;
+			
 		}
 	}
 }
 
 function OnTriggerExit2D (other : Collider2D) {
-		if(other.gameObject.tag == "Obstacle")
+		if(other.gameObject.tag == "Obstacle"){
 			wallsEntered--;
+		}
 	}
