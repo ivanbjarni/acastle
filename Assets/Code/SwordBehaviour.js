@@ -9,7 +9,7 @@ function Start () {
 }
 
 function Update () {
-	cooldown -= 0.1;
+	if(cooldown > 0) cooldown -= 0.1;
 	
 }
 
