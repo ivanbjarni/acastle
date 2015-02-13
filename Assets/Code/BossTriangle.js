@@ -19,16 +19,8 @@ function OnTriggerEnter2D (other : Collider2D) {
 			var player : PlayerBehaviour = mainPlayer.GetComponent(PlayerBehaviour);
 			player.collisionWithEnemy(gameObject);
 		}
-		if(other.gameObject.tag == "Boss"){
-			setCollider(false);
-		}
 }
 
-function OnTriggerExit2D (other : Collider2D) {
-		if(other.gameObject.tag == "Boss"){
-			setCollider(true);
-		}
-}
 
 function setCollider(toggle : boolean)
 {
