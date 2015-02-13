@@ -39,7 +39,9 @@ var otherEnemies : LayerMask;
 
 // Tells you if enemy is dead
 var isDead : boolean = false;
-var deathTime : float = 2;
+var deathTime : float;
+
+
 
 var animator : Animator;
 
@@ -57,12 +59,14 @@ var bloodPart : ParticleSystem;
 function ogreSetup(){
 	health = 2.0;
 	speed = 120;
+	deathTime = 2.0;
 }
 
 function ratSetup(){
 	health = 1.0;
 	speed = 150;
 	meleeDist = 0.2;
+	deathTime = 0.8;
 }
 
 function wolfSetup(){
@@ -70,19 +74,20 @@ function wolfSetup(){
 	speed = 60;
 	melee = false;
 	ranged = false;
-	//archmage = true;
-	healer = true;
+	deathTime = 1.05;
 }
 
 function scorpionSetup(){
 	health = 1.0;
 	speed = 70;
+	deathTime = 0.5;
 }
 
 function Start () {
 	mainPlayer = GameObject.Find("Player");
 	
 	//Giving variables their value
+	maxFollowDistance = 8;
 	seePlayer = false;
 	attack = 0;
 	block = 0;	
@@ -241,7 +246,7 @@ function gotHit(){
 	}
 	health--;
 	bleed();
-	if(health < 1)
+	if(health <= 0)
 	{
 		isDead = true;
 		disapleColliders();
@@ -281,17 +286,24 @@ function attackMelee(vecToPlayer : Vector3){
 }
 
 function attackRanged(vecToPlayer : Vector3){
-	if(fireBallCooldown <= 0){
+	if(fireBallCooldown > 0){
+		var distance = vecToPlayer.magnitude;
+		var direction = vecToPlayer.normalized;
+		if(distance < 4)
+		{
+			rigidbody2D.AddForce(-direction*(0.25*speed));
+			return;
+		}
+		else if(distance > 6){
+			rigidbody2D.AddForce(direction*(0.25*speed));
+		}
+		else return;
+	} 
+	else{
 		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
 		fireBallCooldown = 2;
 		animator.SetBool("isAttacking", true);
 	}
-	else{
-	var shouldMove = Random.Range(0, 3);
-	if(shouldMove == 0) rigidbody2D.AddForce(transform.up*speed);
-	if(shouldMove == 1) rigidbody2D.AddForce(-transform.up*speed);	
-	}
-	//var FireballShot = Instantiate(Fireball, transform.position, transform.rotation);
 	return;
 }
 
@@ -315,7 +327,15 @@ function archMage(vecToPlayer : Vector3){
 
 
 function healerMage(vecToPlayer : Vector3){
-	if(magicCooldown > 0) return;
+	if(magicCooldown > 0){
+		if(vecToPlayer.magnitude < 4)
+		{
+			var direction = vecToPlayer.normalized;
+			rigidbody2D.AddForce(-direction*(0.5*speed));
+			return;
+		}
+		else return;
+	} 
 	
 	if(vecToPlayer.magnitude < 2.5){
 		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
@@ -359,8 +379,9 @@ function attackPlayer()
 		return;
 			
 	var direction = vecToPlayer.normalized;
+	var playerPos = Vector3(0,0,0);
 	//Get player position
-	var playerPos = mainPlayer.transform.position;
+	if(mainPlayer!=null) playerPos = mainPlayer.transform.position;
 	//Calculate the rotation in radians using trigometry
 	var AngleRad = Mathf.Atan2(playerPos.y - transform.position.y, playerPos.x - transform.position.x);
 	//convert it to degrees, we subtract 180 because of it's original rotation
@@ -427,12 +448,12 @@ function canISeePlayer()
 	var distanceToPlayer = vecToPlayer.magnitude;
 
 	var angleToPlayer : float = Vector3.Angle(vecToPlayer, transform.up);
-	if(distanceToPlayer > 3.0 && angleToPlayer > 50.0) return false;
-	if(distanceToPlayer < 3.0 && angleToPlayer > 150.0) return false;
+	if(distanceToPlayer > 6.0 && angleToPlayer > 50.0) return false;
+	if(distanceToPlayer <= 6.0 && angleToPlayer > 150.0) return false;
 	
 	//Raycasting to check if the enemy can see the player (nothing in between them).
 	//myLayerMask makes sure that enemies only raycast on the layer "walls".
-	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,7, myLayerMask);
+	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer, 10, myLayerMask);
 	if (hit.collider != null) {
 		// Calculate the distance from the surface and the "error" relative
 		// to the floating height.	
@@ -444,7 +465,7 @@ function canISeePlayer()
 	// When enemy is noticing player for the first time he looks for other enemies in 5m radius
 	// and notifies them.
 	if(!seePlayer){
-		delayInstantAttak = Random.Range(0,3);
+		delayInstantAttak = Random.Range(0,1.5);
 		//Can my fellow comrades see that stinking player?
 		var hits : RaycastHit2D[];
 		hits = Physics2D.CircleCastAll(transform.position, 5, vecToPlayer, 5, otherEnemies);

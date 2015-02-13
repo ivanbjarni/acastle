@@ -222,7 +222,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: f54f5f1d02736fd4bbc9e2e10b3c703a, type: 2}
+  - {fileID: 7400000, guid: c629faca03ec156449137a0e0d5cc8fc, type: 2}
   m_ParentStateMachine: {fileID: 110766548}
   m_Position: {x: 120, y: 24, z: 0}
   m_IKOnFeet: 0
@@ -237,9 +237,39 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 834ca76d59c82cd4880a0fb8e91b6e10, type: 2}
+  - {fileID: 7400000, guid: ee31ef6e912a9484fa9ec8c29fd07860, type: 2}
   m_ParentStateMachine: {fileID: 110766548}
   m_Position: {x: 120, y: 240, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110260428
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: WolfIdle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 5b0f8932eb7701b498c2be8e0dd6a23f, type: 2}
+  m_ParentStateMachine: {fileID: 110766548}
+  m_Position: {x: 155, y: 89, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110265088
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: WolfMovement
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 1c573022471630e46a7ca039d2cbb177, type: 2}
+  m_ParentStateMachine: {fileID: 110766548}
+  m_Position: {x: 260, y: 284, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -252,9 +282,39 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 48fdd45aea785374ca59516eda164263, type: 2}
+  - {fileID: 7400000, guid: 1c573022471630e46a7ca039d2cbb177, type: 2}
   m_ParentStateMachine: {fileID: 110766548}
   m_Position: {x: 264, y: 120, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110274890
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: WolfAttack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: c629faca03ec156449137a0e0d5cc8fc, type: 2}
+  m_ParentStateMachine: {fileID: 110766548}
+  m_Position: {x: 190, y: 154, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110291618
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: WolfDeath
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: ee31ef6e912a9484fa9ec8c29fd07860, type: 2}
+  m_ParentStateMachine: {fileID: 110766548}
+  m_Position: {x: 225, y: 219, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
