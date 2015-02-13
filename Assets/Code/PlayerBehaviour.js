@@ -177,7 +177,7 @@ function stopCharge(){
 	playerIsCharging = false;
 	partSystem.Stop();
 	speed = 0;
-	pushEnemies();
+	//pushEnemies();
 }
 
 function pushEnemies(){
