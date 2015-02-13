@@ -208,9 +208,9 @@ function pushEnemies(){
 function collisionWithRanged(object : GameObject){
 	if( !playerIsCharging ){
 		//Destroy(gameObject);
-		return true;
 		health--;
 		if(health < 1) isAlive = false;
+		return true;
 	}else{
 		return false;
 	}
@@ -223,7 +223,7 @@ function collisionWithEnemy(object : GameObject){
 		if(health < 1) isAlive = false;
 	}else if( playerIsCharging ){
 		if( object != null )
-			object.GetComponent(EnemyBehaviour).gotHit();
+			object.GetComponent(EnemyBehaviour).kill();
 		stopCharge();
 	}
 }
@@ -255,9 +255,9 @@ function FixedUpdate () {
 	//if(attackCooldown > 0) attackCooldown -= Time.deltaTime;
 	
 	//Tell the animator to attack by modifying the Attack parameter
-	if (Input.GetMouseButtonDown(0)										 // By default you use shift
-		||(Input.GetKeyDown(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
-		||(Input.GetKeyDown(KeyCode.JoystickButton5) && joystick==JoyType.xbox)){ // Xbox uses button 4(Lb)
+	if (Input.GetMouseButton(0)										 // By default you use shift
+		||(Input.GetKey(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
+		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox)){ // Xbox uses button 4(Lb)
 		animator.SetBool("Attack", true );
 		//attackCooldown = 0.233;
 		
