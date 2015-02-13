@@ -1,11 +1,11 @@
 ﻿#pragma strict
 
-var timer : float = 10;
+
 var pos : Vector3;
 
 var coolDowns : SpriteRenderer[];
 var timers : float[];
-var maxTime : float = 10;
+var maxTime : float = 1;
 
 function Awake () {
 	initializeCooldowns();
