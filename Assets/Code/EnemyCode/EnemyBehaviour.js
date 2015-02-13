@@ -87,6 +87,7 @@ function Start () {
 	mainPlayer = GameObject.Find("Player");
 	
 	//Giving variables their value
+	maxFollowDistance = 8;
 	seePlayer = false;
 	attack = 0;
 	block = 0;	
@@ -451,7 +452,7 @@ function canISeePlayer()
 	
 	//Raycasting to check if the enemy can see the player (nothing in between them).
 	//myLayerMask makes sure that enemies only raycast on the layer "walls".
-	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer,7, myLayerMask);
+	var hit: RaycastHit2D = Physics2D.Raycast(transform.position, vecToPlayer, 10, myLayerMask);
 	if (hit.collider != null) {
 		// Calculate the distance from the surface and the "error" relative
 		// to the floating height.	
@@ -463,7 +464,7 @@ function canISeePlayer()
 	// When enemy is noticing player for the first time he looks for other enemies in 5m radius
 	// and notifies them.
 	if(!seePlayer){
-		delayInstantAttak = Random.Range(0,3);
+		delayInstantAttak = Random.Range(0,1.5);
 		//Can my fellow comrades see that stinking player?
 		var hits : RaycastHit2D[];
 		hits = Physics2D.CircleCastAll(transform.position, 5, vecToPlayer, 5, otherEnemies);
