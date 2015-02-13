@@ -115,15 +115,19 @@ function setRotation()
 }
 
 function checkForPowers(){
-	if (Input.GetKey('q') && !playerIsCharging){
+	var coolD : GameObject = GameObject.FindGameObjectWithTag("GuiBar");
+	var guiBarBehaviour : GuiBarBehaviour = coolD.GetComponent(GuiBarBehaviour);
+	if (Input.GetKey('q') && !playerIsCharging && !guiBarBehaviour.coolDowns[5].enabled){
 		playerIsCharging = true;
 		chargeDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		chargeDir.z = 0;
 		chargeDir = chargeDir.normalized;
 		chargeTimer = Time.time;
+		guiBarBehaviour.startTimer(5);
 		partSystem.Play();
 	}
-	if ( Input.GetKey('r') ){
+	if ( Input.GetKey('r') && !guiBarBehaviour.coolDowns[7].enabled ){
+		guiBarBehaviour.startTimer(7);
 		kneelBeforeTheKing();
 	}
 	if ( Input.GetKey('e') && crownIsOn ){
