@@ -1,12 +1,22 @@
 ﻿#pragma strict
 
+var timer : float = 10;
+var pos : Vector3;
+
 function Awake () {
 
 }
 
+function fixedUpdate(){
+	updateTimers();
+}
+
 function LateUpdate () {
-	var pos = Camera.main.ViewportToWorldPoint(Vector3(0.5,0,0));
+	pos = Camera.main.ViewportToWorldPoint(Vector3(0.5,0,0));
 	transform.position = pos;
 	transform.position.z=0;
+}
 
+function updateTimers(){
+	timer -= Time.deltaTime;
 }

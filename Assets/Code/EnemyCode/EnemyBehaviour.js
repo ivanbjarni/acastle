@@ -39,7 +39,9 @@ var otherEnemies : LayerMask;
 
 // Tells you if enemy is dead
 var isDead : boolean = false;
-var deathTime : float = 2;
+var deathTime : float;
+
+
 
 var animator : Animator;
 
@@ -57,12 +59,14 @@ var bloodPart : ParticleSystem;
 function ogreSetup(){
 	health = 2.0;
 	speed = 120;
+	deathTime = 2.0;
 }
 
 function ratSetup(){
 	health = 1.0;
 	speed = 150;
 	meleeDist = 0.2;
+	deathTime = 0.8;
 }
 
 function wolfSetup(){
@@ -70,13 +74,13 @@ function wolfSetup(){
 	speed = 60;
 	melee = false;
 	ranged = false;
-	//archmage = true;
-	healer = true;
+	deathTime = 1.05;
 }
 
 function scorpionSetup(){
 	health = 1.0;
 	speed = 70;
+	deathTime = 0.5;
 }
 
 function Start () {
@@ -249,6 +253,12 @@ function gotHit(){
 	}
 }
 
+function kill(){
+	bleed();
+	isDead = true;
+	disapleColliders();
+}
+
 function attackMelee(vecToPlayer : Vector3){
 	var direction = vecToPlayer.normalized;
 	if(vecToPlayer.magnitude > meleeDist){
@@ -309,7 +319,15 @@ function archMage(vecToPlayer : Vector3){
 
 
 function healerMage(vecToPlayer : Vector3){
-	if(magicCooldown > 0) return;
+	if(magicCooldown > 0){
+		if(vecToPlayer.magnitude < 4)
+		{
+			var direction = vecToPlayer.normalized;
+			rigidbody2D.AddForce(-direction*(0.5*speed));
+			return;
+		}
+		else return;
+	} 
 	
 	if(vecToPlayer.magnitude < 2.5){
 		var fireball = Instantiate (rangedWeapon, transform.position, transform.rotation);
