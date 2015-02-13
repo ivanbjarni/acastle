@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Level/Worklevels/Ivan.unity
   - enabled: 0
-    path: Assets/mainMenu.unity
+    path: Assets/Level/mainMenu.unity
   - enabled: 0
     path: Assets/Level/Gamelevels/level1.unity
   - enabled: 0
