@@ -28,12 +28,12 @@ var crownR : GameObject;
 
 var isAlive : boolean;
 var health : int;
-var attackCooldown : float;
+//var attackCooldown : float;
 //========================================
 //	Things to do when object is created
 //========================================
 function Start () {
-	attackCooldown = 0;
+	//attackCooldown = 0;
 	isAlive = true;
 	crownIsOn = true;
 	health = 5000;
@@ -115,15 +115,19 @@ function setRotation()
 }
 
 function checkForPowers(){
-	if (Input.GetKey('q') && !playerIsCharging){
+	var coolD : GameObject = GameObject.FindGameObjectWithTag("GuiBar");
+	var guiBarBehaviour : GuiBarBehaviour = coolD.GetComponent(GuiBarBehaviour);
+	if (Input.GetKey('q') && !playerIsCharging && !guiBarBehaviour.coolDowns[5].enabled){
 		playerIsCharging = true;
 		chargeDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		chargeDir.z = 0;
 		chargeDir = chargeDir.normalized;
 		chargeTimer = Time.time;
+		guiBarBehaviour.startTimer(5);
 		partSystem.Play();
 	}
-	if ( Input.GetKey('r') ){
+	if ( Input.GetKey('r') && !guiBarBehaviour.coolDowns[7].enabled ){
+		guiBarBehaviour.startTimer(7);
 		kneelBeforeTheKing();
 	}
 	if ( (Input.GetKey('e')||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.ps3)||(Input.GetKey(KeyCode.JoystickButton7) && joystick==JoyType.xbox)) && crownIsOn ){
@@ -177,7 +181,7 @@ function stopCharge(){
 	playerIsCharging = false;
 	partSystem.Stop();
 	speed = 0;
-	pushEnemies();
+	//pushEnemies();
 }
 
 function pushEnemies(){
@@ -248,14 +252,14 @@ function FixedUpdate () {
 		rigidbody2D.AddForce(Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed);
 	}
 	
-	if(attackCooldown > 0) attackCooldown -= Time.deltaTime;
+	//if(attackCooldown > 0) attackCooldown -= Time.deltaTime;
 	
 	//Tell the animator to attack by modifying the Attack parameter
-	if (attackCooldown <= 0 && (Input.GetMouseButton(0)										 // By default you use shift
-		||(Input.GetKey(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
-		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox))){ // Xbox uses button 4(Lb)
+	if (Input.GetMouseButtonDown(0)										 // By default you use shift
+		||(Input.GetKeyDown(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
+		||(Input.GetKeyDown(KeyCode.JoystickButton5) && joystick==JoyType.xbox)){ // Xbox uses button 4(Lb)
 		animator.SetBool("Attack", true );
-		attackCooldown = 0.233;
+		//attackCooldown = 0.233;
 		
 	}
 	else

@@ -379,8 +379,9 @@ function attackPlayer()
 		return;
 			
 	var direction = vecToPlayer.normalized;
+	var playerPos = Vector3(0,0,0);
 	//Get player position
-	var playerPos = mainPlayer.transform.position;
+	if(mainPlayer!=null) playerPos = mainPlayer.transform.position;
 	//Calculate the rotation in radians using trigometry
 	var AngleRad = Mathf.Atan2(playerPos.y - transform.position.y, playerPos.x - transform.position.x);
 	//convert it to degrees, we subtract 180 because of it's original rotation
@@ -447,8 +448,8 @@ function canISeePlayer()
 	var distanceToPlayer = vecToPlayer.magnitude;
 
 	var angleToPlayer : float = Vector3.Angle(vecToPlayer, transform.up);
-	if(distanceToPlayer > 3.0 && angleToPlayer > 50.0) return false;
-	if(distanceToPlayer < 3.0 && angleToPlayer > 150.0) return false;
+	if(distanceToPlayer > 6.0 && angleToPlayer > 50.0) return false;
+	if(distanceToPlayer <= 6.0 && angleToPlayer > 150.0) return false;
 	
 	//Raycasting to check if the enemy can see the player (nothing in between them).
 	//myLayerMask makes sure that enemies only raycast on the layer "walls".
