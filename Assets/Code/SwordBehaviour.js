@@ -8,7 +8,6 @@ function Start () {
 }
 
 function Update () {
-	if(cooldown > 0) cooldown -= Time.deltaTime;
 	
 }
 
