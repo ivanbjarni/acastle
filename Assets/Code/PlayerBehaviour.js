@@ -188,7 +188,7 @@ function stopCharge(){
 	playerIsCharging = false;
 	partSystem.Stop();
 	speed = 0;
-	//pushEnemies();
+	pushEnemies();
 }
 
 function pushEnemies(){
@@ -227,8 +227,11 @@ function collisionWithEnemy(object : GameObject){
 		//Destroy(gameObject);
 		updateHealth(-1);
 	}else if( playerIsCharging ){
-		if( object != null )
+		if( object != null ){
 			object.GetComponent(EnemyBehaviour).kill();
+			
+		}
+		
 		stopCharge();
 	}
 }
