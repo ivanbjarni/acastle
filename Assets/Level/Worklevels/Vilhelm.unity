@@ -33453,7 +33453,7 @@ Transform:
   - {fileID: 158642442}
   - {fileID: 1899334668}
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 47
 --- !u!1 &1077540121
 GameObject:
   m_ObjectHideFlags: 0
@@ -40517,7 +40517,7 @@ Transform:
   - {fileID: 540895676}
   - {fileID: 2029205829}
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 46
 --- !u!212 &1339772534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -54957,7 +54957,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 48
 --- !u!1 &1750285601
 GameObject:
   m_ObjectHideFlags: 0
