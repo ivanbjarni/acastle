@@ -131,6 +131,9 @@ function gotHit()
 		//if(bossH != null) bossH.GetComponent(BossHealthBehaviour).updateHealth(health);
 	}
 		
-	if(health <= 0)
+	if(health <= 0){
 		stunned = 600;
+		var player : PlayerBehaviour = mainPlayer.GetComponent(PlayerBehaviour);
+			player.endGame();
+	}
 }
