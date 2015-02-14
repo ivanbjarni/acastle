@@ -242,6 +242,7 @@ function collisionWithBoss(object : GameObject){
 
 function updateHealth(delta : int){
 	health += delta;
+	if(health > healthMax) health = healthMax;
 	if( delta < 0 ){
 		bleedMotherFucker();
 	}
@@ -298,9 +299,3 @@ function FixedUpdate () {
 		//		|| Mathf.Abs(Input.GetAxis("Joy"+i+"Y")) > 0.2)
 		//		Debug.Log (Input.GetJoystickNames()[i]+" is moved");}
 }
-
-function heal(){
-	health += 10;
-	if(health > healthMax) health = healthMax;
-}
-

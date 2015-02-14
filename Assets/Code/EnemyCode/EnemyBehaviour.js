@@ -27,6 +27,7 @@ var attack : float;
 var fireBallCooldown : float = 0;
 var magicCooldown : float = 0;
 var delayInstantAttak : float = 0;
+var healthPotion : GameObject;
 
 // ---------||| Other variables |||--------
 var maxFollowDistance : double;
@@ -117,6 +118,8 @@ function FixedUpdate () {
 		rigidbody2D.velocity = Vector3(0,0,0);
 		deathTime -= Time.deltaTime;
 		if( deathTime < 0 ){
+			var shouldDropHP = Random.Range(0,10);
+			if(shouldDropHP < 1) var hp = Instantiate (healthPotion, transform.position, transform.rotation);
 			bloodPart.Stop();
 			Destroy(gameObject);
 		}

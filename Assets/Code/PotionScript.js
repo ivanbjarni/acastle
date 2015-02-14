@@ -14,7 +14,7 @@ function Update () {
 function OnTriggerEnter2D (other : Collider2D) {
 		if(other.gameObject.tag == "Player"){
 			var player : PlayerBehaviour = other.gameObject.GetComponent(PlayerBehaviour);
-			player.heal();
+			player.updateHealth(5);
 			Destroy(gameObject);
 		}
 }
