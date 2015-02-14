@@ -271,9 +271,19 @@ function bleedMotherFucker(){
 
 function endGame(){
 	transform.Find("unlock").GetComponent(SpriteRenderer).enabled = true;
+	rigidbody2D.angularVelocity = 0;
 	transform.rotation = Quaternion.Euler(0, 0, 0);
 	rigidbody2D.velocity = Vector3(0,0,0);
 	gameOver = true;
+	disapleColliders();
+}
+
+function disapleColliders(){
+	var coll : BoxCollider2D[];
+	coll = gameObject.GetComponents.<BoxCollider2D>();
+	for (var c : BoxCollider2D in coll) {
+		c.enabled = false;
+	}
 }
 
 //========================================

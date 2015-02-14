@@ -135,5 +135,6 @@ function gotHit()
 		stunned = 600;
 		var player : PlayerBehaviour = mainPlayer.GetComponent(PlayerBehaviour);
 			player.endGame();
+			Destroy(gameObject);
 	}
 }
