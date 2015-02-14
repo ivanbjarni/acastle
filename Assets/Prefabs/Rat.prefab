@@ -230,7 +230,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 9533970}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!198 &19833970

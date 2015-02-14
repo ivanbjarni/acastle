@@ -16,7 +16,6 @@ var bloodPool : GameObject;
 var partSystem : ParticleSystem;
 var knockPartSystem : ParticleSystem;
 var kneelPartSystem : ParticleSystem;
-var bloodPart : ParticleSystem;
 
 // For charge powerup
 var playerIsCharging : boolean = false;
@@ -51,7 +50,6 @@ function initializeParticleSystems(){
 	partSystem = GameObject.Find("ChargeParticles").GetComponent(ParticleSystem);
 	knockPartSystem = GameObject.Find("KnockParticles").GetComponent(ParticleSystem);
 	kneelPartSystem = GameObject.Find("KneelParticles").GetComponent(ParticleSystem);
-	bloodPart = GameObject.Find("BloodParticles").GetComponent(ParticleSystem);
 }
 
 function fetchFromMaster()
@@ -254,8 +252,6 @@ function updateHealth(delta : int){
 }
 
 function bleedMotherFucker(){
-	bloodPart.Clear();
-	bloodPart.Play();
 	var bloodi = Instantiate(bloodPool, transform.position, transform.rotation);
 }
 
