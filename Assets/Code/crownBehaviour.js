@@ -18,7 +18,7 @@ function Start () {
 }
 
 function FixedUpdate () {
-  if(rigidbody2D.velocity.magnitude <= 0.5) stop();
+	if(rigidbody2D.velocity.magnitude <= 0.5) stop();
 }
 
 function stop(){

@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 480766}
   - 212: {fileID: 21280766}
   - 50: {fileID: 5080766}
-  - 61: {fileID: 6180764}
   - 61: {fileID: 6180766}
   - 114: {fileID: 11480766}
   m_Layer: 0
@@ -47,17 +46,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6180764
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 180766}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .639999986, y: .639999986}
-  m_Center: {x: 0, y: 0}
 --- !u!61 &6180766
 BoxCollider2D:
   m_ObjectHideFlags: 1
