@@ -77,8 +77,8 @@ function setSpeed() {
 	if(Input.GetAxis("Horizontal")||Input.GetAxis("Vertical"))
 		{speed = walk;
 	if (Input.GetKey(KeyCode.LeftShift)										 // By default you use shift
-		||(Input.GetKey(KeyCode.JoystickButton11) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
-		||(Input.GetKey(KeyCode.JoystickButton4) && joystick==JoyType.xbox)) // Xbox uses button 4(Lb)
+		||(Input.GetKey(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
+		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox)) // Xbox uses button 4(Lb)
 		speed = run;}
 }
 
@@ -121,7 +121,7 @@ function setRotation()
 function checkForPowers(){
 	var coolD : GameObject = GameObject.FindGameObjectWithTag("GuiBar");
 	var guiBarBehaviour : GuiBarBehaviour = coolD.GetComponent(GuiBarBehaviour);
-	if (Input.GetKey('q') && !playerIsCharging && !guiBarBehaviour.coolDowns[5].enabled){
+	if ((Input.GetKey('q')||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.ps3)||(Input.GetKey(KeyCode.JoystickButton9) && joystick==JoyType.xbox)) && !playerIsCharging && !guiBarBehaviour.coolDowns[5].enabled){
 		playerIsCharging = true;
 		chargeDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		chargeDir.z = 0;
@@ -130,11 +130,11 @@ function checkForPowers(){
 		guiBarBehaviour.startTimer(5);
 		partSystem.Play();
 	}
-	if ( Input.GetKey('r') && !guiBarBehaviour.coolDowns[7].enabled ){
+	if ( (Input.GetKey('r')||(Input.GetKey(KeyCode.JoystickButton4) && joystick==JoyType.ps3)||(Input.GetKey(KeyCode.JoystickButton8) && joystick==JoyType.xbox)) && !guiBarBehaviour.coolDowns[7].enabled ){
 		guiBarBehaviour.startTimer(7);
 		kneelBeforeTheKing();
 	}
-	if ( (Input.GetKey('e')||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.ps3)||(Input.GetKey(KeyCode.JoystickButton7) && joystick==JoyType.xbox)) && crownIsOn ){
+	if ( (Input.GetKey('e')||(Input.GetKey(KeyCode.JoystickButton7) && joystick==JoyType.ps3)||(Input.GetKey(KeyCode.JoystickButton7) && joystick==JoyType.xbox)) && crownIsOn ){
 		crownAttack();
 	}
 	if(Input.GetKeyDown('m'))
@@ -254,7 +254,7 @@ function updateHealth(delta : int){
 	if( delta < 0 ){
 		bleedMotherFucker();
 	}
-	if(health < 1) isAlive = false;
+	if(health < 1) {isAlive = false; Application.LoadLevel (2); }
 	GameObject.FindGameObjectWithTag("GuiBar").GetComponent(GuiBarBehaviour).updateHealth(health);
 }
 
@@ -266,6 +266,9 @@ function bleedMotherFucker(){
 //			Update function
 //========================================
 function FixedUpdate () {
+	if (Input.GetKey ("escape")) {
+		Application.LoadLevel (0);
+	}
 	
 	if(!isAlive) return;
 
@@ -282,8 +285,8 @@ function FixedUpdate () {
 	
 	//Tell the animator to attack by modifying the Attack parameter
 	if (Input.GetMouseButton(0)										 // By default you use shift
-		||(Input.GetKey(KeyCode.JoystickButton10) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
-		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox)){ // Xbox uses button 4(Lb)
+		||(Input.GetKey(KeyCode.JoystickButton11) && joystick==JoyType.ps3)  // Ps3 uses button 11(L1)
+		||(Input.GetKey(KeyCode.JoystickButton4) && joystick==JoyType.xbox)){ // Xbox uses button 4(Lb)
 		animator.SetBool("Attack", true );
 		//attackCooldown = 0.233;
 	}
