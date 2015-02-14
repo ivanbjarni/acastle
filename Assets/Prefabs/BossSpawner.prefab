@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 100004, guid: 28c7f9217f3fa4dc1936b0cbf6d113ed, type: 2}
+  bossHealthBar: {fileID: 198432, guid: 5c6ae1a07f9bd496db9c9737c4216112, type: 2}
   closingWall: {fileID: 100000, guid: 7e9cf6372d9a2485cbbfb0068f03646a, type: 2}
 --- !u!1001 &100100000
 Prefab:
