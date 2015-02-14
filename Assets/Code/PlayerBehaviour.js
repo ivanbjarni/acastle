@@ -41,6 +41,7 @@ function Start () {
 	isAlive = true;
 	crownIsOn = true;
 	health = healthMax;
+
 	animator =  GetComponent("Animator") as Animator;
 	fetchFromMaster();
 	initializeParticleSystems();
@@ -278,7 +279,6 @@ function FixedUpdate () {
 		||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.xbox)){ // Xbox uses button 4(Lb)
 		animator.SetBool("Attack", true );
 		//attackCooldown = 0.233;
-		
 	}
 	else
 		animator.SetBool("Attack", false );
@@ -299,4 +299,7 @@ function FixedUpdate () {
 		//		Debug.Log (Input.GetJoystickNames()[i]+" is moved");}
 }
 
+function heal(){
+
+}
 
