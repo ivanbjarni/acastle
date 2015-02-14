@@ -137,6 +137,13 @@ function checkForPowers(){
 	if ( (Input.GetKey('e')||(Input.GetKey(KeyCode.JoystickButton5) && joystick==JoyType.ps3)||(Input.GetKey(KeyCode.JoystickButton7) && joystick==JoyType.xbox)) && crownIsOn ){
 		crownAttack();
 	}
+	if(Input.GetKeyDown('m'))
+	{
+		if(audio.mute)
+				audio.mute = false;
+			else
+				audio.mute = true;
+	}
 }
 
 function crownAttack(){

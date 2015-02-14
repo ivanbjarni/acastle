@@ -2558,7 +2558,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 28663884}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!4 &28663890
@@ -4031,7 +4031,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 97831654}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &99398600
@@ -4259,7 +4259,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 136258533}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &148549812
@@ -7098,7 +7098,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 225499216}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &233789189
@@ -9620,7 +9620,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 254643739}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &264117653
@@ -12173,7 +12173,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 314781308}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &331675531
@@ -12350,7 +12350,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 331675534}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &339295777
@@ -12563,7 +12563,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 348277547}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!4 &348277553
@@ -14226,7 +14226,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 399283615}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &401720617
@@ -14569,7 +14569,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 421366979}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &424709448
@@ -18467,7 +18467,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 551610200}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &554109298
@@ -18680,7 +18680,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 555968609}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!4 &555968615
@@ -22892,7 +22892,6 @@ MonoBehaviour:
   partSystem: {fileID: 0}
   knockPartSystem: {fileID: 0}
   kneelPartSystem: {fileID: 0}
-  bloodPart: {fileID: 0}
   playerIsCharging: 0
   chargeTime: .200000003
   chargeTimer: 0
@@ -23238,7 +23237,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 703260804}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &723171886
@@ -26274,7 +26273,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 831056628}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!4 &831056634
@@ -26616,7 +26615,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 898885136}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1001 &905913071
@@ -28039,7 +28038,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 960441014}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1001 &970991132
@@ -28260,7 +28259,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 971306975}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1001 &978542272
@@ -33239,7 +33238,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1069409464}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!4 &1069409470
@@ -33577,7 +33576,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1103559285}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1132972504
@@ -34917,7 +34916,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1153301123}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1161529445
@@ -35094,7 +35093,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1161529448}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1170931424
@@ -39049,7 +39048,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1251410028}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!4 &1251410034
@@ -39292,7 +39291,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1258776618}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1264692887
@@ -39469,7 +39468,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1264692890}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1282581736
@@ -39931,7 +39930,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1333304521}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1336467054
@@ -40158,7 +40157,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1338822345}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1339772532
@@ -40335,7 +40334,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1339772535}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1351130296
@@ -46485,7 +46484,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1451070059}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1001 &1456332385
@@ -46857,7 +46856,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1480433978}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1490829351
@@ -47070,7 +47069,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1492796552}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!4 &1492796558
@@ -51250,7 +51249,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1622166648}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1622837165
@@ -53880,7 +53879,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1646394554}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1650724066
@@ -54057,7 +54056,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1650724069}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1662056993
@@ -55597,7 +55596,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1736995142}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1739081302
@@ -55876,7 +55875,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1752951024}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1760021445
@@ -60027,7 +60026,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1853148369}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!4 &1853148375
@@ -60219,7 +60218,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1854744585}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1875903559
@@ -60396,7 +60395,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1875903562}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1878614620
@@ -60865,7 +60864,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1933242657}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &1940872160
@@ -62259,7 +62258,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1971987434}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1001 &1974599534
@@ -63741,7 +63740,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 2028364909}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!1 &2029205828
