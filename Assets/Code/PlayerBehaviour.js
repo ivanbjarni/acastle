@@ -10,10 +10,13 @@ enum JoyType {ps3, xbox};
 var joystick : JoyType;
 var RightStickPos : Vector2;
 
+var bloodPool : GameObject;
+
 // Particle system
 var partSystem : ParticleSystem;
 var knockPartSystem : ParticleSystem;
 var kneelPartSystem : ParticleSystem;
+var bloodPart : ParticleSystem;
 
 // For charge powerup
 var playerIsCharging : boolean = false;
@@ -47,6 +50,7 @@ function initializeParticleSystems(){
 	partSystem = GameObject.Find("ChargeParticles").GetComponent(ParticleSystem);
 	knockPartSystem = GameObject.Find("KnockParticles").GetComponent(ParticleSystem);
 	kneelPartSystem = GameObject.Find("KneelParticles").GetComponent(ParticleSystem);
+	bloodPart = GameObject.Find("BloodParticles").GetComponent(ParticleSystem);
 }
 
 function fetchFromMaster()
@@ -166,6 +170,7 @@ function kneelBeforeTheKing(){
 			enemy.GetComponent(EnemyBehaviour).kneel(5);
 		} 
 	}
+	kneelPartSystem.Clear();
 	kneelPartSystem.Play();
 }
 
@@ -236,8 +241,17 @@ function collisionWithBoss(object : GameObject){
 
 function updateHealth(delta : int){
 	health += delta;
+	if( delta < 0 ){
+		bleedMotherFucker();
+	}
 	if(health < 1) isAlive = false;
 	GameObject.FindGameObjectWithTag("GuiBar").GetComponent(GuiBarBehaviour).updateHealth(health);
+}
+
+function bleedMotherFucker(){
+	bloodPart.Clear();
+	bloodPart.Play();
+	var bloodi = Instantiate(bloodPool, transform.position, transform.rotation);
 }
 
 //========================================
