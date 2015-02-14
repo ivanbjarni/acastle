@@ -277,7 +277,7 @@ function attackMelee(vecToPlayer : Vector3){
 			//TODO Attack function
 			rigidbody2D.AddForce(direction*200);
 			attack = 1.5;
-			animator.SetBool("isAttacking", true);
+			if(animator != null) animator.SetBool("isAttacking", true);
 			return;
 		}
 	
