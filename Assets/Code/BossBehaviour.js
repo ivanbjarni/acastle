@@ -127,6 +127,8 @@ function gotHit()
 		health--;
 		print(health);
 		setShield(true);
+		var bossH = GameObject.FindGameObjectWithTag("BossHealth");
+		if(bossH != null) bossH.GetComponent(BossHealthBehaviour).updateHealth(health);
 	}
 		
 	if(health <= 0)

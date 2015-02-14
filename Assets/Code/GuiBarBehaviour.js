@@ -6,17 +6,26 @@ var pos : Vector3;
 var coolDowns : SpriteRenderer[];
 var timers : float[];
 var maxTime : float = 1;
+var healthMax : int;
 
 function Awake () {
+	healthMax = GameObject.FindGameObjectWithTag("Player").GetComponent(PlayerBehaviour).healthMax;
+	updateHealth(healthMax);
 	initializeCooldowns();
 }
 
 function LateUpdate () {
 	updateTimers();
-	renderCooldowns();
 	pos = Camera.main.ViewportToWorldPoint(Vector3(0.5,0,0));
 	transform.position = pos;
 	transform.position.z=0;
+	
+	// Render
+	renderCooldowns();
+}
+
+function updateHealth(health : int){
+	transform.Find("playerHealthLayer1").localScale=Vector3(1,1.0*health/healthMax,1);
 }
 
 function updateTimers(){

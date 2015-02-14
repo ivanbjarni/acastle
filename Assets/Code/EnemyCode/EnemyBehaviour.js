@@ -57,7 +57,7 @@ var bloodPart : ParticleSystem;
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function ogreSetup(){
-	health = 500.0;
+	health = 2.0;
 	speed = 120;
 	deathTime = 2.0;
 }
