@@ -8006,7 +8006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fcf52937d944f33b9a70c438b66e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 10
   pos: {x: 0, y: 0, z: 0}
   coolDowns: []
   timers: []
@@ -8042,7 +8041,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallsEntered: 0
   enemyScript: {fileID: 0}
-  cooldown: 1
 --- !u!61 &1878332520
 BoxCollider2D:
   m_ObjectHideFlags: 0

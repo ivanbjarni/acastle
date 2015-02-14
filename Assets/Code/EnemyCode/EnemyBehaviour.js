@@ -70,7 +70,7 @@ function ratSetup(){
 }
 
 function wolfSetup(){
-	health = 3.0;
+	health = 2.0;
 	speed = 60;
 	melee = false;
 	ranged = false;
@@ -239,9 +239,7 @@ function gotHit(){
 		return;
 	}
 	if(!seePlayer){	
-		bleed();
-		isDead = true;
-		disapleColliders();
+		kill();
 		return;
 	}
 	health--;
