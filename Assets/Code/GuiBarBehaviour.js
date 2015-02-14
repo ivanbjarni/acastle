@@ -5,7 +5,7 @@ var pos : Vector3;
 
 var coolDowns : SpriteRenderer[];
 var timers : float[];
-var maxTime : float = 1.0;
+var maxTime : float = 10.0;
 var healthMax : int;
 
 function Awake () {
