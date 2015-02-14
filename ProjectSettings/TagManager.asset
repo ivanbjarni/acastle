@@ -12,6 +12,8 @@ TagManager:
   - Weapon
   - GuiBar
   - BossHealth
+  - randomDoor
+  - greyDoor
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
