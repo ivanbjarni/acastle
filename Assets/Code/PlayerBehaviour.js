@@ -28,6 +28,7 @@ var crownR : GameObject;
 
 var isAlive : boolean;
 var health : int;
+var healthMax : int;
 //var attackCooldown : float;
 //========================================
 //	Things to do when object is created
@@ -36,7 +37,7 @@ function Start () {
 	//attackCooldown = 0;
 	isAlive = true;
 	crownIsOn = true;
-	health = 5000;
+	health = healthMax;
 	animator =  GetComponent("Animator") as Animator;
 	fetchFromMaster();
 	initializeParticleSystems();
@@ -208,8 +209,7 @@ function pushEnemies(){
 function collisionWithRanged(object : GameObject){
 	if( !playerIsCharging ){
 		//Destroy(gameObject);
-		health--;
-		if(health < 1) isAlive = false;
+		updateHealth(-1);
 		return true;
 	}else{
 		return false;
@@ -219,8 +219,7 @@ function collisionWithRanged(object : GameObject){
 function collisionWithEnemy(object : GameObject){
 	if( !playerIsCharging ){
 		//Destroy(gameObject);
-		health--;
-		if(health < 1) isAlive = false;
+		updateHealth(-1);
 	}else if( playerIsCharging ){
 		if( object != null )
 			object.GetComponent(EnemyBehaviour).kill();
@@ -231,9 +230,14 @@ function collisionWithEnemy(object : GameObject){
 function collisionWithBoss(object : GameObject){
 	if( !playerIsCharging ){
 		//Destroy(gameObject);
-		health--;
-		if(health < 1) isAlive = false;
+		updateHealth(-1);
 	}
+}
+
+function updateHealth(delta : int){
+	health += delta;
+	if(health < 1) isAlive = false;
+	GameObject.FindGameObjectWithTag("GuiBar").GetComponent(GuiBarBehaviour).updateHealth(health);
 }
 
 //========================================
