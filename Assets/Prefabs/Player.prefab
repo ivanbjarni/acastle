@@ -160,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.426518381, y: -4.16248274, z: 0}
+  m_LocalPosition: {x: 8.61999989, y: -1.58000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 492492}
@@ -366,7 +366,7 @@ MonoBehaviour:
   crownR: {fileID: 190104, guid: eb1c9fcf2375646b9988c8a6626fa215, type: 2}
   isAlive: 0
   health: 0
-  attackCooldown: 0
+  healthMax: 5000
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,7 +380,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallsEntered: 0
   enemyScript: {fileID: 0}
-  cooldown: 1
 --- !u!198 &19842104
 ParticleSystem:
   m_ObjectHideFlags: 1
