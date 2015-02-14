@@ -64,7 +64,7 @@ function ogreSetup(){
 
 function ratSetup(){
 	health = 1.0;
-	speed = 150;
+	speed = 40;
 	meleeDist = 0.2;
 	deathTime = 0.8;
 }
