@@ -2765,14 +2765,13 @@ MonoBehaviour:
   animator: {fileID: 551777899}
   run: 90
   walk: 60
-  isUsingJoyStick: 0
+  isUsingJoyStick: 1
   joystick: 0
   RightStickPos: {x: 0, y: 0}
   bloodPool: {fileID: 189910, guid: c42ff4101f7c14fb9a436ed6aaa50092, type: 2}
   partSystem: {fileID: 0}
   knockPartSystem: {fileID: 0}
   kneelPartSystem: {fileID: 0}
-  bloodPart: {fileID: 0}
   playerIsCharging: 0
   chargeTime: .200000003
   chargeTimer: 0
@@ -8026,7 +8025,7 @@ MonoBehaviour:
     m_Bits: 512
   isDead: 0
   deathTime: 5
-  animator: {fileID: 0}
+  animator: {fileID: 1546122399}
   isKneeling: 0
   bloodPart: {fileID: 0}
 --- !u!114 &1546122397
@@ -8123,6 +8122,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 933efe17a1ac7754d97a2933a57499f8, type: 2}
+    - target: {fileID: 11400000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
+      propertyPath: isUsingJoyStick
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 249e38a584f164d919107a455db78ec8, type: 2}
   m_RootGameObject: {fileID: 551777895}
