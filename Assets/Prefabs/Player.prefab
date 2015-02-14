@@ -147,7 +147,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 492492}
   - 212: {fileID: 21292492}
-  - 50: {fileID: 5085438}
   m_Layer: 0
   m_Name: Crown
   m_TagString: Untagged
@@ -179,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9000001, y: 245.600006, z: 0}
+  m_LocalPosition: {x: .100000001, y: -14.3000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480658}
@@ -309,21 +308,6 @@ Rigidbody2D:
   m_GameObject: {fileID: 100000}
   m_Mass: 1
   m_LinearDrag: 8
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!50 &5085438
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 192492}
-  m_Mass: 1
-  m_LinearDrag: 5
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_FixedAngle: 0
@@ -463,7 +447,6 @@ MonoBehaviour:
   partSystem: {fileID: 0}
   knockPartSystem: {fileID: 0}
   kneelPartSystem: {fileID: 0}
-  bloodPart: {fileID: 0}
   playerIsCharging: 0
   chargeTime: .200000003
   chargeTimer: 0
