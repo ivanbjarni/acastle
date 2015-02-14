@@ -300,6 +300,7 @@ function FixedUpdate () {
 }
 
 function heal(){
-
+	health += 10;
+	if(health > healthMax) health = healthMax;
 }
 
