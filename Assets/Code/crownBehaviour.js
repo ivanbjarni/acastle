@@ -10,7 +10,7 @@ var isActive : boolean = true;
 var animator : Animator;
 
 function Start () {
-	speed = 3;
+	speed = 15;
 	direction = transform.up.normalized;
 	angle = 0;
 	rigidbody2D.angularVelocity = 360;
@@ -18,6 +18,7 @@ function Start () {
 }
 
 function FixedUpdate () {
+  if(rigidbody2D.velocity.magnitude <= 0.5) stop();
 }
 
 function stop(){
@@ -39,6 +40,10 @@ function OnTriggerEnter2D (other : Collider2D) {
 			if( isActive ){
 				stop();
 				var enemy : EnemyBehaviour = other.gameObject.GetComponent(EnemyBehaviour);
+				if(enemy.block > 0){
+					rigidbody2D.velocity = -direction * speed;
+					return;
+				}
 				enemy.kill();
 			}else{
 				return;
