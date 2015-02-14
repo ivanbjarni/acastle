@@ -206,6 +206,7 @@ MonoBehaviour:
   fireBallCooldown: 0
   magicCooldown: 0
   delayInstantAttak: 0
+  healthPotion: {fileID: 180766, guid: 54ae4f0a3a0f2954d9ef81693df326b3, type: 2}
   maxFollowDistance: 0
   destroyable: 1
   isFollowingPath: 0
