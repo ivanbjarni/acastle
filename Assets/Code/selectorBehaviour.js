@@ -47,5 +47,7 @@ function FixedUpdate () {
 	if(Input.GetKeyDown(KeyCode.Return) && selected==0)
 		Application.LoadLevel(2);
 	if(Input.GetKeyDown(KeyCode.Return) && selected==1)
-		Application.LoadLevel(1);		
+		Application.LoadLevel(1);
+	if(Input.GetKeyDown(KeyCode.Return) && selected==2)
+		Application.Quit();			
 }

@@ -12,14 +12,16 @@ Platform assembly: C:\Users\Vilhelm\Documents\GitHub\acastle\build1_Data\Managed
 Loading C:\Users\Vilhelm\Documents\GitHub\acastle\build1_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Vilhelm\Documents\GitHub\acastle\build1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Vilhelm\Documents\GitHub\acastle\build1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.100 seconds
+- Completed reload, in  0.094 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Vilhelm\Documents\GitHub\acastle\build1_Data\Managed\System.Core.dll (this message is harmless)
-Warning: No master game object found, if you did not start the game from menu then this is normal. You could add it to your worklevel
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+UnloadTime: 0.402068 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 15857.
+Total: 6.268884 ms (FindLiveObjects: 0.998529 ms CreateObjectMapping: 0.140663 ms MarkObjects: 3.554621 ms  DeleteObjects: 0.071841 ms)
 
 Platform assembly: C:\Users\Vilhelm\Documents\GitHub\acastle\build1_Data\Managed\Boo.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Vilhelm\Documents\GitHub\acastle\build1_Data\Managed\UnityScript.Lang.dll (this message is harmless)
