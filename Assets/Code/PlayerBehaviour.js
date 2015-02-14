@@ -3,6 +3,8 @@
 var speed : float;
 var animator : Animator;
 
+var endTimer : float;
+
 var run : float;
 var walk : float;
 var isUsingJoyStick : boolean;
@@ -11,6 +13,8 @@ var joystick : JoyType;
 var RightStickPos : Vector2;
 
 var bloodPool : GameObject;
+
+var gameOver : boolean = false;
 
 // Particle system
 var partSystem : ParticleSystem;
@@ -44,6 +48,9 @@ function Start () {
 	animator =  GetComponent("Animator") as Animator;
 	fetchFromMaster();
 	initializeParticleSystems();
+	
+	transform.Find("unlock").GetComponent(SpriteRenderer).enabled = false;
+	transform.Find("endgame").GetComponent(SpriteRenderer).enabled = false;
 }
 
 function initializeParticleSystems(){
@@ -262,6 +269,13 @@ function bleedMotherFucker(){
 	var bloodi = Instantiate(bloodPool, transform.position, transform.rotation);
 }
 
+function endGame(){
+	transform.Find("unlock").GetComponent(SpriteRenderer).enabled = true;
+	transform.rotation = Quaternion.Euler(0, 0, 0);
+	rigidbody2D.velocity = Vector3(0,0,0);
+	gameOver = true;
+}
+
 //========================================
 //			Update function
 //========================================
@@ -271,6 +285,14 @@ function FixedUpdate () {
 	}
 	
 	if(!isAlive) return;
+	if(gameOver){
+		endTimer -= Time.deltaTime;
+		if(endTimer < 0){
+			transform.Find("unlock").GetComponent(SpriteRenderer).enabled = false;
+			transform.Find("endgame").GetComponent(SpriteRenderer).enabled = true;
+		}
+		return;
+	}
 
 	checkForPowers();
 	if( playerIsCharging )
